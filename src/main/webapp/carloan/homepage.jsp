@@ -66,8 +66,10 @@
 		    	 
 		    	 //例如：
 		    	 $("#read_idCard").click(function(){
-		    		 console.info(1);
- 				   $("#ifrom").load('signInfo.jsp');
+		    		 $("#ifrom").load('branchcompany/userIdentity.jsp');
+		    	 });
+		    	 $("#read_idCard").click(function(){
+ 					$("#ifrom").load('signInfo.jsp');
 		    	 })
 		    	 
 		     })
