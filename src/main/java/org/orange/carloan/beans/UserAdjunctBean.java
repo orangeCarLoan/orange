@@ -16,7 +16,7 @@ public class UserAdjunctBean implements Serializable{
 	private String carLoanFrom;
 	//其他附件
 	private String atherAdjunct;
-	//客户基本信息附件与客户基本信息是多对一的关系，所以在一的这边应该有多的那边的引用
+	//客户基本信息附件与客户基本信息是一对一的关系
 	private UserMessageBean userMsg;
 	
 	public int getId() {

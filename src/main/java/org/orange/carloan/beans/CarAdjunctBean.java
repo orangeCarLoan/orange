@@ -55,7 +55,7 @@ public class CarAdjunctBean implements Serializable{
 	private String otherAttachments;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "THEMEID")
+	@JoinColumn
 	@Cascade({CascadeType.ALL})
 	private CarMessageBean carMessageBean;
 	

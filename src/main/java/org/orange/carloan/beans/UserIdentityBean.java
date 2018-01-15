@@ -52,7 +52,7 @@ public class UserIdentityBean {
 	private String userName;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "THEMEID")
+	@JoinColumn
 	@Cascade({CascadeType.ALL})
 	private ContractInformationBean contractInformationBean;
 	
