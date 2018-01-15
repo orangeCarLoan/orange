@@ -3,49 +3,111 @@ package org.orange.carloan.beans;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  * @author Administrator
  * @version 1.0
  * @created 11-һ��-2018 14:37:11
  */
+@Entity
+@Table(name="t_usermessage")
 public class UserMessageBean {
 
-	private String address;//现住地址
-	private Date applyDate;//申请日期
-	private String borrowPurpose;//借款详细用途
-	private String channel;//您从何得知正合普惠
-	private String clientType;//客户类型
-	private String commissioner;//车贷专员
-	private String companyAddress;//工作单位地址
-	private String companyName;//工作单位全称
-	private String companyPhone;//单位电话
-	private String companySize;//公司规模
-	private String dept;//所在部门
-	private String duty;//担任职务
-	private String education;//最高学历
-	private String employment;//行业类别
-	private String fallbackMessage;
-	private Date happenTime;//进入该单位时间
-	private int hasChild;//有无子女
-	private String houseType;//房产状况
+	@Id
+	@Column(name="id")
+	@GenericGenerator(name="usermessage", strategy="identity")
+	@GeneratedValue(generator="usermessage")
 	private int id;
-	private int income;//月收入
-	private String marry;//婚姻状况
-	private int maxdeadline;//希望申请最长还款期限
-	private int maxlimit;//希望申请借款额度（最低）
-	private int minlimit;//希望申请借款额度（最高）
-	private String partner;//共同居住者
-	private String place;//户籍地址
-	private int repayment;//您可以承受的月还款额
-	private String saleName;//业务员姓名
-	private String telephone;//申请人电话号码
-	private String unitNature;//单位性质
-	private String userPhone;//申请人手机号
-	private String zipCode;//邮政编码
 	
+	@Column
+	private String address;//现住地址
+	@Column
+	private Date applyDate;//申请日期
+	@Column
+	private String borrowPurpose;//借款详细用途
+	@Column
+	private String channel;//您从何得知正合普惠
+	@Column
+	private String clientType;//客户类型
+	@Column
+	private String commissioner;//车贷专员
+	@Column
+	private String companyAddress;//工作单位地址
+	@Column
+	private String companyName;//工作单位全称
+	@Column
+	private String companyPhone;//单位电话
+	@Column
+	private String companySize;//公司规模
+	@Column
+	private String dept;//所在部门
+	@Column
+	private String duty;//担任职务
+	@Column
+	private String education;//最高学历
+	@Column
+	private String employment;//行业类别
+	@Column
+	private String fallbackMessage;
+	@Column
+	private Date happenTime;//进入该单位时间
+	@Column
+	private int hasChild;//有无子女
+	@Column
+	private String houseType;//房产状况
+	@Column
+	private int income;//月收入
+	@Column
+	private String marry;//婚姻状况
+	@Column
+	private int maxdeadline;//希望申请最长还款期限
+	@Column
+	private int maxlimit;//希望申请借款额度（最低）
+	@Column
+	private int minlimit;//希望申请借款额度（最高）
+	@Column
+	private String partner;//共同居住者
+	@Column
+	private String place;//户籍地址
+	@Column
+	private int repayment;//您可以承受的月还款额
+	@Column
+	private String saleName;//业务员姓名
+	@Column
+	private String telephone;//申请人电话号码
+	@Column
+	private String unitNature;//单位性质
+	@Column
+	private String userPhone;//申请人手机号
+	@Column
+	private String zipCode;//邮政编码
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "THEMEID")
+	@Cascade({CascadeType.ALL})
 	private ContractInformationBean contractInformationBean;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "GRADEID")
+	@Cascade({CascadeType.SAVE_UPDATE})
 	private List<ContactBean> contactBean;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@Cascade({CascadeType.ALL})
 	private UserAdjunctBean userAdjunctBean;
+	
 	public String getAddress() {
 		return address;
 	}

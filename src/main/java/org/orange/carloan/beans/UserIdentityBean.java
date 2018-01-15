@@ -2,11 +2,16 @@ package org.orange.carloan.beans;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  * @author Administrator
  * @version 1.0
  * @created 11-һ��-2018 14:37:11
  */
+@Entity
+@Table(name="t_usermessage")
 public class UserIdentityBean {
 
 	private String address;
