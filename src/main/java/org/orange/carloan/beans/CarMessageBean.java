@@ -4,10 +4,16 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -108,12 +114,17 @@ public class CarMessageBean implements Serializable{
 	private int carProve;
 	
 	//车内物品外键--车辆与物品是多对一的关系
+	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="carMsg")
 	private List<CarGoodsBean> carGoods;
 	
 	//合同信息表
+	@ManyToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="contractinformation_id")
 	private ContractInformationBean contractInformationBean;
 	
 	//客户车辆附件表
+	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="caradjunct_id")
 	private CarAdjunctBean carAdjuncts;
 	
 	

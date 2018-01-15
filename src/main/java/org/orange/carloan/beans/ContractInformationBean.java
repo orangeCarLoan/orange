@@ -3,10 +3,17 @@ package org.orange.carloan.beans;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -45,20 +52,34 @@ public class ContractInformationBean implements Serializable {
 	@Column(name="creditstatus")
 	private String creditstatus;//放款状态
 	
+	@ManyToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="company_id")
 	private CompanyBean companyBean;//客户来源（分公司）
 	
+	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="usermessage_id")
 	private UserMessageBean userMessageBean;//客户基本信息外键
 	
+	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="contractInformationBean")
 	private List<CarMessageBean> carMessageBeans;//车辆信息外键
 	
+	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="usercredit_id")
 	private UserCreditBean userCreditBean;//客户信用信息外键
 	
+	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="advice_id")
 	private AdviceBean adviceBean;//综合意见外键
 	
+	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="sign_id")
 	private SignBean signBean;//客户签约外键
 	
+	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="useridentity_id")
 	private UserIdentityBean userIdentityBean;//客户身份信息外键
 	
+	@ManyToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="contracts")
 	private List<AdminBean> admins;
 	
 	

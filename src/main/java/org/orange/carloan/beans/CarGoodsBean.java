@@ -2,10 +2,14 @@ package org.orange.carloan.beans;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -34,6 +38,8 @@ public class CarGoodsBean implements Serializable{
 	private int goodsNum;
 	
 	//车内物品与车辆是一对多的关系，一的这边有多的那边的引用
+	@ManyToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="carmessage_id")
 	private CarMessageBean carMsg;
 	
 	public CarGoodsBean() {

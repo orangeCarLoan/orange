@@ -2,10 +2,17 @@ package org.orange.carloan.beans;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -19,6 +26,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Table(name="t_admin")
 public class AdminBean {
   
+	@ManyToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="company_id")
 	private CompanyBean companyId;
 	
 	@Id
@@ -33,12 +42,22 @@ public class AdminBean {
 	@Column(name="realname")
 	private String realName;
 	
+	@ManyToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="role_id")
 	private RoleBean roleId;
 	
 	@Column(name="username")
 	private String userName;
 	
+	@ManyToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinTable(name="t_admin_contractinformation",
+		joinColumns={@JoinColumn(name="admin_id")},
+		inverseJoinColumns= {@JoinColumn(name="contractinformation_id")}
+	)
 	private List<ContractInformationBean> contracts;
+	
+	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="adminBean")
+	private List<LogBean> logs;
 	
 	public CompanyBean getCompanyId() {
 		return companyId;

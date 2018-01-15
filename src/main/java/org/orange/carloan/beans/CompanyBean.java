@@ -2,10 +2,13 @@ package org.orange.carloan.beans;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -22,9 +25,10 @@ public class CompanyBean {
 	
 	@Column(name="name")
 	private String name;
-
-	private List<ContractInformationBean> contracts;
 	
+	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="companyBean")
+	private List<ContractInformationBean> contracts;
+	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="companyId")
 	private List<AdminBean> admins;
 	
 	public int getId() {

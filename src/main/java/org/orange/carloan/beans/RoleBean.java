@@ -2,10 +2,13 @@ package org.orange.carloan.beans;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -28,6 +31,7 @@ public class RoleBean {
 	@Column(name="rolename")
 	private String roleName;
 	
+	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="roleId")
 	private List<AdminBean> admins;
 	
 	public int getId() {

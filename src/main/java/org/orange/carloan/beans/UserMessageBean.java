@@ -9,7 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -94,18 +94,18 @@ public class UserMessageBean {
 	private String userPhone;//申请人手机号
 	@Column
 	private String zipCode;//邮政编码
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "THEMEID")
+	
+	
+	@OneToOne(fetch = FetchType.LAZY,mappedBy="userMessageBean")
 	@Cascade({CascadeType.ALL})
 	private ContractInformationBean contractInformationBean;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "GRADEID")
-	@Cascade({CascadeType.SAVE_UPDATE})
+	@OneToMany(fetch = FetchType.LAZY,mappedBy="userMessageBean")
+	@Cascade({CascadeType.ALL})
 	private List<ContactBean> contactBean;
 	
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn
+	@JoinColumn(name="useradjunct_id")
 	@Cascade({CascadeType.ALL})
 	private UserAdjunctBean userAdjunctBean;
 	

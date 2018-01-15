@@ -3,10 +3,14 @@ package org.orange.carloan.beans;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -75,8 +79,11 @@ public class SignBean implements Serializable{
 	/**
 	 * 签约附件外键
 	 */
+	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name="signadjunct_id")
 	private SignAdjunctBean signAdjunctBean;
 
+	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="signBean")
 	private ContractInformationBean contractInformationBean;
 
 	public int getId() {
