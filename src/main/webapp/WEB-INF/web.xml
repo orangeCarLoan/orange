@@ -11,14 +11,14 @@
    
   
   <!-- 该过滤器的作用：解决hibernate的无法延迟加载的问题 -->
-	<filter>
+<!-- 	<filter>
 		<filter-name>openSessionInViewFilter</filter-name>
 		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>openSessionInViewFilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 	<!-- 大容器 -->
 	<listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

@@ -27,29 +27,36 @@
 	<!-- 引入mysql连接配置文件 -->
 	<context:property-placeholder location="classpath:mysql.properties"
 		ignore-resource-not-found="true" ignore-unresolvable="true" />
+		<bean id="dataSource"     
+		  class="org.springframework.jdbc.datasource.DriverManagerDataSource">     
+		    <property name="driverClassName" value="${mysql.driverClassName}" />  
+		    <property name="url" value="${mysql.url}" />  
+		    <property name="username" value="${mysql.username}" />     
+		    <property name="password" value="${mysql.password}" />  
+		</bean>
 	<!-- 数据源 -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+	<!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${mysql.driverClassName}"></property>
 		<property name="url" value="${mysql.url}"></property>
 		<property name="username" value="${mysql.username}"></property>
 		<property name="password" value="${mysql.password}"></property>
-		<property name="initialSize" value="15"></property><!-- 初始连接数 -->
-		<property name="maxActive" value="50"></property><!-- 最大连接数 -->
-		<property name="minIdle" value="10"></property><!-- 最小空闲数 -->
-		<property name="maxIdle" value="20"></property><!-- 最大空闲数 -->
-		<property name="removeAbandonedTimeout" value="10"></property><!-- 
-			超时时间10秒 -->
+		<property name="initialSize" value="15"></property>初始连接数
+		<property name="maxActive" value="50"></property>最大连接数
+		<property name="minIdle" value="10"></property>最小空闲数
+		<property name="maxIdle" value="20"></property>最大空闲数
+		<property name="removeAbandonedTimeout" value="10"></property>
+			超时时间10秒
 		<property name="defaultAutoCommit" value="false"></property>
-		<property name="removeAbandoned" value="true"></property><!-- 是否回收超时连接 -->
-		<property name="maxWait" value="1000"></property><!-- 单位毫秒，超时等待时间 -->
-		<!-- 连接被抛弃时是否打印输出到日志中 -->
+		<property name="removeAbandoned" value="true"></property>是否回收超时连接
+		<property name="maxWait" value="1000"></property>单位毫秒，超时等待时间
+		连接被抛弃时是否打印输出到日志中
 		<property name="logAbandoned" value="true" />
-		<!-- 每次空闲连接被回收时，需要检查的连接数量 -->
+		每次空闲连接被回收时，需要检查的连接数量
 		<property name="numTestsPerEvictionRun" value="15" />
-		<!-- 验证查询，获取当前连接数据库的时间 -->
+		验证查询，获取当前连接数据库的时间
 		<property name="validationQuery" value="SELECT NOW() FROM DUAL"></property>
-	</bean>
+	</bean> -->
 	
 	
 	
@@ -83,16 +90,16 @@
 
 
 
-<!-- 
 
-	配置JPASessionFactory
+
+	<!-- 配置JPASessionFactory -->
 	<bean id="localEntityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		配置JPA采用Hibernate底层框架实现
+		<!-- 配置JPA采用Hibernate底层框架实现 -->
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"></bean>
 		</property>
-		扫描ORM映射关系
+		<!-- 扫描ORM映射关系 -->
 		<property name="packagesToScan">
 			<list>
 				<value>org.orange.carloan.beans</value>
@@ -107,16 +114,16 @@
 		</property>
 	</bean>
 	
-	将JPA接口与SessionFactory进行关联，用于扫描Repository接口类（dao层） 
+	<!-- 将JPA接口与SessionFactory进行关联，用于扫描Repository接口类（dao层） --> 
 	<jpa:repositories base-package="org.orange.carloan" entity-manager-factory-ref="localEntityManagerFactoryBean"></jpa:repositories>  
 
- -->
+
  
 
 
 
 
-<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         	<!-- 配置数据源 -->
         	<property name="dataSource" ref="dataSource"></property>
         </bean>
@@ -167,8 +174,6 @@
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="fooServiceOperation" />
 	</aop:config>
 	<!-- 开启切面注解 -->
-	    <aop:config proxy-target-class="false"> </aop:config>   
-	<aop:aspectj-autoproxy proxy-target-class="true"/> 
-	<tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
+	<aop:aspectj-autoproxy/> 
 
 </beans>        

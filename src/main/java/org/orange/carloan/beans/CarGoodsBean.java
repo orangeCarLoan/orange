@@ -2,6 +2,7 @@ package org.orange.carloan.beans;
 
 import java.io.Serializable;
 
+
 public class CarGoodsBean implements Serializable{
 	
 	/**
@@ -22,7 +23,7 @@ public class CarGoodsBean implements Serializable{
 	public int getId() {
 		return id;
 	}
-
+	
 	public void setId(int id) {
 		this.id = id;
 	}
