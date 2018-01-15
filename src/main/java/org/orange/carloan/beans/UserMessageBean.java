@@ -105,6 +105,7 @@ public class UserMessageBean {
 	private List<ContactBean> contactBean;
 	
 	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "THEMEID")
 	@Cascade({CascadeType.ALL})
 	private UserAdjunctBean userAdjunctBean;
 	

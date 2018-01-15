@@ -2,8 +2,18 @@ package org.orange.carloan.beans;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  * @author Administrator
@@ -11,20 +21,39 @@ import javax.persistence.Table;
  * @created 11-һ��-2018 14:37:11
  */
 @Entity
-@Table(name="t_usermessage")
+@Table(name="t_useridentity")
 public class UserIdentityBean {
-
-	private String address;
-	private Date birthday;
-	private Date endDate;
-	private int gender;
+	
+	@Id
+	@Column(name="id")
+	@GenericGenerator(name="useridentity", strategy="identity")
+	@GeneratedValue(generator="useridentity")
 	private int id;
+	
+	@Column
+	private String address;
+	@Column
+	private Date birthday;
+	@Column
+	private Date endDate;
+	@Column
+	private int gender;
+	@Column
 	private String identity;
+	@Column
 	private String nation;
+	@Column
 	private String organ;
+	@Column
 	private Date stratDate;
+	@Column
 	private String type;
+	@Column
 	private String userName;
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "THEMEID")
+	@Cascade({CascadeType.ALL})
 	private ContractInformationBean contractInformationBean;
 	
 	public ContractInformationBean getContractInformationBean() {
