@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
@@ -9,7 +12,9 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop.xsd">
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/data/jpa
+        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 	<!-- 开启spring容器自动扫描 -->
 	<context:component-scan base-package="org.orange.carloan">
 		<context:include-filter type="annotation"
@@ -19,10 +24,10 @@
 		<context:exclude-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
-
+	<!-- 引入mysql连接配置文件 -->
 	<context:property-placeholder location="classpath:mysql.properties"
 		ignore-resource-not-found="true" ignore-unresolvable="true" />
-
+	<!-- 数据源 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${mysql.driverClassName}"></property>
@@ -45,7 +50,12 @@
 		<!-- 验证查询，获取当前连接数据库的时间 -->
 		<property name="validationQuery" value="SELECT NOW() FROM DUAL"></property>
 	</bean>
-
+	
+	
+	
+	
+	
+	<!-- mybatis的sessionfactory工厂 -->
 	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 		<!-- 如果有多个包需要同时取类别名， 包与包之间采用,或;间隔 -->
@@ -53,13 +63,13 @@
 		</property>
 		<property name="mapperLocations" value="classpath*:org/orange/carloan/*mag/mapper/*Mapper.xml"/>
 	</bean>
-
+	<!-- mybatis的mapper引射器 -->
 	<bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="org.orange.carloan.branchAuditmag.mapper;
+		<property name="basePackage" value="
 		org.orange.carloan.carMessagemag.mapper;
-		org.orange.carloan.contractInformationmag.mapper;
+		org.orange.carloan.contractinformationmag.mapper;
 		org.orange.carloan.dividemag.mapper;
-		org.orange.carloan.headauditmag.mapper;
+		org.orange.carloan.letteronmag.mapper;
 		org.orange.carloan.makeloanmag.mapper;
 		org.orange.carloan.signcheckmag.mapper;
 		org.orange.carloan.signmag.mapper;
@@ -69,7 +79,49 @@
 		<property name="sqlSessionFactoryBeanName" value="sessionFactory"></property>
 	</bean>
 
-<bean id="jotm" class="org.springframework.transaction.jta.JotmFactoryBean" />
+
+
+
+
+<!-- 
+
+	配置JPASessionFactory
+	<bean id="localEntityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		配置JPA采用Hibernate底层框架实现
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"></bean>
+		</property>
+		扫描ORM映射关系
+		<property name="packagesToScan">
+			<list>
+				<value>org.orange.carloan.beans</value>
+			</list>
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+			</props>
+		</property>
+	</bean>
+	
+	将JPA接口与SessionFactory进行关联，用于扫描Repository接口类（dao层） 
+	<jpa:repositories base-package="org.orange.carloan" entity-manager-factory-ref="localEntityManagerFactoryBean"></jpa:repositories>  
+
+ -->
+ 
+
+
+
+
+<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        	<!-- 配置数据源 -->
+        	<property name="dataSource" ref="dataSource"></property>
+        </bean>
+
+<!-- <bean id="jotm" class="org.springframework.transaction.jta.JotmFactoryBean" /> -->
 	<!-- 接下来配置事务管理器 -->
 	<!-- <bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -77,10 +129,10 @@
 	</bean>
  -->
  
-  <bean id="txManager"
+<!--   <bean id="txManager"
          class="org.springframework.transaction.jta.JtaTransactionManager">
          <property name="userTransaction" ref="jotm"></property>
-     </bean>
+     </bean> -->
 	<!-- spring容器处理事务2种方式：编程式事务管理，声明式事务管理 <tx:annotation-driven transaction-manager="transactionManager"/> 
 		@Transactional() -->
 
@@ -109,13 +161,14 @@
 				propagation="REQUIRED" rollback-for="java.lang.Exception" />
 		</tx:attributes>
 	</tx:advice>
-
 	<aop:config>
 		<aop:pointcut id="fooServiceOperation"
 			expression="execution(* org.orange.carloan.*mag.service.impl.*ServiceImpl.*(..))" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="fooServiceOperation" />
 	</aop:config>
-	<aop:aspectj-autoproxy/>
+	<!-- 开启切面注解 -->
+	    <aop:config proxy-target-class="false"> </aop:config>   
+	<aop:aspectj-autoproxy proxy-target-class="true"/> 
+	<tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
 
-<import resource="SpringContext-jpa.xml"/>
 </beans>        
