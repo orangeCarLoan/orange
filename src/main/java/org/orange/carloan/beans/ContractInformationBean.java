@@ -16,6 +16,7 @@ public class ContractInformationBean implements Serializable {
 	private String auditor;
 	private String contract;//合同编号
 	private int state;//状态
+	private int isFallback;//是否回退
 	private String fallbackContent;//回退意见
 	private String creditstatus;//放款状态
 	private CompanyBean companyBean;//客户来源（分公司）
@@ -29,6 +30,12 @@ public class ContractInformationBean implements Serializable {
 	
 	
 	
+	public int getIsFallback() {
+		return isFallback;
+	}
+	public void setIsFallback(int isFallback) {
+		this.isFallback = isFallback;
+	}
 	public List<CarMessageBean> getCarMessageBeans() {
 		return carMessageBeans;
 	}
@@ -117,9 +124,10 @@ public class ContractInformationBean implements Serializable {
 	@Override
 	public String toString() {
 		return "ContractInformationBean [id=" + id + ", auditor=" + auditor + ", contract=" + contract + ", state="
-				+ state + ", fallbackContent=" + fallbackContent + ", creditstatus=" + creditstatus + ", companyBean="
-				+ companyBean + ", userMessageBean=" + userMessageBean + ", carMessageBeans=" + carMessageBeans
-				+ ", userCreditBean=" + userCreditBean + ", adviceBean=" + adviceBean + ", signBean=" + signBean
-				+ ", userIdentityBean=" + userIdentityBean + ", admins=" + admins + "]";
+				+ state + ", isFallback=" + isFallback + ", fallbackContent=" + fallbackContent + ", creditstatus="
+				+ creditstatus + ", companyBean=" + companyBean + ", userMessageBean=" + userMessageBean
+				+ ", carMessageBeans=" + carMessageBeans + ", userCreditBean=" + userCreditBean + ", adviceBean="
+				+ adviceBean + ", signBean=" + signBean + ", userIdentityBean=" + userIdentityBean + ", admins="
+				+ admins + "]";
 	}
 }

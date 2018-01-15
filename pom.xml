@@ -1,5 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+		http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.orange</groupId>
   <artifactId>carloan</artifactId>
@@ -7,7 +9,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>carloan Maven Webapp</name>
   <url>http://maven.apache.org</url>
-  
+   
   <properties>
 		<spring.version>4.2.0.RELEASE</spring.version>
 		<junit.version>4.12</junit.version>
@@ -283,12 +285,12 @@
 		</dependency>
 		
 		<dependency>
-    <groupId>org.ow2.jotm</groupId>
-    <artifactId>ow2-jotm-dist</artifactId>
-    <version>2.2.1</version>
-    <type>pom</type>
-    <scope>compile</scope>
-</dependency>
+		    <groupId>org.ow2.jotm</groupId>
+		    <artifactId>ow2-jotm-dist</artifactId>
+		    <version>2.2.1</version>
+		    <type>pom</type>
+		</dependency>
+
 		
 		  <dependency>  
               <groupId>com.experlog</groupId>  
@@ -300,23 +302,24 @@
            <artifactId>jotm-core</artifactId>
            <version>2.2.3</version>
           </dependency>
-            <dependency>  
-                <groupId>org.ow2.jotm</groupId>  
-                <artifactId>jotm</artifactId>  
-                <version>2.2.2</version>  
-                <type>pom</type>  
-            </dependency>  
-            
-            <dependency>  
-                <groupId>org.ow2.spec.ee</groupId>  
-                <artifactId>ow2-connector-1.5-spec</artifactId>  
-                <version>1.0.9</version>  
-            </dependency> 
-            <dependency>
-               <groupId>org.jacorb</groupId>
-              <artifactId>jacorb</artifactId>
-                 <version>2.3.1</version>
-          </dependency>
+			<dependency>
+			    <groupId>jotm</groupId>
+			    <artifactId>jotm</artifactId>
+			    <version>2.0.10</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.ow2.spec.ee</groupId>
+			    <artifactId>ow2-connector-1.5-spec</artifactId>
+			    <version>1.0.9</version>
+			    <scope>provided</scope>
+			</dependency>
+		 
+			<dependency>
+			    <groupId>org.jacorb</groupId>
+			    <artifactId>jacorb</artifactId>
+			    <version>3.7</version>
+			</dependency>
+
          
   </dependencies>
   <build>

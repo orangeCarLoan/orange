@@ -1,11 +1,11 @@
-package org.orange.carloan.contractInformationmag.service;
+package org.orange.carloan.contractinformationmag.service;
 
 /**
  * 合同类的业务方法
  * @author Administrator
  *
  */
-public interface IContractInformationmag {
+public interface IContractInformationWritService {
 
 	/**
 	 * 每个页面的撤销方法
