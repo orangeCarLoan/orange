@@ -3,29 +3,62 @@ package org.orange.carloan.beans;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 //合同信息
+@Entity
+@Table(name="t_contractinformation")
 public class ContractInformationBean implements Serializable {
 
-	/**
+	/** 
 	 * 
 	 */
 	private static final long serialVersionUID = -3198085201613764861L;
 
+	@Id
+	@Column(name="id")
+	@GenericGenerator(name="hibernate.strategy", strategy="identity")
+	@GeneratedValue(generator="hibernate.strategy")
 	private int id;//id
-	/**审核人*/
-	private String auditor;
+	
+	@Column(name="auditor")
+	private String auditor;//审核人
+	
+	@Column(name="contract")
 	private String contract;//合同编号
+	
+	@Column(name="state")
 	private int state;//状态
+	
+	@Column(name="is_fallback")
 	private int isFallback;//是否回退
+	
+	@Column(name="fallback_content")
 	private String fallbackContent;//回退意见
+	
+	@Column(name="creditstatus")
 	private String creditstatus;//放款状态
+	
 	private CompanyBean companyBean;//客户来源（分公司）
+	
 	private UserMessageBean userMessageBean;//客户基本信息外键
+	
 	private List<CarMessageBean> carMessageBeans;//车辆信息外键
+	
 	private UserCreditBean userCreditBean;//客户信用信息外键
+	
 	private AdviceBean adviceBean;//综合意见外键
+	
 	private SignBean signBean;//客户签约外键
+	
 	private UserIdentityBean userIdentityBean;//客户身份信息外键
+	
 	private List<AdminBean> admins;
 	
 	

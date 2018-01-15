@@ -2,20 +2,44 @@ package org.orange.carloan.beans;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  * @author Administrator
  * @version 1.0
  * @created 11-һ��-2018 14:37:09
  */
+@Entity
+@Table(name="t_admin")
 public class AdminBean {
-
+  
 	private CompanyBean companyId;
-	private int id;
+	
+	@Id
+	@Column(name="id")
+	@GenericGenerator(name="hibernate.strategy", strategy="identity")
+	@GeneratedValue(generator="hibernate.strategy")
+	private int id; 
+	
+	@Column(name="password")
 	private String password;
+	
+	@Column(name="realname")
 	private String realName;
+	
 	private RoleBean roleId;
+	
+	@Column(name="username")
 	private String userName;
+	
 	private List<ContractInformationBean> contracts;
+	
 	public CompanyBean getCompanyId() {
 		return companyId;
 	}

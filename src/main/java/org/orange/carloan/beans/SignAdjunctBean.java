@@ -1,33 +1,70 @@
 package org.orange.carloan.beans;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  * 签约附件表 t_Signadjunct
  * @author ASUS
  *
  */
+@Entity
+@Table(name="t_signadjunct")
 public class SignAdjunctBean {
     /**签约附件id*/
+	@Id
+	@Column(name="id")
+	@GenericGenerator(name="hibernate.strategy", strategy="identity")
+	@GeneratedValue(generator="hibernate.strategy")
 	private int id;
+	
 	/**银行卡*/
+	@Column(name="bank_card")
 	private String bankCard;
+	
 	/**机打申请表(待定)*/
+	@Column(name="application_form")
 	private String applicationForm;
+	
 	/**小额借款服务合同(系统生成)*/
+	@Column(name="loan_contract")
 	private String loanContract;
+	
 	/**授权扣款委托书(系统生成)*/
+	@Column(name="cut_authorization")
 	private String cutAuthorization;
+	
 	/**授权委托书(系统生成)*/
+	@Column(name="authorization")
 	private String authorization;
+	
 	/**还款计划表(系统生成)*/
+	@Column(name="refund_list")
 	private String refundList;
+	
 	/**补充协议(直接上传)*/
+	@Column(name="replenish_deal")
 	private String replenishDeal;
+	
 	/**车辆买卖回购合同(直接上传)*/
+	@Column(name="car_contract")
 	private String carContract;
+	
 	/**授权委托书(车辆处理使用)(直接上传)*/
+	@Column(name="car_authorization")
 	private String carAuthorization;
+	
 	/**车辆抵押照片*/
+	@Column(name="car_photo")
 	private String carPhoto;
+	
 	/**车辆入库照片(非必要)*/
+	@Column(name="storage_photo")
 	private String storagePhoto;
 	
 	private SignBean signBean;

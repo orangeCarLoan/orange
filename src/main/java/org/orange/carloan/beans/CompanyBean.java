@@ -2,13 +2,31 @@ package org.orange.carloan.beans;
 
 import java.util.List;
 
-public class CompanyBean {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
+@Entity
+@Table(name="t_company")
+public class CompanyBean {
+	
+	@Id 
+	@Column(name="id")
+	@GenericGenerator(name="hibernate.strategy", strategy="identity")
+	@GeneratedValue(generator="hibernate.strategy")
 	private int id;
+	
+	@Column(name="name")
 	private String name;
 
 	private List<ContractInformationBean> contracts;
+	
 	private List<AdminBean> admins;
+	
 	public int getId() {
 		return id;
 	}

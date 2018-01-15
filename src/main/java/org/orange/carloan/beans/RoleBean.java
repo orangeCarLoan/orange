@@ -2,16 +2,34 @@ package org.orange.carloan.beans;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  * @author Administrator
  * @version 1.0
  * @created 11-һ��-2018 14:37:11
  */
+@Entity
+@Table(name="t_role")
 public class RoleBean {
 
+	@Id
+	@Column(name="id")
+	@GenericGenerator(name="hibernate.strategy", strategy="identity")
+	@GeneratedValue(generator="hibernate.strategy")
 	private int id;
+	
+	@Column(name="rolename")
 	private String roleName;
+	
 	private List<AdminBean> admins;
+	
 	public int getId() {
 		return id;
 	}

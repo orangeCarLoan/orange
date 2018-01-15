@@ -2,21 +2,43 @@ package org.orange.carloan.beans;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 //客户基本信息附件
+@Entity
+@Table(name="t_useradjunct")
 public class UserAdjunctBean implements Serializable{
+	
 	/**
-	 * 
+	 *  
 	 */
 	private static final long serialVersionUID = -6196311390769405372L;
 	
+	@Id
+	@Column(name="id")
+	@GenericGenerator(name="hibernate.strategy", strategy="identity")
+	@GeneratedValue(generator="hibernate.strategy")
 	private int id;
+	
 	//身份证原件
+	@Column(name="id_card")
 	private String Idcard;
+	
 	//车贷申请表
+	@Column(name="carLoan_form")
 	private String carLoanFrom;
+	
 	//其他附件
+	@Column(name="ather_adjunct")
 	private String atherAdjunct;
-	//客户基本信息附件与客户基本信息是一对一的关系
+	
+	//客户基本信息附件与客户基本信息是多对一的关系，所以在一的这边应该有多的那边的引用
 	private UserMessageBean userMsg;
 	
 	public int getId() {

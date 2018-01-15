@@ -3,10 +3,20 @@ package org.orange.carloan.beans;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 //客户签约
+@Entity
+@Table(name="t_sig")
 public class SignBean implements Serializable{
 
-	/**
+	/** 
 	 * 
 	 */
 	private static final long serialVersionUID = -6169220175537062592L;
@@ -14,35 +24,54 @@ public class SignBean implements Serializable{
 	/**
 	 * id
 	 */
+	@Id
+	@Column(name="id")
+	@GenericGenerator(name="hibernate.strategy", strategy="identity")
+	@GeneratedValue(generator="hibernate.strategy")
 	private int id;
+	
 	/**
 	 * 咨询服务费
 	 */
+	@Column(name="consulting")
 	private double consulting;
+	
 	/**
 	 * 额度上限
 	 */
+	@Column(name="credit_limit")
 	private double creditLimit;
+	
 	/**
 	 * 审批额度
 	 */
+	@Column(name="quota")
 	private double quota;
+	
 	/**
 	 * 约定放款日期
 	 */
+	@Column(name="agreed_loan_date")
 	private Date agreedLoanDate;
+	
 	/**
 	 * 放款/还款银行
 	 */
+	@Column(name="bank")
 	private String bank;
+	
 	/**
 	 * 放款/还款账号
 	 */
+	@Column(name="account")
 	private String account;
+	
 	/**
 	 * 放款/还款开户银行（支行）
 	 */
+	@Column(name="deposit_bank")
 	private String depositBank;
+	
 	/**
 	 * 签约附件外键
 	 */
@@ -137,5 +166,5 @@ public class SignBean implements Serializable{
 				+ depositBank + ", signAdjunctBean=" + signAdjunctBean + ", contractInformationBean="
 				+ contractInformationBean + "]";
 	}
-	
+
 }

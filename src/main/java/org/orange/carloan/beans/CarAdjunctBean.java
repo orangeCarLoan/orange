@@ -4,33 +4,25 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="t_caradjunct")
 public class CarAdjunctBean implements Serializable{
-
+ 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3533136069541428240L;
 
-	
-
 	@Id
 	@Column(name="id")
 	@GenericGenerator(name="hibIdentity", strategy="identity")
 	@GeneratedValue(generator="hibIdentity")
-	
 	private Integer id;
 	
 	@Column(name="car_assessList",length=20)	
@@ -53,10 +45,7 @@ public class CarAdjunctBean implements Serializable{
 	
 	@Column(name="other_attachments",length=20)
 	private String otherAttachments;
-	
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn
-	@Cascade({CascadeType.ALL})
+
 	private CarMessageBean carMessageBean;
 	
 	

@@ -1,25 +1,53 @@
 package org.orange.carloan.beans;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  *  综合意见表 t_advice
  * @author ASUS
- *
+ * 
  */
+@Entity
+@Table(name="t_advice")
 public class AdviceBean {
 
 	/**综合意见id*/
+	@Id
+	@Column(name="id")
+	@GenericGenerator(name="hibernate.strategy", strategy="identity")
+	@GeneratedValue(generator="hibernate.strategy")
 	private int id;
+	
 	/**产品类别*/
+	@Column(name="product_category")
 	private String productCategory;
+	
 	/**批准期数*/
+	@Column(name="approval_period")
 	private int approvalPeriod;
+	
 	/**结论*/
+	@Column(name="conclusion")
 	private String  conclusion;
+	
 	/**审批额度*/
+	@Column(name="approval_quota")
 	private Integer approvalQuota;
+	
 	/**分公司初审意见*/
+	@Column(name="branch_opinion")
 	private String branchOpinion;
+	
 	/**总公司审核意见*/
+	@Column(name="head_opinion")
 	private String headOpinion;
+	
 	
 	private ContractInformationBean contractInformationBean;
 

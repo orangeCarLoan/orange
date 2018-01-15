@@ -4,23 +4,18 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
-
+ 
 @Entity
 @Table(name="t_usercredit")
 public class UserCreditBean  implements Serializable {
 
 	/**
-	 * 
+	 *  
 	 */
 	private static final long serialVersionUID = 8266367616021550600L;
 	
@@ -28,7 +23,6 @@ public class UserCreditBean  implements Serializable {
 	@Column(name="id")
 	@GenericGenerator(name="hibIdentity", strategy="identity")
 	@GeneratedValue(generator="hibIdentity")
-	
 	private Integer id;
 	
 	@Column(name="house_property",length=20)

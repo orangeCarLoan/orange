@@ -2,8 +2,18 @@ package org.orange.carloan.beans;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
 
 //联系人信息类
+@Entity
+@Table(name="t_contact")
 public class ContactBean implements Serializable{
 
 	/**
@@ -11,23 +21,43 @@ public class ContactBean implements Serializable{
 	 */
 	private static final long serialVersionUID = 2196975359967560927L;
 	
+	@Id
+	@Column(name="id")
+	@GenericGenerator(name="hibernate.strategy", strategy="identity")
+	@GeneratedValue(generator="hibernate.strategy")
 	private int id;
+	
 	//联系人姓名
+	@Column(name="contactname")
 	private String contactName;
+	
 	//联系人类型
+	@Column(name="contacttype")
 	private String contactType;
+	
 	//和本人关系
+	@Column(name="Relation")
 	private String relation;
+	
 	//单位名称
+	@Column(name="contactcompany")
 	private String contactCompany;
+	
 	//家庭地址/单位地址
-	private String contactAddress;		
-	//联系电话		
+	@Column(name="contactaddress")
+	private String contactAddress;	
+	
+	//联系电话	
+	@Column(name="contactphone")
 	private String contactPhone;
+	
 	//是否知晓贷款
+	@Column(name="know_loan")
 	private Integer knowLoan;
+	
 	//客户基本信息
 	private UserMessageBean userMessageBean;
+	
 	public int getId() {
 		return id;
 	}
