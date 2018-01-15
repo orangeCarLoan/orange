@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="commons.jsp"%>  
+<%-- <%@ include file="commons.jsp"%>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,13 +9,13 @@
 <link rel="stylesheet" type="text/css" href="<%=basePath%>themes/icon.css">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>themes/default/easyui.css">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrap.min.css">
-<%-- <link rel="stylesheet" type="text/css" href="<%=basePath %>css/demo.css"> --%>
+<link rel="stylesheet" type="text/css" href="<%=basePath %>css/demo.css">
 
 <script type="text/javascript" src="<%=basePath%>js/jquery.min.js"></script>
-<%-- <script type="text/javascript" src="<%=basePath%>js/jquery.easyui.mobile.js"></script> --%>
+<script type="text/javascript" src="<%=basePath%>js/jquery.easyui.mobile.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>js/branchCredit.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/branchCredit.js"></script> --%>
 </head>
 <body>
 <p style="outline: 1px solid black;">车贷管理>分公司审核列表</p>
