@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+.banner { position: relative; overflow: auto; }
+.banner li { list-style: none;text-align:center;width:100%;height:420px; }
+.banner li img{
+	      margin:0 auto;
+}
+.banner ul li { float: left; }
+.bannerbg1{
+          background:url(../images/banner.jpg) no-repeat top center;
+}
+.bannerbg2{
+          background:url(../images/banner2.jpg) no-repeat top center;
+}
+.dots{
+      display:inline-block;
+	  *display:inline;
+	  *zoom:1;
+	  z-index:999;	
+	  position:absolute;
+	  bottom:28px;
+	  right:0;
+	  padding:0;
+	  margin:0;
+}
+li.dot{
+	  display:inline-block;
+	  *display:inline;
+	  *zoom:1;
+	  height:8px;
+	  width:8px;
+	  cursor:pointer;
+	  background:url(../images/baidian.png) no-repeat left top;
+	  color:transparent;
+	  margin-right:12px;
+}
+li.dot.active{
+	  background:url(../images/judian.png) no-repeat left top;
+}
+.mart20px{
+	  margin-top:20px;
+}
+.padtb9474px{
+      padding:94px 0 74px;	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

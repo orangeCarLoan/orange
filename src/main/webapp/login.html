@@ -1,0 +1,180 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="static/css/css.css" rel="stylesheet" type="text/css">
+<link href="static/css/banner.css" rel="stylesheet" type="text/css">
+<title>橘子车贷</title>
+<link rel="SHORTCUT ICON" href="static/img/tubiao.ico" />
+<script type="text/javascript" src="static/easyui/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/checkCode.js"></script>
+<script>
+	$("body").keydown(function() {
+		if (event.keyCode == "13") {//keyCode=13是回车键
+			alert('测试');
+			<!--$('#btnSumit').click();-->
+		}
+	});
+</script>
+<style>			
+.indexformbod .son {
+	width: 245px;
+	height: 16px;
+	margin: 20px auto;
+}
+
+#code {
+	font-family: Arial;
+	font-style: italic;
+	font-weight: bold;
+	border: 0;
+	letter-spacing: 2px;
+	color: blue;
+	width: 70px;
+	height: 25px;
+}
+</style>
+</head>
+<body style="">
+	<div class="contbod margin0auto">
+		<div class="dingtop">
+			<div class="inlinblock *inline floatl">
+				<span class=""> <img src="static/img/icondh.jpg"
+					class="verticalmiddle"> 客服电话：<span class="tuhuang">4008-666-888
+					</span>(周一到周五：9:00—18:00) </span> <span class="padl25px"> <img
+					src="static/img/iconkf.jpg" class="verticalmiddle"> <span
+						class="tuhuang"><a class="tuhuang" target="_blank"
+							href="http://wpa.qq.com/msgrd?v=3&amp;uin=494962233&amp;site=qq&amp;menu=yes">在线客服</a></span></span>
+				<!--<span class="padl25px">
+                  <img src="/Public/NewHtml/images/iconyw.jpg" class="verticalmiddle" /> <span class="tuhuang">帮助中心</span>
+            </span>-->
+			</div>
+			<div class="inlinblock *inline floatr">
+				<a class="relative padr15px showewmfa"> <img
+					src="static/img/mobile-app.png" class="verticalmiddle"
+					style="padding-right: 5px;"><b style="font-weight: normal;">APP下载</b>
+						<div class="absolutediv app-info showewm">
+							<s class="app-tip"></s>
+							<div>
+								<img style="width: 86px;" src="static/img/weixin_chedai.png"> <span>橘子车贷提供围绕新车及二手车提供车源，金融，SaaS的全方位服务。</span>
+							</div>
+						</div></a> <a href="https://weibo.com/" target="_blank"><img
+					src="static/img/iconwb.jpg" class="verticalmiddle padr15px"></a> <a
+					class="relative showewmfa"><img src="static/img/iconwx.jpg"
+					class="verticalmiddle padr15px"> <img
+						src="static/img/weixin_chedai.png" class="absolutediv showewm"
+						style="width: 110px; top: 24px; left: 0;"></a> <a
+					href="http://wpa.qq.com/msgrd?v=3&amp;uin=494962233&amp;site=qq&amp;menu=yes"
+					target="_blank"> <img src="static/img/iconqq.jpg"
+					class="verticalmiddle padr15px"></a>
+
+			</div>
+		</div>
+		<div class="logodiv" style="height: 110px">
+			<img style="width: 288px; height: 80px" src="static/img/logo.jpg">
+		</div>
+	</div>
+	<div class="contbod margin0auto bannerform">
+		<div class="inlinblock *inline floatl"
+			style="text-align: left; width: 1000px; height: 40px; line-height: 40px; background: url(static/img/navbg.jpg)">
+			<a href="" class="baizi fontsize16px padl48px">首页</a> <a href=""
+				class="baizi fontsize16px padl48px">产品介绍</a> <a href=""
+				class="baizi fontsize16px padl48px">媒体报道</a> <a href=""
+				class="baizi fontsize16px padl48px">官方合作</a> <a href=""
+				class="baizi fontsize16px padl48px">关于我们</a>
+		</div>
+		<div class="indexformdiv" id="sqjk" style="height: 260px">
+			<div class="indexformtt fontsize16px">汽车贷款 选择橘子车贷</div>
+			<div class="indexformbod">
+				<div class="clearboht"></div>
+				<form class="indexdkforms" action="" method="post">
+					<div class="son">
+						<label>用户名 </label>
+
+						<div class="inpdiv relative">
+							<input type="text" value="" placeholder="请输入您的用户名"
+								class="te daiksm"> <textarea class="fdtextarea"
+									name="description"></textarea>
+						</div>
+					</div>
+					<div class="son">
+						<label>密&nbsp;&nbsp;&nbsp;码 </label>
+
+						<div class="inpdiv relative">
+							<input type="text" value="" placeholder="请输入您的密码" id="src"
+								style="width: 116px;" class="te lianxsj" name="moblies">
+						</div>
+					</div>
+					<div class="son">
+						<label>验证码</label>
+
+						<div class="inpdiv relative" style="width: 100px">
+							<input type="text" id="checkCode" placeholder="请输入验证码" />
+
+						</div>
+						<input type="button" id="code" onclick="createCode()" />
+					</div>
+
+
+					<div class="son mar0auto">
+						<input id="btnSubmit" type="button" onclick="validate()"
+							class="tuhuangbut mart20px indexdksub" value="点击登录">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="wid100ovhid raladiv mart20px">
+		<div class="banner has-dots"
+			style="width: 100%; height: 420px; overflow: hidden;">
+			<ul style="position: relative; left: 0%; width: 300%; height: 420px;">
+
+				<li class="bannerbg1" id="bannerbg1"
+					style="float: left; width: 1349px; background: url('static/img/login.png') 50% 0% no-repeat;"></li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="contbod margin0auto lineheight25px padtb10px ovhide">
+			<div class="inlinblock floatl textleft">
+				<div>
+					<a href="" target="_blank" class="huibai">联系我们 | </a> 
+					<a href="" target="_blank" class="huibai">关于我们 | </a> 
+					<a href="" target="_blank" class="huibai">加入我们 | </a> 
+					<a href="" target="_blank" class="huibai">管理资产查询</a>
+				</div>
+				<div>&nbsp;</div>
+				<div>
+					<span class="huibai">官方合作伙伴：</span> <a href="http://www.icyd.com"
+						target="_blank" class="huibai">爱财有道 | </a> <a
+						href="http://www.picc.com.cn" target="_blank" class="huibai">中国人民保险 | </a> 
+						<a href="http://www.spdb.com.cn" target="_blank" class="huibai">浦发银行 | </a> 
+						<a href="http://www.cmbc.com.cn" target="_blank" class="huibai">中国民生银行 | </a> 
+						<a href="http://www.ncbank.cn" target="_blank" class="huibai">宁波通商银行</a>
+				</div>
+			</div>
+			<div class="inlinblock floatr textleft huibai">
+				<div>
+					<span>客服电话：</span>4008-666-888
+				</div>
+				<div>
+					<span>服务时间：</span>周一至周五 9：00至18：00
+				</div>
+				<!--<div><span> 9：00至18：00</span></div>-->
+				<div>
+					<span>客服邮箱：</span>orange@kefu.com
+				</div>
+			</div>
+		</div>
+		<div class="footerson coler">
+			©我去给你买个橘子有限公司 &nbsp;&nbsp;<a href="" target="_blank" class="zhonghui">蜀ICP备123456789号-2</a> &nbsp;&nbsp;
+
+
+			<span> <img border="0" src="static/img/orange.com.png"
+				style="max-width: 83px; margin-top: 10px; height: 30px;"></span> 
+			<span class="zhonghui">川公网安备13654654691698</span>
+		</div>
+	</div>

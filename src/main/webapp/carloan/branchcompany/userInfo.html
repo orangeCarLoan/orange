@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>客户基本信息</title>
+		<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+		<script type="text/javascript" src="easyui/jquery.min.js"></script>
+		<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+		<style type="text/css">
+			.input {
+				height: 25px;
+				width: 150px;
+			}
+			
+			#tab {
+				margin: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<h1 style="text-align: center;">客户基本信息</h1>
+		<form action="#">
+			<input type="text" style="float: right;" placeholder="回退意见"><br/><br/>
+			<table id="tab" class="table table-striped" style="width: 1000px;">
+				<thead>
+					<tr>
+						<th>个人基本信息</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>申请人姓名</td>
+						<td><input type="text" /></td>
+						<td>身份证号码</td>
+						<td><input type="text" /></td>
+					</tr>
+					<tr>
+						<td>最高学历</td>
+						<td>
+							<select>
+								<option/>博士
+								<option/>硕士</select>
+						</td>
+						<td>申请人手机号码</td>
+						<td><input type="text" /></td>
+					</tr>
+					<tr>
+						<td>户籍信息</td>
+						<td><input type="text" /></td>
+						<td>申请人电话号码</td>
+						<td><input type="text" /></td>
+					</tr>
+
+					<tr>
+						<td>婚姻状况</td>
+						<td><input type="text" /></td>
+						<td>有无子女</td>
+						<td><input type="text" /></td>
+					</tr>
+
+					<tr>
+						<td>房产状况</td>
+						<td><input type="text" /></td>
+						<td>共同居住者</td>
+						<td>
+							<select>
+								<option/>配偶及子女
+								<option/>其它</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td>现住址</td>
+						<td><input type="text" /></td>
+						<td>客户类型</td>
+						<td>
+							<select>
+								<option>工薪人士</option>
+								<option>其它</option>
+							</select>
+						</td>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+			<table id="tab" class="table table-striped" style="width: 1000px;">
+
+				<thead>
+
+					<tr>
+						<th>工作信息</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					<tr>
+						<td>工作单位全称</td>
+						<td><input type="text" /></td>
+						<td>工作单位地址</td>
+						<td><input type="text" /></td>
+					</tr>
+
+					<tr>
+						<td>单位电话</td>
+						<td><input type="text" /></td>
+						<td>邮政编码</td>
+						<td><input type="text" /></td>
+					</tr>
+
+					<tr>
+						<td>进入该单位时间</td>
+						<td><input type="date"/></td>
+						<td>所在部门</td>
+						<td><input type="text" /></td>
+					</tr>
+
+					<tr>
+						<td>担任职务</td>
+						<td><input type="text" /></td>
+						<td>公司规模</td>
+						<td><input type="text" /></td>
+					</tr>
+
+					<tr>
+						<td>行业类别</td>
+						<td><input type="text" /></td>
+						<td>单位性质</td>
+						<td>
+							<select>
+								<option/>个体户
+								<option/>其它</select>
+						</td>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+			<table id="tab" class="table table-striped" style="width: 1000px;">
+
+				<thead>
+
+					<tr>
+						<th>借款需求</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					<tr>
+						<td>借款详细用途</td>
+						<td><input type="text" /></td>
+						<td>月收入</td>
+						<td><input type="text" /></td>
+					</tr>
+
+					<tr>
+						<td>可承受的月还款额</td>
+						<td><input type="text" /></td>
+						<td>希望申请最长还款期限</td>
+						<td>
+							<select>
+								<option/>十二个月
+								<option/>其它</select>
+						</td>
+					</tr>
+
+					<tr>
+						<td>希望申请还款额度</td>
+						<td><input type="text" /></td>
+						<td>希望申请借款额度</td>
+						<td><input type="text" /></td>
+					</tr>
+
+					<tr>
+						<td>您从何得知橘子车贷</td>
+						<td><input type="text" /></td>
+						<td>申请日期</td>
+						<td><input type="datetime-local" /></td>
+					</tr>
+
+					<tr>
+						<td>业务员姓名</td>
+						<td><input type="text" /></td>
+						<td>车贷专员</td>
+						<td><input type="text" /></td>
+					</tr>
+
+				</tbody>
+
+			</table>
+
+			<div>
+
+				<table id="tab" class="table table-striped" style="width: 1000px;">
+
+					<thead>
+
+						<tr>
+							<th>联系人信息（填写不能重复，至少三个）</th>
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+						<tr>
+							<td>姓名</td>
+							<td><input type="text" /></td>
+							<td>联系人电话</td>
+							<td><input type="text" /></td>
+						</tr>
+
+						<tr>
+							<td>联系人类型</td>
+							<td><input type="text" /></td>
+							<td>和本人关系</td>
+							<td>
+								<select>
+									<option/>亲属
+									<option/>其它</select>
+							</td>
+						</tr>
+
+						<tr>
+							<td>单位名称</td>
+							<td><input type="text" /></td>
+							<td>家庭住址/单位地址</td>
+							<td><input type="text" /></td>
+						</tr>
+
+						<tr>
+							<td>业务员姓名</td>
+							<td><input type="text" /></td>
+							<td>车贷专员</td>
+							<td><input type="text" /></td>
+						</tr>
+
+						<tr>
+							<td><input id="" class="btn btn-primary" type="button" value="添加" /></td>
+							<td><input id="" class="btn btn-primary" type="button" value="删除" /></td>
+						</tr>
+					</tbody>
+
+				</table>
+
+			</div>
+
+			<table id="tab" class="table table-striped" style="width: 1000px;">
+
+				<thead>
+
+					<tr>
+						<th>附件列表</th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					<tr>
+						<td>身份证（原件）</td>
+						<td><input type="file" /></td>
+						<td><input class="btn btn-primary" type="button" value="上传" /></td>
+						<td>附件大小</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td>车贷申请表</td>
+						<td><input type="file" /></td>
+						<td><input class="btn btn-primary" type="button" value="上传" /></td>
+						<td>附件大小</td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td>其它附件</td>
+						<td><input type="file" /></td>
+						<td><input class="btn btn-primary" type="button" value="上传" /></td>
+						<td>附件大小</td>
+						<td></td>
+					</tr>
+
+				</tbody>
+
+			</table>
+			<button id="" class="btn btn-primary" style="margin-left: 1000px;">保存</button>
+			<button id="" class="btn btn-primary">提交</button>
+			<button id="" class="btn btn-primary">返回</button>
+		</form>
+		<script>
+//			$("input").addClass("form-control");
+//			$("input").addClass("input");
+		</script>
+	</body>
+
+</html>
