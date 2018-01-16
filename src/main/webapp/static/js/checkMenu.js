@@ -6,7 +6,7 @@ $(function() {
 	})
 	//车贷签约复核
 	$("#re_check").click(function() {
-		$("#ifrom").load('');
+		$("#ifrom").load('headcompany/reCheck.jsp');
 	})
 	//放款列表
 	$("#loan_list").click(function() {
