@@ -11,7 +11,7 @@ public class UserCreditDaoImpl implements IUserCreditDao{
 //
 	@Resource
 	private UserCreditMapper um;
-	
+	 
 	@Override
 	public UserCreditBean findUserCredByUserCredId(int id) {
 //		 TODO Auto-generated method stub

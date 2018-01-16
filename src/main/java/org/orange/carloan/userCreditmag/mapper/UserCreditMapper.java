@@ -9,7 +9,7 @@ public interface UserCreditMapper {
 //	@Select("select id as id,house_property as houseProperty,House_loan as houseLoan,"
 //			+ "car_property as carProperty ,car_loan as carLoan,max_overdue_situation as maxSituation,"
 //			+ "max_overdue_number as maxNumber,credit_card_usage_rate as creditCardUsageRate,"
-//			+ "nocc_lae as noccLae,other_credit_loans as otherCreditLoans,"
+//		 	+ "nocc_lae as noccLae,other_credit_loans as otherCreditLoans,"
 //			+ "credit_card as creditCard from t_usercredit where id=#{id}")@Param("id") 
 //	@Results(value= {
 //			@Result(property="contractInformationBean",javaType=ContractInformationBean.class,column="id",

@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 public interface UserCreditRepository extends JpaRepository<UserCreditBean, Long>,JpaSpecificationExecutor<UserCreditBean> {
 
-	
+	 
 }
