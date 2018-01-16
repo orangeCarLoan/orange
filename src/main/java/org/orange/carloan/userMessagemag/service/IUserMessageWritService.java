@@ -25,4 +25,26 @@ public interface IUserMessageWritService {
 	//1
 	public boolean saveUserMessage(int contractInformationId, UserMessageBean userMessage,int isSubmit);
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	/**
+//	 * 更新并保存数据
+//	 * @param umb 传入对象
+//	 */
+//	public void updateUserMessage(UserMessageBean umb);
+//	/**
+//	 * 根据ID删除数据
+//	 * @param id
+//	 */
+//	public void deletUserMessage(int id);
+//	
+//	public void saveUserMessageBean(UserMessageBean umb);
 }

@@ -1,5 +1,6 @@
 package org.orange.carloan.beans;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -24,7 +25,12 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name="t_usermessage")
-public class UserMessageBean {
+public class UserMessageBean implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5983064013099668019L;
 
 	@Id
 	@Column(name="id")
@@ -60,8 +66,7 @@ public class UserMessageBean {
 	private String education;//最高学历
 	@Column
 	private String employment;//行业类别
-	@Column
-	private String fallbackMessage;
+	
 	@Column
 	private Date happenTime;//进入该单位时间
 	@Column
@@ -193,12 +198,8 @@ public class UserMessageBean {
 	public void setEmployment(String employment) {
 		this.employment = employment;
 	}
-	public String getFallbackMessage() {
-		return fallbackMessage;
-	}
-	public void setFallbackMessage(String fallbackMessage) {
-		this.fallbackMessage = fallbackMessage;
-	}
+	
+
 	public Date getHappenTime() {
 		return happenTime;
 	}
@@ -321,17 +322,16 @@ public class UserMessageBean {
 	}
 	@Override
 	public String toString() {
-		return "UserMessageBean [address=" + address + ", applyDate=" + applyDate + ", borrowPurpose=" + borrowPurpose
-				+ ", channel=" + channel + ", clientType=" + clientType + ", commissioner=" + commissioner
-				+ ", companyAddress=" + companyAddress + ", companyName=" + companyName + ", companyPhone="
-				+ companyPhone + ", companySize=" + companySize + ", dept=" + dept + ", duty=" + duty + ", education="
-				+ education + ", employment=" + employment + ", fallbackMessage=" + fallbackMessage + ", happenTime="
-				+ happenTime + ", hasChild=" + hasChild + ", houseType=" + houseType + ", id=" + id + ", income="
-				+ income + ", marry=" + marry + ", maxdeadline=" + maxdeadline + ", maxlimit=" + maxlimit
-				+ ", minlimit=" + minlimit + ", partner=" + partner + ", place=" + place + ", repayment=" + repayment
-				+ ", saleName=" + saleName + ", telephone=" + telephone + ", unitNature=" + unitNature + ", userPhone="
-				+ userPhone + ", zipCode=" + zipCode + ", contractInformationBean=" + contractInformationBean
-				+ ", contactBean=" + contactBean + ", userAdjunctBean=" + userAdjunctBean + "]";
+		return "UserMessageBean [id=" + id + ", address=" + address + ", applyDate=" + applyDate + ", borrowPurpose="
+				+ borrowPurpose + ", channel=" + channel + ", clientType=" + clientType + ", commissioner="
+				+ commissioner + ", companyAddress=" + companyAddress + ", companyName=" + companyName
+				+ ", companyPhone=" + companyPhone + ", companySize=" + companySize + ", dept=" + dept + ", duty="
+				+ duty + ", education=" + education + ", employment=" + employment + ", happenTime=" + happenTime
+				+ ", hasChild=" + hasChild + ", houseType=" + houseType + ", income=" + income + ", marry=" + marry
+				+ ", maxdeadline=" + maxdeadline + ", maxlimit=" + maxlimit + ", minlimit=" + minlimit + ", partner="
+				+ partner + ", place=" + place + ", repayment=" + repayment + ", saleName=" + saleName + ", telephone="
+				+ telephone + ", unitNature=" + unitNature + ", userPhone=" + userPhone + "]";
 	}
+
 	
 }

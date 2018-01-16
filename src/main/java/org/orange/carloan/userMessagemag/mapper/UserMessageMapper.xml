@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.orange.carloan.userMessagemag.mapper.IUserMessageMapper">
+<resultMap type="UserMessageBean" id="usermessageMap">
+		<result property="id" column="id" />
+		<result property="address" column="address" />
+		<result property="applyDate" column="applyDate" />
+		<result property="borrowPurpose" column="borrowPurpose" />
+		<result property="channel" column="channel" />
+		<result property="clientType" column="clientType" />
+		<result property="commissioner" column="commissioner" />
+		<result property="companyAddress" column="companyAddress" />
+		<result property="companyName" column="companyName" />
+		<result property="companyPhone" column="companyPhone" />
+		<result property="companySize" column="companySize" />
+		<result property="dept" column="dept" />
+		<result property="duty" column="duty" />
+		<result property="education" column="education" />
+		<result property="employment" column="employment" />
+		<result property="happenTime" column="happenTime" />
+		<result property="hasChild" column="hasChild" />
+		<result property="houseType" column="houseType" />
+		<result property="income" column="income" />
+		<result property="marry" column="marry" />
+		<result property="maxdeadline" column="maxdeadline" />
+		<result property="maxlimit" column="maxlimit" />
+		<result property="minlimit" column="minlimit" />
+		<result property="partner" column="partner" />
+		<result property="place" column="place" />
+		<result property="repayment" column="repayment" />
+		<result property="saleName" column="saleName" />
+		<result property="telephone" column="telephone" />
+		<result property="unitNature" column="unitNature" />
+		<result property="userPhone" column="userPhone" />
+		<result property="zipCode" column="zipCode" />
+		<association property="contractInformationBean" javaType="ContractInformationBean" column="id"></association>
+	</resultMap>
+	
+		<select id="findUserMessageByUserMessageId" resultType="int" resultMap="usermessageMap">
+ 		select * from t_usermessage where id=#{id} 
+ 	</select>
+
+	<select id="findUserMessageByContractId" resultType="int" resultMap="usermessageMap">
+ 		select * from t_usermessage u left join t_contractinformation c on  c.id=#{id} 
+ 	</select>
+</mapper>

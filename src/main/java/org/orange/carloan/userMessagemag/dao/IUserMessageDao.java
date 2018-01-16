@@ -1,4 +1,4 @@
-package org.orange.carloan.userMessagemag.dao.impl;
+package org.orange.carloan.userMessagemag.dao;
 
 import org.orange.carloan.beans.UserMessageBean;
 
