@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 定义mapper，namespace为命名空间，为此mapper文件设置一个唯一标识名，一般都使用路径名加文件名。使用时方便 -->
+<mapper namespace="org.orange.carloan.letteronmag.mapper.IAdviceMapper">
+
+    <select id="findAdviceByAdviceId" parameterType="int"  resultMap="resMap">
+        select * from t_advice where id = #{id}
+    </select>
+    <resultMap type="AdviceBean" id="resMap">
+    	<id property="id" column="id"/>
+    	<result property="productCategory" column="product_category"/>
+    	<result property="approvalPeriod" column="approval_period"/>
+    	<result property="conclusion" column="conclusion"/>
+    	<result property="approvalQuota" column="approval_quota"/>
+    	<result property="branchOpinion" column="branch_opinion"/>
+    	<result property="headOpinion" column="head_opinion"/>
+    </resultMap>
+</mapper>

@@ -21,6 +21,7 @@ public interface IContractInformationReadService {
 	 * reviewDate（复审日期）、loanStratDate（放款开始时间）loanEndDate（放款结束时间）
 	 * paymentStratDate（还款开始时间）、paymentEndDate（还款结束时间）
 	 * intoStratDate（进件开始时间）、intoEndDate（进件结束时间）
+	 * index,size
 	 * @param page对象中需要有当前要查询的页码和要查询多少条数据
 	 * @param state 状态，从StateUtil类中可获取你需要查询的状态
 	 * @return

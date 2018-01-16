@@ -1,5 +1,7 @@
 package org.orange.carloan.carMessagemag.service;
 
+import java.util.List;
+
 import org.orange.carloan.beans.CarMessageBean;
 
 /**
@@ -18,7 +20,7 @@ public interface ICarMessageWritService {
 	 * 判断isSubmit是否为1，
 	 * 如果是，
 	 * 		判断合同类中的回退状态（is_fallback)
-	 * 		如果等于0，则将合同信息类的状态改为3。
+	 * 		如果等于0或者等于2，则将合同信息类的状态改为3。
 	 * 		如果等于1，则将合同信息类的状态改为5。
 	 * 		并将回退状态（isFallback）改为0
 	 * 		在执行合同信息类的update方法。
@@ -26,7 +28,7 @@ public interface ICarMessageWritService {
 	 * @param carMessage
 	 */
 	//2
-	public boolean saveCarMessage(int contractInformationId,CarMessageBean carMessage,int isSubmit);
+	public boolean saveCarMessage(int contractInformationId,List<CarMessageBean> carMessage,int isSubmit);
 	
 	/**定价师的保存或提交方法
 	 * 根据contractInformationId查询出合同类，
@@ -37,7 +39,7 @@ public interface ICarMessageWritService {
 	 * 
 	 */
 	//3
-	public boolean saveCarMessage(int contractInformationId,int carPrice,int isSubmit);
+	public boolean saveCarMessage(int contractInformationId,int[] carPrice,int isSubmit);
 	
 	/**定价师的回退方法
 	 * 
@@ -45,7 +47,7 @@ public interface ICarMessageWritService {
 	 * 如果是，则返回false，
 	 * 否则，根据contractInformationId查询出合同类，
 	 * 将合同类的回退信息改为fallbackContent，
-	 * 并且将合同类中的状态改为2，是否被回退(isFallback)改为1
+	 * 并且将合同类中的状态改为2，是否被回退(isFallback)改为2
 	 * 然后将合同类中的车辆信息中的车辆评估价格改为0，或null
 	 * 
 	 * 然后执行合同类的update方法。

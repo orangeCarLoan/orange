@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 定义mapper，namespace为命名空间，为此mapper文件设置一个唯一标识名，一般都使用路径名加文件名。使用时方便 -->
+<mapper namespace="org.orange.carloan.contractinformationmag.mapper.ContractInformationMapper">
+
+    <select id="findContractInformationSizeByMap" parameterType="java.util.Map"  resultType="int">
+        select count(ci.id) from t_contractinformation ci left join t_useridentity ui on ci.useridentity_id = ui.id left join t_company cp on ci.company_id = cp.id left join t_sign s on ci.sign_id = s.id
+        <where>
+        	<if test="contract != null">
+        		ci.contract = #{contract} 
+        	</if>
+        	<if test="username != null">
+        		and ui.username = #{username} 
+        	</if>
+        	<if test="companyName != null">
+        		and cp.name = #{companyName} 
+        	</if>
+        	<if test="identity != null">
+        		and ui.identity = #{identity} 
+        	</if>
+        	<if test="creditStatus != null">
+        		and ci.creditstatus = #{creditStatus} 
+        	</if>
+        	<if test="type != null">
+        		and ui.type = #{type} 
+        	</if>
+        	<if test="reviewDate != null">
+        		and ci.auditor_date = #{reviewDate} 
+        	</if>
+        	<if test="loanStratDate != null">
+        		and s.agreed_loan_date &gt; #{loanStratDate} 
+        	</if>
+        	<if test="loanEndDate != null">
+        		and s.agreed_loan_date &lt; #{loanEndDate} 
+        	</if>
+        	<if test="intoStratDate != null">
+        		and ci.contraction_date &gt; #{intoStratDate} 
+        	</if>
+        	<if test="intoEndDate != null">
+        		and ci.contraction_date &gt; #{intoEndDate} 
+        	</if>
+        	<!-- 还款时间 -->
+        	
+        </where>
+    </select>
+    
+    <select id="findContractInformationByMap" parameterType="java.util.Map"  resultMap="resMap">
+        select ci.id, ci.contract,ci.creditstatus,ci.auditor_date,ci.contraction_date
+         from t_contractinformation ci left join t_useridentity ui on ci.useridentity_id = ui.id left join t_company cp on ci.company_id = cp.id left join t_sign s on ci.sign_id = s.id
+        <where>
+        	<if test="contract != null">
+        		ci.contract = #{contract} 
+        	</if>
+        	<if test="username != null">
+        		and ui.username = #{username} 
+        	</if>
+        	<if test="companyName != null">
+        		and cp.name = #{companyName} 
+        	</if>
+        	<if test="identity != null">
+        		and ui.identity = #{identity} 
+        	</if>
+        	<if test="creditStatus != null">
+        		and ci.creditstatus = #{creditStatus} 
+        	</if>
+        	<if test="type != null">
+        		and ui.type = #{type} 
+        	</if>
+        	<if test="reviewDate != null">
+        		and ci.auditor_date = #{reviewDate} 
+        	</if>
+        	<if test="loanStratDate != null">
+        		and s.agreed_loan_date &gt; #{loanStratDate} 
+        	</if>
+        	<if test="loanEndDate != null">
+        		and s.agreed_loan_date &lt; #{loanEndDate} 
+        	</if>
+        	<if test="intoStratDate != null">
+        		and ci.contraction_date &gt; #{intoStratDate} 
+        	</if>
+        	<if test="intoEndDate != null">
+        		and ci.contraction_date &gt; #{intoEndDate} 
+        	</if>
+<!--         	还款时间 -->
+        	
+        </where>
+        limit #{index},#{size}
+    </select>
+    
+    
+    <select id="findContractInformationByContractId" parameterType="int" resultMap="resMap">
+    	select * from t_contractinformation where id = #{id}
+    </select>
+    
+    <resultMap id="resMap" type="ContractInformationBean">
+    	<id property="id" column="id" javaType="int"></id>
+        <result property="contract" column="contract"></result>
+        <result property="state" column="state"></result>
+        <result property="isFallback" column="is_fallback"></result>
+        <result property="fallbackContent" column="fallback_content"></result>
+        <result property="creditstatus" column="creditstatus"></result>
+        <result property="auditor" column="auditor"></result>
+        <result property="auditorDate" column="auditor_date"></result>
+        <result property="contractionDate" column="contraction_date"></result>
+        
+       <association   property="companyBean" javaType="CompanyBean" 
+        	column="company_id" select="findCompanyByCompanyId"></association>
+        <!-- <association fetchType="lazy" property="userMessageBean" javaType="UserMessageBean" 
+        	column="usermessage_id" select="org.orange.carloan.userMessagemag.mapper.IUserMessageMapper.findUserMessageByUserMessageId"></association>
+        <association fetchType="lazy" property="userCreditBean" javaType="UserCreditBean" 
+        	column="usercredit_id" select="org.orange.carloan.userCreditmag.mapper.UserCreditMapper.findUserCredByUserCredId"></association>
+        <association fetchType="lazy" property="adviceBean" javaType="AdviceBean" 
+        	column="advice_id" select="org.orange.carloan.letteronmag.mapper.IAdviceMapper.findAdviceByAdviceId"></association>
+        <association fetchType="lazy" property="signBean" javaType="SignBean" 
+        	column="sign_id" select="org.orange.carloan.signmag.mapper.SignMapper.findSignBySignId"></association>
+        -->
+        <!-- <association  property="userIdentityBean" javaType="UserIdentityBean" 
+        	column="useridentity_id" select="org.orange.carloan.userIdentitymag.mapper.UserIdentityMapper.findUserIdentityByUserIdentityId"></association>	
+         -->	
+        <!--
+        <collection property="carMessageBeans" ofType="CarMessageBean" fetchType="lazy"
+        	column="id" select="org.orange.carloan.carMessagemag.mapper.CarMessageMapper.findCarMessageByContractId"></collection>
+         -->
+<!--         管理员多对多关系 -->
+    </resultMap>
+    
+    <!-- 查询公司 -->
+    <select id="findCompanyByCompanyId" parameterType="int" resultMap="companyMap">
+     	select * from t_company where id = #{id}
+    </select>
+    
+    <resultMap type="CompanyBean" id="companyMap">
+    	<id property="id" column="id"/>
+    	<result property="name" column="name"/>
+    </resultMap>
+</mapper>

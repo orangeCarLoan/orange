@@ -1,4 +1,6 @@
-package org.orange.carloan.carMessagemag.dao.impl;
+package org.orange.carloan.carMessagemag.dao;
+
+import java.util.List;
 
 import org.orange.carloan.beans.CarMessageBean;
 
@@ -15,6 +17,6 @@ public interface ICarMessageDao {
 	 * @param contratId
 	 * @return
 	 */
-	public CarMessageBean findCarMessageByContractId(int contratId);
+	public List<CarMessageBean> findCarMessageByContractId(int contratId);
 	
 }

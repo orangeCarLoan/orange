@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.orange.carloan.carMessagemag.mapper.CarMessageMapper">
+<resultMap type="CarMessageBean" id="CarMessage">
+	<id property="id" column="id"/>
+	<result property="carPlate" column="carplate"/>
+	<result property="labelType" column="labelType"/>
+	<result property="engineno" column="engineno"/>
+	<result property="color" column="color"/>
+	<result property="firstTime" column="firstTime"/>
+	<result property="yesrValidity" column="yesrValidity"/>
+	<result property="chassisnum" column="chassisnum"/>
+	<result property="carprice" column="carprice"/>
+	<result property="currenttripnum" column="currenttripnum"/>
+	<result property="idcard" column="idcard"/>
+	<result property="carpurchase" column="carpurchase"/>
+	<result property="insurance" column="insurance"/>
+	<result property="carkey" column="carkey"/>
+	<result property="carkeynum" column="carkeynum"/>
+	<result property="carcertificate" column="carcertificate"/>
+	<result property="commercial" column="commercial"/>
+	<result property="carlicense" column="carlicense"/>
+	<result property="carInvoice" column="carInvoice"/>
+	<result property="carpayment" column="carpayment"/>
+	<result property="carprove" column="carprove"/>
+	
+	
+	<association property="carAdjuncts" javaType="CarAdjunctBean"
+	select="findAdjunctByCarMessageId" column="caradjunct_id"/>
+	
+	<collection property="carGoods" ofType="CarGoodsBean"
+	select="findGoodsByCarMessageId" column="id">
+	</collection>
+</resultMap>
+	<select id="findCarMessageByCarMessageId" parameterType="int" resultMap="CarMessage">
+	select * from t_carmessage where id=#{id}
+	</select>
+	
+	<select id="findCarMessageByContractId" parameterType="int" resultMap="CarMessage">
+	select * from t_carmessage c left join t_contractinformation con on c.contractinformation_id=con.id where con.id=${id}
+	</select>
+
+	<select id="findGoodsByCarMessageId" parameterType="int" resultMap="goodsMap">
+		select * from t_cargoods where carmessage_id=#{id}
+	</select>
+	<resultMap type="CarGoodsBean" id="goodsMap">
+	    <id property="id" column="id"></id>
+		<result property="goodsName" column="goods_name"/>
+		<result property="goodsNum" column="goods_num"/>
+	</resultMap>
+	
+	<select id="findAdjunctByCarMessageId" parameterType="int" resultMap="adjunctMap">
+		select * from t_caradjunct where id=#{id}
+	</select>
+	<resultMap type="CarAdjunctBean" id="adjunctMap">
+	    <id property="id" column="id"></id>
+		<result property="carAssessList" column="car_assessList"/>
+		<result property="carPhoto" column="car_photo"/>
+		<result property="carRegister" column="car_register"/>
+		<result property="carLicense" column="car_license"/>
+		<result property="gutCompulsory" column="guarantee_compulsory"/>
+		<result property="gutCommercial" column="guarantee_commercial"/>
+		<result property="otherAttachments" column="other_attachments"/>
+	</resultMap>
+	
+</mapper>

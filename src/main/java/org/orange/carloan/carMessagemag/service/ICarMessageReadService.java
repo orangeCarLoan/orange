@@ -1,5 +1,7 @@
 package org.orange.carloan.carMessagemag.service;
 
+import java.util.List;
+
 import org.orange.carloan.beans.CarMessageBean;
 
 public interface ICarMessageReadService {
@@ -9,6 +11,6 @@ public interface ICarMessageReadService {
 	 * @param contratId
 	 * @return
 	 */
-	public CarMessageBean findCarMessageByContractId(int contratId);
+	public List<CarMessageBean> findCarMessageByContractId(int contratId);
 	
 }

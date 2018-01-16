@@ -1,4 +1,4 @@
-package org.orange.carloan.contractinformationmag.dao.impl;
+package org.orange.carloan.contractinformationmag.dao;
 
 import java.util.List;
 import java.util.Map;
@@ -12,7 +12,7 @@ public interface IContractInformationDao {
 	 * @param map
 	 * @return
 	 */
-	public int findContractInformationByMap(Map<String,Object> map);
+	public int findContractInformationSizeByMap(Map<String,Object> map);
 	/**
 	 * 根据条件返回合同
 	 * @param map
@@ -20,7 +20,7 @@ public interface IContractInformationDao {
 	 * @param state
 	 * @return
 	 */
-	public List<ContractInformationBean> findContractInformationByMap(Map<String,Object> map,int index,int size);
+	public List<ContractInformationBean> findContractInformationByMap(Map<String,Object> map);
 	/**
 	 * 根据合同id查询合同中所有信息
 	 * @param contratId

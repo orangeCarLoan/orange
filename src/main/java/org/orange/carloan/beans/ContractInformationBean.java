@@ -1,6 +1,7 @@
 package org.orange.carloan.beans;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -51,6 +52,12 @@ public class ContractInformationBean implements Serializable {
 	
 	@Column(name="creditstatus")
 	private String creditstatus;//放款状态
+	
+	@Column(name="auditor_date")
+	private Date auditorDate;//审核时间
+	
+	@Column(name="contraction_date")
+	private Date contractionDate;//合同时间
 	
 	@ManyToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name="company_id")
@@ -175,13 +182,26 @@ public class ContractInformationBean implements Serializable {
 	public void setAdmins(List<AdminBean> admins) {
 		this.admins = admins;
 	}
+	
+	public Date getAuditorDate() {
+		return auditorDate;
+	}
+	public void setAuditorDate(Date auditorDate) {
+		this.auditorDate = auditorDate;
+	}
+	public Date getContractionDate() {
+		return contractionDate;
+	}
+	public void setContractionDate(Date contractionDate) {
+		this.contractionDate = contractionDate;
+	}
 	@Override
 	public String toString() {
 		return "ContractInformationBean [id=" + id + ", auditor=" + auditor + ", contract=" + contract + ", state="
 				+ state + ", isFallback=" + isFallback + ", fallbackContent=" + fallbackContent + ", creditstatus="
-				+ creditstatus + ", companyBean=" + companyBean + ", userMessageBean=" + userMessageBean
-				+ ", carMessageBeans=" + carMessageBeans + ", userCreditBean=" + userCreditBean + ", adviceBean="
-				+ adviceBean + ", signBean=" + signBean + ", userIdentityBean=" + userIdentityBean + ", admins="
-				+ admins + "]";
+				+ creditstatus + ", auditorDate=" + auditorDate + ", contractionDate=" + contractionDate
+				+ ", companyBean=" + companyBean + ", userMessageBean=" + userMessageBean + ", carMessageBeans="
+				+ carMessageBeans + ", userCreditBean=" + userCreditBean + ", adviceBean=" + adviceBean + ", signBean="
+				+ signBean + ", userIdentityBean=" + userIdentityBean + ", admins=" + admins + "]";
 	}
 }
