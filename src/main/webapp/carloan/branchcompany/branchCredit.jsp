@@ -300,17 +300,17 @@
                         <td></td>
                     </tr>
                 </table>
-                <table id="tab7" class="table table-striped" style="table-layout: fixed;">
+                <table id="tab7" class="table table-striped">
                 <caption class="caption">电话核查列表</caption>
                 	<thead>
                 		<tr>
-                			<th>电话</th><th style="width: 80px;">与客户关系</th><th>是否知晓贷款</th><th>联系电话</th><th>家庭住址</th>
+                			<th>姓名</th><th>与客户关系</th><th>是否知晓贷款</th><th>联系电话</th><th>家庭住址</th>
                 		</tr>
                 	</thead>
                 	<tbody>
                 		<tr style="text-align: center;">
-                			<td><input type="text" style="width: 200px;"/> </td>
-                			<td><select class="form-control" style="width: 80px;">
+                			<td><input type="text"/> </td>
+                			<td><select class="form-control">
                 				<option  value="亲属">亲属</option>
                                 <option value="朋友">朋友</option>
                 			</select> </td>
@@ -318,41 +318,38 @@
                 				<input type="radio" name="isLoan" value="是"/>是&nbsp;&nbsp;&nbsp;&nbsp;
                 				<input type="radio" name="isLoan" value="否"/>否
                 			</td>
-                			<td id="td1">区号
-                				<input type="text" style="width: 50px;"/>
-                				<input type="text" style="width: 150px;"/> 
+                			<td>
+                				<input type="text" />
                 			</td>
                 			<td><input type="text"/> </td>
                 		</tr>
                 		<tr style="text-align: center;">
-                			<td><input type="text" style="width: 200px;"/> </td>
-                			<td><select class="form-control" style="width: 80px;">
+                			<td><input type="text"/> </td>
+                			<td><select class="form-control">
                 				<option  value="亲属">亲属</option>
                                 <option value="朋友">朋友</option>
                 			</select> </td>
                 			<td>
-                				<input type="radio" name="isLoan" value="是"/>是
+                				<input type="radio" name="isLoan" value="是"/>是&nbsp;&nbsp;&nbsp;&nbsp;
                 				<input type="radio" name="isLoan" value="否"/>否
                 			</td>
-                			<td><span>区号</span>
-                				<input type="text" style="width: 80px;"/>
-                				<input type="text" style="width: 150px;"/> 
+                			<td>
+                				<input type="text" />
                 			</td>
                 			<td><input type="text"/> </td>
                 		</tr>
                 		<tr style="text-align: center;">
-                			<td><input type="text" style="width: 200px;"/> </td>
-                			<td><select class="form-control" style="width: 80px;">
+                			<td><input type="text"/> </td>
+                			<td><select class="form-control">
                 				<option  value="亲属">亲属</option>
                                 <option value="朋友">朋友</option>
                 			</select> </td>
                 			<td>
-                				<input type="radio" name="isLoan" value="是"/>是
+                				<input type="radio" name="isLoan" value="是"/>是&nbsp;&nbsp;&nbsp;&nbsp;
                 				<input type="radio" name="isLoan" value="否"/>否
                 			</td>
-                			<td><span>区号</span>
-                				<input type="text" style="width: 80px;"/>
-                				<input type="text" style="width: 150px;"/> 
+                			<td>
+                				<input type="text"/>
                 			</td>
                 			<td><input type="text"/> </td>
                 		</tr>
