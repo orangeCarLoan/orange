@@ -5,11 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>管理员</title>
-<link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="static/easyui/themes/default/easyui.css">
-<script src="static/js/jQuery-2.2.2-min.js"></script>
-<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="static/easyui/jquery.easyui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../static/easyui/themes/default/easyui.css">
+<!-- <script src="../static/js/jQuery-2.2.2-min.js"></script> -->
+<script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="../static/easyui/jquery.easyui.min.js"></script> -->
 <style>
 .table th, .table td { 
 		text-align: center; 
@@ -64,15 +64,15 @@
 				</tr>
 	    </table>
 	</form>
-	<center>
-    	<button style="width: 120px;" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">新增用户</button>
-		<button style="width: 120px;" type="submit" class="btn btn-info" data-toggle="modal" data-target="#myModal">修改用户</button>
+	<center id="hidden">
+    	<button style="width: 120px;" type="submit" class="btn btn-info" id="add">新增用户</button>
+		<button style="width: 120px;" type="submit" class="btn btn-info" id="update">修改用户</button>
 		<button id="delete" style="width: 120px;" type="submit" class="btn btn-info">删除用户</button>
 	</center>
 	</div>
 </div>
 <!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -88,13 +88,13 @@
 				<table class="table table-striped" style="width: 100%;">
 					<tbody>
 						<tr>
-							<td>用户账号</td><td><input type="text"/> </td>
+							<td>用户账号</td><td><input type="text" class="form-control"/> </td>
 						</tr>
 						<tr>
-							<td>用户密码</td><td><input type="text"/> </td>
+							<td>用户密码</td><td><input type="text" class="form-control"/> </td>
 						</tr>
 						<tr>
-							<td>用户姓名</td><td><input type="text"/> </td>
+							<td>用户姓名</td><td><input type="text" class="form-control"/> </td>
 						</tr>
 						<tr>
 							<td>所属职务</td><td>
@@ -126,8 +126,65 @@
 					确定
 				</button>
 			</div>
-		</div><!-- /.modal-content -->
-	</div><!-- /.modal -->
+		</div>
+	</div>
+</div>
+<div class="modal" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					新增用户
+				</h4>
+			</div>
+			<div class="modal-body">
+			<center>
+				<table class="table table-striped" style="width: 100%;">
+					<tbody>
+						<tr>
+							<td>用户账号</td><td><input type="text" class="form-control"/> </td>
+						</tr>
+						<tr>
+							<td>用户密码</td><td><input type="text" class="form-control"/> </td>
+						</tr>
+						<tr>
+							<td>用户姓名</td><td><input type="text" class="form-control"/> </td>
+						</tr>
+						<tr>
+							<td>所属职务</td><td>
+							<select class="form-control" style="width: 100%">
+								 <option>定价师</option>
+								 <option>评估师</option>
+								 <option>审核员</option>
+								 <option>分单员</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td>所属公司</td><td>
+							<select class="form-control" style="width: 100%">
+								 <option>分公司1</option>
+								 <option>分公司2</option>
+								 <option>分公司3</option>
+								 <option>分公司4</option>
+								 <option>分公司5</option>
+							</select></td>
+						</tr>
+					</tbody>
+				</table>
+			</center>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				</button>
+				<button type="button" class="btn btn-primary">
+					确定
+				</button>
+			</div>
+		</div>
+	</div>
 </div>
 <script>
 
@@ -141,6 +198,17 @@ $("#delete").click(function(){
 	});
 	
 });
+$(function(){
+	$("#add").click(function(){
+		$("#myModal1").modal("toggle");
+		$(".modal-backdrop").remove();//删除class值为modal-backdrop的标签，可去除阴影
+	});
+	$("#update").click(function(){
+		$("#myModal2").modal("toggle");
+		$(".modal-backdrop").remove();//删除class值为modal-backdrop的标签，可去除阴影
+	});
+});
+
 </script>
 </body>
 </html>
