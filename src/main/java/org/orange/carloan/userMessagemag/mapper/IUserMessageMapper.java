@@ -9,7 +9,7 @@ import org.orange.carloan.beans.UserMessageBean;
 public interface IUserMessageMapper {
 
 	/**
-	 * 根据客户基本信息id查询客户基本信息
+	 * 根据客户基本信息id查询客户基本信息，传入一方ID
 	 * @param id
 	 * @return
 	 */
