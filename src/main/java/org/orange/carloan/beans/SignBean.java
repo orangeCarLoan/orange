@@ -17,7 +17,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 //客户签约
 @Entity
-@Table(name="t_sig")
+@Table(name="t_sign")
 public class SignBean implements Serializable{
 
 	/** 
