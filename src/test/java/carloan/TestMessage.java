@@ -12,6 +12,7 @@ import org.orange.carloan.beans.UserMessageBean;
 import org.orange.carloan.userMessagemag.dao.IUserMessageDao;
 import org.orange.carloan.userMessagemag.dao.impl.UserMessageDaoImpl;
 import org.orange.carloan.userMessagemag.repository.UserMessageRepository;
+import org.orange.carloan.userMessagemag.service.IUserMessageReadService;
 import org.orange.carloan.userMessagemag.service.IUserMessageWritService;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -20,6 +21,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = { "classpath:Spring-context.xml" })
 public class TestMessage {
 
+	@Resource
+	private IUserMessageReadService userMessageRead;
+	
 	@Resource
 	private IUserMessageWritService userMessageWrit;
 	@Resource
@@ -30,7 +34,7 @@ public class TestMessage {
 	
 	@Test
 	public void testRead() {
-		
+		System.out.println(userMessageRead.findUserMessageByContractId(1));
 	}
 	
 	//测试Dao层
