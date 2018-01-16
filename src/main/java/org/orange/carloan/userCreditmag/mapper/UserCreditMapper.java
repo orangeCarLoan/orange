@@ -4,7 +4,7 @@ package org.orange.carloan.userCreditmag.mapper;
 import org.orange.carloan.beans.UserCreditBean;
 
 public interface UserCreditMapper {
- 
+  
 //	@ResultType(UserCreditBean.class)
 //	@Select("select id as id,house_property as houseProperty,House_loan as houseLoan,"
 //			+ "car_property as carProperty ,car_loan as carLoan,max_overdue_situation as maxSituation,"

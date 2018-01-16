@@ -6,7 +6,7 @@
 	<!-- 
 		resultType:返回结果直接封装给 bean对象
 		resultMap:将返回结果封装到集合，在通过map集合一个一个映射到bean对象
-	 -->
+	 --> 
 	<select id="findUserCredByUserCredId" parameterType="int" resultMap="userCreditMap">
 		select * from t_usercredit where id=#{id};
 	</select>
