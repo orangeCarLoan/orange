@@ -2,7 +2,7 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.orange.carloan.userCreditmag.mapper.UserCreditMapper">
-
+ 
 	<!-- 
 		resultType:返回结果直接封装给 bean对象
 		resultMap:将返回结果封装到集合，在通过map集合一个一个映射到bean对象
