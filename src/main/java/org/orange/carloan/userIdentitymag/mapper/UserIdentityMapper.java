@@ -6,7 +6,7 @@ public interface UserIdentityMapper {
 	/**
 	 * 根据身份id查询客户身份信息
 	 * @param id
-	 * @return
+	 * @return 
 	 */
 	public UserIdentityBean findUserIdentityByUserIdentityId(int id);
 }

@@ -6,7 +6,7 @@ public interface IUserIdentityDao {
 
 	/**
 	 * 根据身份id查询客户身份信息
-	 * @param id
+	 * @param id 
 	 * @return
 	 */
 	public UserIdentityBean findUserIdentityByUserIdentityId(int id);

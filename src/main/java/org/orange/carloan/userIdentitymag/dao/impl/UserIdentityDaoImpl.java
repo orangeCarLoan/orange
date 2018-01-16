@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 public class UserIdentityDaoImpl implements IUserIdentityDao {
 	
 	@Resource UserIdentityMapper uim;
-	
+	 
 	@Override
 	public UserIdentityBean findUserIdentityByUserIdentityId(int id) {
 		// TODO Auto-generated method stub

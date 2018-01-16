@@ -6,4 +6,4 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 public interface UserIdentityRepository extends JpaRepository<UserIdentityBean, Integer>,JpaSpecificationExecutor<UserIdentityBean>{
 
-}
+} 

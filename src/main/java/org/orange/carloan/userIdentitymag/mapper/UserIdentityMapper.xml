@@ -17,5 +17,5 @@
 		<result property="stratDate" column="stratDate"></result>
 		<result property="endDate" column="endDate"></result>
 	</resultMap>
-	
+	 
 </mapper>
