@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="../static/easyui/themes/icon.css">
 <script type="text/javascript" src="../static/easyui/jquery.min.js"></script>
 <script type="text/javascript" src="../static/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="../static/js/checkMenu.js"></script>
 <style>
 
    *{   
@@ -55,26 +56,7 @@
 		<div data-options="region:'center'" style="overflow-X:hidden" id="ifrom">  
 		   <img alt="" src="../static/img/homepage.png" style="display: inline-block;height:100%;margin-left:-100px">
 		   <%-- 这里用load方法加载自己的页面,不用重新加载跳转页面 --%>
-		   <script type="text/javascript">		   
-		     $(function(){
-		    	 //array中为整个左边导航栏页面链接加载的id值
-		    	 //page为需要加载到右边的页面
-		    	 //var array=["head_company","re_check","loan_list","sub_menu","read_idCard","loan_input","branch_company","signed","loan_check","manager"];		     
-		    	 //$(array[i]).click(function(){
- 				 //  $("#ifrom").load('page');
-		    	 //}
-		    	 
-		    	 //例如：
-		    	 $("#read_idCard").click(function(){
-		    		 $("#ifrom").load('branchcompany/userIdentity.jsp');
-		    	 });
-		    	 $("#read_idCard").click(function(){
- 					$("#ifrom").load('signInfo.jsp');
-		    	 })
-		    	 
-		     })
-		   
-			</script>
+		  
 		</div>
 		
 		

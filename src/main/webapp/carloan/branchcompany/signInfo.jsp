@@ -21,7 +21,7 @@
 <body>
 	<div style="margin-top: 10px;"><font style="margin-left: 1%">当前位置 : 车贷管理>车贷签约</font></div>
 	<div style="margin-top: 10px;">
-	    <form action="#" method="post">
+	    <form action="#">
 	    <table id="tab1" class="table table-striped" style="width: 100%;">
 	        <tbody>
 	        <tr>
@@ -73,53 +73,66 @@
 	        </tbody>
 	    </table>
 	    
-	    <table id="tab2" class="table table-striped" style="width: 100%;">
-	     	<thead><tr><th></th><th style="text-align:center;">签约附件列表</th><th></th></tr> </thead>
+	    <table id="tab2" class="table table-striped" style="width: 100%;table-layout: fixed">
+	    	<caption style="text-align: center;font-size: 15px;">签约附件列表</caption>
 	        <tbody>
 	        <tr>
-	            <td>银行卡<font size="3" color="red">*</font></td><td><input type="file" id=""/><button type="button" class="btn btn-default">上传</button></td>
-	            <td>附件大小</td><td><input style="border:none;background:rgba(0, 0, 0, 0);" type="text" class="form-control"/></td>
+	            <td>银行卡<font size="3" color="red">*</font></td>
+	            <td><input type="file" id=""/></td>
+	            <td><input type="button" class="btn btn-default" value="上传"/></td>
+	            <td>附件大小</td><td><span>&nbsp;</span> </td>
 	        </tr>
 	        <tr>
-	            <td>机打申请表片<font size="3" color="red">*</font></td><td><input type="file" id=""/><button type="button" class="btn btn-default">上传</button></td></td>
-	            <td>附件大小</td><td><input type="text" class="form-control"/></td>
+	            <td>机打申请表片<font size="3" color="red">*</font></td>
+	            <td><input type="file" id=""/></td>
+	            <td><input type="button" class="btn btn-default" value="上传"/></td>
+	            <td>附件大小</td><td><span>&nbsp;</span> </td></tr>
+	        <tr>
+	            <td>小额借款服务合同<font size="3" color="red">*</font></td>
+	            <td><input type="file" id=""/></td>
+	            <td><input type="button" class="btn btn-default" value="上传"/></td>
+	            <td>附件大小</td><td><span>&nbsp;</span> </td>
 	        </tr>
 	        <tr>
-	            <td>小额借款服务合同<font size="3" color="red">*</font></td><td><input type="file" id=""/><button type="button" class="btn btn-default">上传</button></td>
-	            <td>附件大小</td><td><input type="text" class="form-control"/></td>
-	        </tr>
+	            <td>收款扣款委托书<font size="3" color="red">*</font></td> 
+	            <td><input type="file" id=""/></td>
+	            <td><input type="button" class="btn btn-default" value="上传"/></td>
+	            <td>附件大小</td><td><span>&nbsp;</span> </td></tr>
 	        <tr>
-	            <td>收款扣款委托书<font size="3" color="red">*</font></td><td><input type="file" id=""/><button type="button" class="btn btn-default">上传</button></td>
-	            <td>附件大小</td><td><input type="text" class="form-control"/></td>
-	        </tr>
-	        <tr>
-	            <td>授权委托书<font size="3" color="red">*</font></td><td><input type="file" id=""/><button type="button" class="btn btn-default">上传</button></td>
-	            <td>附件大小</td><td><input type="text" class="form-control"/></td>
-	        </tr>
+	            <td>授权委托书<font size="3" color="red">*</font></td> 
+	            <td><input type="file" id=""/></td>
+	            <td><input type="button" class="btn btn-default" value="上传"/></td>
+	            <td>附件大小</td><td><span>&nbsp;</span> </td></tr>
 	         <tr>
-	            <td>还款计划表<font size="3" color="red">*</font></td><td><input type="file" id=""/><button type="button" class="btn btn-default">上传</button></td>
-	            <td>附件大小</td><td><input type="text" class="form-control"/></td>
-	        </tr>
+	            <td>还款计划表<font size="3" color="red">*</font></td>
+	            <td><input type="file" id=""/></td>
+	            <td><input type="button" class="btn btn-default" value="上传"/></td>
+	            <td>附件大小</td><td><span>&nbsp;</span> </td></tr>
 	         <tr>
-	            <td>补充协议<font size="3" color="red">*</font></td><td><input type="file" id=""/><button type="button" class="btn btn-default">上传</button></td>
-	            <td>附件大小</td><td><input type="text" class="form-control"/></td>
-	        </tr>
+	            <td>补充协议<font size="3" color="red">*</font></td> 
+	            <td><input type="file" id=""/></td>
+	            <td><input type="button" class="btn btn-default" value="上传"/></td>
+	            <td>附件大小</td><td><span>&nbsp;</span> </td></tr>
 	         <tr>
-	            <td>车辆买卖回购合同<font size="3" color="red">*</font></td><td><input type="file" id=""/><button type="button" class="btn btn-default">上传</button></td>
-	            <td>附件大小</td><td><input type="text" class="form-control"/></td>
-	        </tr>
+	            <td>车辆买卖回购合同<font size="3" color="red">*</font></td> 
+	            <td><input type="file" id=""/></td>
+	            <td><input type="button" class="btn btn-default" value="上传"/></td>
+	            <td>附件大小</td><td><span>&nbsp;</span> </td></tr>
 	         <tr>
-	            <td>授权委托书（车辆处理使用）<font size="3" color="red">*</font></td><td><input type="file" id=""/><button type="button" class="btn btn-default">上传</button></td>
-	            <td>附件大小</td><td><input type="text" class="form-control"/></td>
-	        </tr>
+	            <td>授权委托书（车辆处理使用）<font size="3" color="red">*</font></td> 
+	            <td><input type="file" id=""/></td>
+	            <td><input type="button" class="btn btn-default" value="上传"/></td>
+	            <td>附件大小</td><td><span>&nbsp;</span> </td></tr>
 	         <tr>
-	            <td>车辆抵押照片<font size="3" color="red">*</font></td><td><input type="file" id=""/><button type="button" class="btn btn-default">上传</button></td>
-	            <td>附件大小</td><td><input type="text" class="form-control"/></td>
-	        </tr>
+	            <td>车辆抵押照片<font size="3" color="red">*</font></td> 
+	            <td><input type="file" id=""/></td>
+	            <td><input type="button" class="btn btn-default" value="上传"/></td>
+	            <td>附件大小</td><td><span>&nbsp;</span> </td></tr>
 	         <tr>
-	            <td>车辆入库照片</td><td><input type="file" id=""/><button type="button" class="btn btn-default">上传</button></td>
-	            <td>附件大小</td><td><input type="text" class="form-control"/></td>
-	        </tr>
+	            <td>车辆入库照片</td> 
+	            <td><input type="file" id=""/></td>
+	            <td><input type="button" class="btn btn-default" value="上传"/></td>
+	            <td>附件大小</td><td><span>&nbsp;</span> </td></tr>
 	        </tbody>
 	     </table>
 	</form>
