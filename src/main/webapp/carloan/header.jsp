@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <script type="text/javascript">
-	function startTime() {
+	function startTime() { 
 		var today = new Date()
 		var week = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
 		var year = today.getYear()
