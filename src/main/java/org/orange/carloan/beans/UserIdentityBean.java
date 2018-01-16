@@ -47,7 +47,7 @@ public class UserIdentityBean {
 	private Date stratDate;
 	@Column
 	private String type;
-	@Column
+	@Column(name="username",length=20)
 	private String userName;
 	
 	@OneToOne(fetch = FetchType.LAZY,mappedBy="userIdentityBean")

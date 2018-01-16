@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.orange.carloan.signmag.mapper.SignMapper">
+	
+	<select id="findSignBySignId" parameterType="int" resultMap="orderMap">
+		SELECT * FROM t_sign WHERE id = #{id};
+	</select>
+	 
+	<select id="findSignByContractId" parameterType="int" resultMap="orderMap">
+		SELECT * FROM t_sign s JOIN t_contractinformation c ON c.sign_id = #{id};
+	</select>
+	
+	<resultMap id="orderMap" type="SignBean">
+		<id property="id" column="id"></id>
+		<result property="consulting" column="consulting"></result>
+		<result property="creditLimit" column="credit_limit"></result>
+		<result property="quota" column="quota"></result>
+		<result property="agreedLoanDate" column="agreed_loan_date"></result>
+		<result property="bank" column="bank"></result>
+		<result property="account" column="account"></result>
+		<result property="depositBank" column="deposit_bank"></result>
+		
+		<association property="signAdjunctBean" javaType="SignAdjunctBean" 
+		select="get" column="signadjunct_id">
+		</association>
+	</resultMap>
+	
+	<select id="get" parameterType="int" resultMap="SignAdjunctBean">
+		SELECT * FROM t_signadjunct WHERE id = #{id};
+	</select>
+	
+	<resultMap id="SignAdjunctBean" type="SignAdjunctBean">
+		<id property="id" column="id"></id>
+		<result property="bankCard" column="bank_card"></result>
+		<result property="applicationForm" column="application_form"></result>
+		<result property="loanContract" column="loan_contract"></result>
+		<result property="cutAuthorization" column="cut_authorization"></result>
+		<result property="authorization" column="authorization"></result>
+		<result property="refundList" column="refund_list"></result>
+		<result property="replenishDeal" column="replenish_deal"></result>
+		<result property="carContract" column="car_contract"></result>
+		<result property="carAuthorization" column="car_authorization"></result>
+		<result property="carPhoto" column="car_photo"></result>
+		<result property="storagePhoto" column="storage_photo"></result>
+	</resultMap>
+	
+</mapper>

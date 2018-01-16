@@ -1,13 +1,13 @@
-package org.orange.carloan.signmag.dao.impl;
+package org.orange.carloan.signmag.mapper;
 
 import org.orange.carloan.beans.SignBean;
 
-public interface ISignDao {
-	
+public interface SignMapper {
+
 	/**
 	 * 根据签约信息id查询签约信息
 	 * @param id
-	 * @return
+	 * @return 
 	 */
 	public SignBean findSignBySignId(int id);
 	/**
