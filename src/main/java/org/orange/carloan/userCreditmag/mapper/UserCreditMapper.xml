@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.orange.carloan.userCreditmag.mapper.UserCreditMapper">
+
+	<!-- 
+		resultType:返回结果直接封装给 bean对象
+		resultMap:将返回结果封装到集合，在通过map集合一个一个映射到bean对象
+	 -->
+	<select id="findUserCredByUserCredId" parameterType="int" resultMap="userCreditMap">
+		select * from t_usercredit where id=#{id};
+	</select>
+	
+	<resultMap id="userCreditMap" type="org.orange.carloan.beans.UserCreditBean">
+		<id property="id" column="id"></id>
+		<result property="houseProperty" column="house_property"></result>
+		<result property="houseLoan" column="House_loan"></result>
+		<result property="carProperty" column="car_property"></result>
+		<result property="carLoan" column="car_loan"></result>
+		<result property="maxSituation" column="max_overdue_situation"></result>
+		<result property="maxNumber" column="max_overdue_number"></result>
+		<result property="creditCardUsageRate" column="credit_card_usage_rate"></result>
+		<result property="noccLae" column="nocc_lae"></result>
+		<result property="otherCreditLoans" column="other_credit_loans"></result>
+		<result property="creditCard" column="credit_card"></result>
+		<!-- 每次通过resultMap获取到对象的时候。在创建一个对象封装到OrderBean -->
+		<!-- 
+			select:当封装association所对应对象的值时，重新发送一条sql语句
+			column：传递参数
+		
+		 
+		<association property="user" javaType="com.project.bean.UserBean" 
+		select="com.project.mapper.UserMapper.getUser" column="o_u_id">
+		</association>  -->
+	</resultMap>
+	
+	<!-- 
+	<select id="findUserCredByUserCredId2" parameterType="int" resultMap="userCreditMap2">
+		select * from t_order where o_u_id=#{id};
+	</select>
+	<resultMap id="userCreditMap2" type="com.project.bean.OrderBean">
+		<id property="id" column="o_id"></id>
+		<result property="name" column="o_name"></result>
+		<result property="da" column="o_da"></result>
+		
+	</resultMap>
+	-->
+</mapper>
