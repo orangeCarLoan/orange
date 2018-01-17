@@ -198,7 +198,10 @@ public class ContractInformationBean implements Serializable {
 	@Override
 	public String toString() {
 		return "ContractInformationBean [id=" + id + ", auditor=" + auditor + ", contract=" + contract + ", state="
-				+ state + ", isFallback=" + isFallback + ", fallbackContent=" + fallbackContent + ", auditorDate="
-				+ auditorDate + ", contractionDate=" + contractionDate + "]";
+				+ state + ", isFallback=" + isFallback + ", fallbackContent=" + fallbackContent + ", creditstatus="
+				+ creditstatus + ", auditorDate=" + auditorDate + ", contractionDate=" + contractionDate
+				+ ", companyBean=" + companyBean + ", userMessageBean=" + userMessageBean + ", carMessageBeans="
+				+ carMessageBeans + ", userCreditBean=" + userCreditBean + ", adviceBean=" + adviceBean + ", signBean="
+				+ signBean + ", userIdentityBean=" + userIdentityBean + ", admins=" + admins + "]";
 	}
 }
