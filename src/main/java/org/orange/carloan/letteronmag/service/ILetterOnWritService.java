@@ -9,7 +9,7 @@ import org.orange.carloan.beans.UserCreditBean;
  *
  */
 public interface ILetterOnWritService {
-
+ 
 	/**分公司初审保存或提交方法
 	 *  
 	 * 需要传入客户的信用信息数据和分公司综合意见数据，和是否提交,是否知晓贷款

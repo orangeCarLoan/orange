@@ -16,5 +16,5 @@ public interface UserCreditMapper {
 //				one=@One(select="")	)
 //	})
 	public UserCreditBean findUserCredByUserCredId(int id);
-	
+	 
 }

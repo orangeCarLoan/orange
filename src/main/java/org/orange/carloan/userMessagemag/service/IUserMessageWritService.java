@@ -8,7 +8,7 @@ import org.orange.carloan.beans.UserMessageBean;
  *
  */
 public interface IUserMessageWritService {
-
+ 
 	/**
 	 * 根据contractInformationId查询出合同信息，在将userMessage放入合同类属性中，
 	 * 在根据isSubmit判断，如果为1，

@@ -12,7 +12,7 @@ public class SignDaoImpl implements ISignDao {
 
 	@Resource
 	private SignMapper mapper;
-	
+	 
 	@Override
 	public SignBean findSignBySignId(int id) {
 		// TODO Auto-generated method stub

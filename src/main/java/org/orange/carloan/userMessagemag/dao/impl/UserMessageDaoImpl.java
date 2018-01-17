@@ -17,7 +17,7 @@ public class UserMessageDaoImpl implements IUserMessageDao {
 		// TODO Auto-generated method stub
 		return userMessageMapper.findUserMessageByUserMessageId(id);
 	}
-
+ 
 	@Override
 	public UserMessageBean findUserMessageByContractId(int contratId) {
 		// TODO Auto-generated method stub

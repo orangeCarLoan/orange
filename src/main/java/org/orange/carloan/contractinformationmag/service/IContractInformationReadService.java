@@ -25,7 +25,7 @@ public interface IContractInformationReadService {
 	 * @param page对象中需要有当前要查询的页码和要查询多少条数据
 	 * @param state 状态，从StateUtil类中可获取你需要查询的状态
 	 * @return
-	 */
+	 */ 
 	public PageBean findContractInformationByMap(Map<String,Object> map,PageBean page,int state);
 //	/**身份证读取界面查询
 //	 * 

@@ -10,7 +10,7 @@ import org.orange.carloan.beans.CarMessageBean;
  *
  */
 public interface ICarMessageWritService {
-
+ 
 	/**评估师的保存或提交方法
 	 * 
 	 * 根据contractInformationId查询出合同类，

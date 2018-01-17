@@ -8,7 +8,7 @@ import org.orange.carloan.beans.UserMessageBean;
  *
  */
 public interface IUserMessageReadService {
-
+ 
 	/**
 	 * 根据合同id查询客户基本信息
 	 * @param contratId

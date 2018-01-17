@@ -10,7 +10,7 @@
 	<select id="findUserCredByUserCredId" parameterType="int" resultMap="userCreditMap">
 		select * from t_usercredit where id=#{id};
 	</select>
-	 
+	  
 	<resultMap id="userCreditMap" type="org.orange.carloan.beans.UserCreditBean">
 		<id property="id" column="id"></id>
 		<result property="houseProperty" column="house_property"></result>

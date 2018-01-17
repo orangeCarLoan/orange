@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 public class CarMessageDaoImpl implements ICarMessageDao {
 	@Resource
 	public CarMessageMapper cm;
-
+ 
 	@Override
 	public CarMessageBean findCarMessageByCarMessageId(int id) {
 		// TODO Auto-generated method stub

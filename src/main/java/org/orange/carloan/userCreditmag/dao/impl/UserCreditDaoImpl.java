@@ -18,6 +18,6 @@ public class UserCreditDaoImpl implements IUserCreditDao{
 		return um.findUserCredByUserCredId(id);
 	}
 	
-	
+	 
 
 }

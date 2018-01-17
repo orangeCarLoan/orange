@@ -13,4 +13,4 @@ public interface ICarMessageReadService {
 	 */
 	public List<CarMessageBean> findCarMessageByContractId(int contratId);
 	
-}
+} 

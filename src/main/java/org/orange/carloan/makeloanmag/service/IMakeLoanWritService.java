@@ -6,9 +6,9 @@ package org.orange.carloan.makeloanmag.service;
  *
  */
 public interface IMakeLoanWritService {
-
+ 
 	/**
-	 * 点击提交放款时，查询合同Id，并将放款状态改为“放款中”
+	 * 点击提交放款时，查询合同Id，并将放款状态改为“已放款”
 	 * @param contratId
 	 */
 	//9

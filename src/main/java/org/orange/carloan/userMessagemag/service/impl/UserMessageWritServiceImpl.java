@@ -12,7 +12,7 @@ public class UserMessageWritServiceImpl implements IUserMessageWritService {
 
 	@Resource
 	private UserMessageRepository  userMessageRepository; 
-	
+	 
 	@Override
 	public boolean saveUserMessage(int contractInformationId, UserMessageBean userMessage, int isSubmit) {
 		// TODO Auto-generated method stub

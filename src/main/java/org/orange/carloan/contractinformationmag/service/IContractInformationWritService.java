@@ -15,5 +15,5 @@ public interface IContractInformationWritService {
 	 * @param contractInformationId 合同id
 	 */
 	public void deleteContractInformation(int contractInformationId);
-	
+	 
 }

@@ -8,7 +8,7 @@ import org.orange.carloan.beans.UserCreditBean;
  *
  */
 public interface IUserCreditWritService {
-
+ 
 	/**
 	 * 根据contractInformationId查询出合同类。
 	 * 判断合同类中的状态是否为0，

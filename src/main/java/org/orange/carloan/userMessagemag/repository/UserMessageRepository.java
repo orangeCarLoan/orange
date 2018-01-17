@@ -12,5 +12,5 @@ public interface UserMessageRepository extends JpaRepository<UserMessageBean, In
 //	@Modifying
 //	@Query(value="insert UserMessageBean as u into u.address value ?1")
 //	public void updateMessageBean(String useraddress,int id);
-
+ 
 }

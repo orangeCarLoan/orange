@@ -1,7 +1,11 @@
 package org.orange.carloan.utils;
 
-public class StetaUtil {
+public class StateUtil {
 
+	/**
+	 * 客户身份证信息状态
+	 */
+	public static int USER_IDENTITY = -1;
 	/**
 	 * 客户基本信息状态
 	 */

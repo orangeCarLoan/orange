@@ -11,7 +11,7 @@ public class UserMessageReadServiceImpl implements IUserMessageReadService {
 
 	@Resource
 	private UserMessageRepository  userMessageRepository;
-	
+	 
 	@Override
 	public UserMessageBean findUserMessageByContractId(int contratId) {
 		// TODO Auto-generated method stub

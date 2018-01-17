@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 public class ContranctInformationDaoImpl implements IContractInformationDao {
 	@Resource
 	private ContractInformationMapper contranctInformationMapper;
-	
+	 
 	@Override
 	public int findContractInformationSizeByMap(Map<String, Object> map) {
 		// TODO Auto-generated method stub

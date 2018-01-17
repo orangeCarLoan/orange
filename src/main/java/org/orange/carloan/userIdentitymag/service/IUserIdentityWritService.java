@@ -8,7 +8,7 @@ import org.orange.carloan.beans.UserIdentityBean;
  *
  */
 public interface IUserIdentityWritService {
-
+ 
 	/**
 	 * 首先创建一个合同信息类，生成一个唯一的合同编号
 	 * 然后将userIdentity保存至合同信息类中

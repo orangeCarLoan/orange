@@ -11,3 +11,4 @@ public interface IUserCreditDao {
 	 */
 	public UserCreditBean findUserCredByUserCredId(int id);
 }
+ 

@@ -6,7 +6,7 @@ import java.util.Map;
 import org.orange.carloan.beans.ContractInformationBean;
 
 public interface IContractInformationDao {
-	
+	 
 	/**
 	 * 根据条件返回有多少行数据
 	 * @param map

@@ -5,7 +5,7 @@ import java.util.List;
 import org.orange.carloan.beans.CarMessageBean;
 
 public interface ICarMessageDao {
-
+ 
 	/**
 	 * 根据车辆信息id查询车辆信息
 	 * @param id

@@ -8,7 +8,7 @@ import org.orange.carloan.beans.UserCreditBean;
  *
  */
 public interface IUserCreditService {
-
+ 
 	/**
 	 * 判断userCredit是否为null，
 	 * 是则返回false。，

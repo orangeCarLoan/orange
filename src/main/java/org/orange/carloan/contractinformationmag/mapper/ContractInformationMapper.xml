@@ -39,6 +39,9 @@
         	<if test="intoEndDate != null">
         		and ci.contraction_date &gt; #{intoEndDate} 
         	</if>
+        	<if test="state != null">
+        		and ci.state &gt; #{state} 
+        	</if>
         	<!-- 还款时间 -->
         	
         </where>
@@ -80,6 +83,9 @@
         	</if>
         	<if test="intoEndDate != null">
         		and ci.contraction_date &gt; #{intoEndDate} 
+        	</if>
+        	<if test="state != null">
+        		and ci.state &gt; #{state} 
         	</if>
 <!--         	还款时间 -->
         	

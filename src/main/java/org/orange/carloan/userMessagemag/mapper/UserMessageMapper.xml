@@ -3,7 +3,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.orange.carloan.userMessagemag.mapper.IUserMessageMapper">
 <resultMap type="UserMessageBean" id="usermessageMap">
-		<result property="id" column="id" />
+		<result property="id" column="id" /> 
 		<result property="address" column="address" />
 		<result property="applyDate" column="applyDate" />
 		<result property="borrowPurpose" column="borrowPurpose" />

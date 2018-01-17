@@ -3,7 +3,7 @@ package org.orange.carloan.userMessagemag.dao;
 import org.orange.carloan.beans.UserMessageBean;
 
 public interface IUserMessageDao {
-
+ 
 	/**
 	 * 根据客户基本信息id查询客户基本信息
 	 * @param id

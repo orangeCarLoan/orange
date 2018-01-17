@@ -8,7 +8,7 @@ import org.orange.carloan.beans.SignBean;
  *
  */
 public interface ISignReadService {
-
+ 
 	/**
 	 * 根据合同id查询签约信息
 	 * @param contratId

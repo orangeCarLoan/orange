@@ -8,7 +8,7 @@ import java.util.List;
  *
  */
 public interface ISignCheckReadService {
-
+ 
 	/**
 	 * 根据合同id查询签约复核所需要的信息
 	 * @param contratId

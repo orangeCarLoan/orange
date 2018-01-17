@@ -20,7 +20,7 @@ public class SignWritServiceImpl implements ISignWritService {
 	public void saveSign(int contractInformationId, SignBean sign, int isSubmit) {
 		// TODO Auto-generated method stub
 		ContractInformationBean bean = contractInformationDaoImpl.findContractInformationByContractId(contractInformationId);
-		
+		 
 		bean.setSignBean(sign);
 		
 		if(isSubmit == 1) {

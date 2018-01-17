@@ -13,7 +13,7 @@ public class CarMessageReadServiceImpl implements ICarMessageReadService{
 
 	@Resource
 	private ICarMessageDao carMessageDaoImpl;
-	
+	 
 	@Override
 	public List<CarMessageBean> findCarMessageByContractId(int contratId) {
 		// TODO Auto-generated method stub

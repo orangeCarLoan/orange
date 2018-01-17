@@ -10,5 +10,5 @@ public interface ILetterOnDao {
 	 * @return
 	 */
 	public AdviceBean findAdviceByAdviceId(int id);
-	
+	 
 }

@@ -13,7 +13,7 @@ public interface IUserMessageMapper {
 	 * @param id
 	 * @return
 	 */
-	
+	 
 	public UserMessageBean findUserMessageByUserMessageId(int id);
 	
 	

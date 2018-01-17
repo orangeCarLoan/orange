@@ -8,7 +8,7 @@ import java.util.List;
  *
  */
 public interface ILetterOnReadService {
-
+ 
 	/**
 	 * 根据合同id查询分公司所需要的信息
 	 * @param contratId

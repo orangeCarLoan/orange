@@ -3,7 +3,7 @@
 <mapper namespace="org.orange.carloan.userIdentitymag.mapper.UserIdentityMapper">
 	<select id="findUserIdentityByUserIdentityId" parameterType="int" resultMap="resMap">
 		SELECT * FROM t_useridentity WHERE id =#{id}
-	</select>
+	</select> 
 	<resultMap type="org.orange.carloan.beans.UserIdentityBean" id="resMap">
 		<id property="id" column="id"></id>
 		<result property="userName" column="username"></result>

@@ -15,8 +15,7 @@ public interface ISignCheckWritService {
 	 * 如果不相等，直接返回false
 	 * 否者
 	 * 判断是否提交，0则只保存信息，
-	 * 1则将合同类的状态改为9,并且将放款状态改为"待放款"
-	 * 并将回退状态（isFallback）改为0
+	 * 1则将合同类的状态改为9,并且将放款状态改为"放款中"
 	 * 然后执行update方法
 	 * @param contratId
 	 * @param isSubmit
@@ -29,7 +28,7 @@ public interface ISignCheckWritService {
 	 * 
 	 * 查询合同id
 	 * 保存回退意见同时改变状态码7
-	 * 并将回退状态（isFallback）改为0
+	 * 并将回退状态（isFallback）改为1
 	 * 然后执行update方法
 	 * @param contratId
 	 * @param advice

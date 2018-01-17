@@ -8,7 +8,7 @@ import org.orange.carloan.beans.UserIdentityBean;
  *
  */
 public interface IUserIdentityService {
-
+ 
 	/**
 	 * 首先根据userIdentity中的身份证号查询数据库中是否有该用户，
 	 * 如果有，则返回false，不能再重复添加该客户。

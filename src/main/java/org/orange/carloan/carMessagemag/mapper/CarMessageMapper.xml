@@ -23,7 +23,7 @@
 	<result property="carInvoice" column="carInvoice"/>
 	<result property="carpayment" column="carpayment"/>
 	<result property="carprove" column="carprove"/>
-	
+	 
 	
 	<association property="carAdjuncts" javaType="CarAdjunctBean"
 	select="findAdjunctByCarMessageId" column="caradjunct_id"/>

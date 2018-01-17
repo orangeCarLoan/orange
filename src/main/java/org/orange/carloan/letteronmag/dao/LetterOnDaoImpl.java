@@ -17,5 +17,5 @@ public class LetterOnDaoImpl implements ILetterOnDao {
 		// TODO Auto-generated method stub
 		return mapper.findAdviceByAdviceId(id);
 	}
-
+ 
 }

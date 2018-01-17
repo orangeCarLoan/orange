@@ -10,3 +10,4 @@ public interface UserIdentityMapper {
 	 */
 	public UserIdentityBean findUserIdentityByUserIdentityId(int id);
 }
+ 

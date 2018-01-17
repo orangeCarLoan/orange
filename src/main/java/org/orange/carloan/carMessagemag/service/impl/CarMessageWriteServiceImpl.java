@@ -28,12 +28,14 @@ public class CarMessageWriteServiceImpl implements ICarMessageWritService{
 		}else {
 			bean1.setCarMessageBeans(carMessage);
 			if(isSubmit==1) {
-				if(bean1.getIsFallback()==0||bean1.getState()==2) {
+				if(bean1.getIsFallback()==0||bean1.getIsFallback()==2) {
 					bean1.setState(3);
+					bean1.setIsFallback(0);
 					contractInformationRepository.saveAndFlush(bean1);
 					return true;
 				}else {
 					bean1.setState(5);
+					bean1.setIsFallback(0);
 					contractInformationRepository.saveAndFlush(bean1);
 					return true;
 				}

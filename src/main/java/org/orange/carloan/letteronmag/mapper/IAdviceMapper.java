@@ -10,5 +10,5 @@ public interface IAdviceMapper {
 	 * @return
 	 */
 	public AdviceBean findAdviceByAdviceId(int id);
-	
+	 
 }
