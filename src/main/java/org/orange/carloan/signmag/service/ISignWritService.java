@@ -19,7 +19,6 @@ public interface ISignWritService {
 	 * 然后执行合同的update方法。
 	 * 如果为0，直接执行合同的update方法。
 	 */
-	//7
 	public void saveSign(int contractInformationId,SignBean sign,int isSubmit);
 	
 	/**签约的回退方法
