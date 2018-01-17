@@ -13,9 +13,9 @@ public interface IUserMessageWritService {
 	 * 根据contractInformationId查询出合同信息，在将userMessage放入合同类属性中，
 	 * 在根据isSubmit判断，如果为1，
 	 * 		判断合同类中的回退状态（isFallback)
-	 * 		如果等于0，则将合同信息类的状态改为2。
+	 * 		如果等于0，则将合同信息类的状态改为2。ContractInformationBean-state
 	 * 		如果等于1，则将合同信息类的状态改为5。
-	 * 		并将回退状态（isFallback）改为0
+	 * 		并将回退状态（isFallback）改为0---ContractInformationBean-is_fallback
 	 * 		在执行合同信息类的update方法。
 	 * isSubmit如果等于0，
 	 * 直接执行合同信息类的update方法。

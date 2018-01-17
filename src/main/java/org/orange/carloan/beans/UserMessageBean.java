@@ -330,8 +330,10 @@ public class UserMessageBean implements Serializable{
 				+ ", hasChild=" + hasChild + ", houseType=" + houseType + ", income=" + income + ", marry=" + marry
 				+ ", maxdeadline=" + maxdeadline + ", maxlimit=" + maxlimit + ", minlimit=" + minlimit + ", partner="
 				+ partner + ", place=" + place + ", repayment=" + repayment + ", saleName=" + saleName + ", telephone="
-				+ telephone + ", unitNature=" + unitNature + ", userPhone=" + userPhone + "]";
+				+ telephone + ", unitNature=" + unitNature + ", userPhone=" + userPhone + ", zipCode=" + zipCode
+				+ ", contractInformationBean=" + contractInformationBean + "]";
 	}
+
 
 	
 }

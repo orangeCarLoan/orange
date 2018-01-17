@@ -33,18 +33,27 @@ public class TestMessage {
 	private UserMessageDaoImpl userMessageDaoImpl;
 	
 	@Test
-	public void testRead() {
-		System.out.println(userMessageRead.findUserMessageByContractId(1));
+	public void TestWritMessage() {
+		UserMessageBean userMessage=userMessageRepository.findOne(1);
+		System.out.println(userMessage);
+		userMessage.setAddress("测试2");
+		System.out.println(userMessageWrit.saveUserMessage(1, userMessage, 1));
 	}
 	
+	
+//	@Test
+//	public void testRead() {
+//		System.out.println(userMessageRead.findUserMessageByContractId(1));
+//	}
+	
 	//测试Dao层
-	@Test
-	public void testDaoceng(){
-		
-		
-		System.out.println(userMessageDaoImpl.findUserMessageByContractId(1));
-		
-	}
+//	@Test
+//	public void testDaoceng(){
+//		
+//		
+//		System.out.println(userMessageDaoImpl.findUserMessageByContractId(1));
+//		
+//	}
 	
 	
 	
