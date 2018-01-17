@@ -59,6 +59,12 @@ public class ContactBean implements Serializable{
 	@Column(name="know_loan")
 	private Integer knowLoan;
 	
+	public Integer getKnowLoan() {
+		return knowLoan;
+	}
+	public void setKnowLoan(Integer knowLoan) {
+		this.knowLoan = knowLoan;
+	}
 	//客户基本信息
 	@ManyToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name="usermessage_id")

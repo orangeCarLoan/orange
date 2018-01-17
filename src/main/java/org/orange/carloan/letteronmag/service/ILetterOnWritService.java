@@ -17,19 +17,19 @@ public interface ILetterOnWritService {
 	 * 首先contractInformationId查询合同类，
 	 * 然后将客户的信用信息userCredit和综合意见信息advice存入合同类中
 	 * 并取出合同类的客户基本信息类，将客户基本信息类中的是否知晓贷款改为knowLoan
-	 * 如果submit为1，则将合同类中的状态改为6，
+	 * 如果isSubmit为1，则将合同类中的状态改为6，
 	 * 并将回退状态（isFallback）改为0
-	 * 最后执行合同信息的update方法
+	 * 最后执行合同信息的save方法
 	 */
 	//5
-	public void saveBranchAudit(int contractInformationId,UserCreditBean userCredit,AdviceBean advice,int knowLoan,int isSubmit);
+	public void saveBranchAudit(int contractInformationId,UserCreditBean userCredit,AdviceBean advice,int[] knowLoan,int isSubmit);
 	
 	/**
 	 * 分公司初审回退方法
 	 * 
 	 * 根据contractInformationId查询出合同类，
-	 * 然后根据state修改合同类的状态，如果state为0，
-	 * 则修改为1，否则，修改为2
+	 * 然后根据(参数)state修改合同类的状态(2,1)，如果(参数)state为0，(车辆信息回退)
+	 * 则修改为1，否则，修改为2(基本信息回退)
 	 * 然后将fallbackContent回退信息存入合同类中。
 	 * 并将回退状态（isFallback）改为1
 	 * 并将合同类中的
