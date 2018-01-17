@@ -34,7 +34,12 @@
 		<result property="unitNature" column="unitNature" />
 		<result property="userPhone" column="userPhone" />
 		<result property="zipCode" column="zipCode" />
-		<association property="contractInformationBean" javaType="ContractInformationBean" column="id"></association>
+		
+		<association property="userAdjunctBean" javaType="UserAdjunctBean"
+			column="useradjunct_id" select="findUserAdJunctById"></association>
+		
+		<association property="contractInformationBean" javaType="ContractInformationBean"
+			column="id" select="org.orange.carloan.contractinformationmag.mapper.ContractInformationMapper.findContractInformationByUserMessageId"></association>
 	</resultMap>
 	
 		<select id="findUserMessageByUserMessageId" resultType="int" resultMap="usermessageMap">
@@ -44,4 +49,9 @@
 	<select id="findUserMessageByContractId" resultType="int" resultMap="usermessageMap">
  		select * from t_usermessage u left join t_contractinformation c on  c.id=#{id} 
  	</select>
+ 	
+ 	<select id="findUserAdJunctById" parameterType="int" resultType="UserAdjunctBean">
+		select id,id_card Idcard,carLoan_form carLoanFrom,ather_adjunct atherAdjunct
+			 from t_useradjunct where id = #{id}
+	</select>
 </mapper>

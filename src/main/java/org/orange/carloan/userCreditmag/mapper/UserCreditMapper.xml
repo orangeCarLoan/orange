@@ -23,26 +23,9 @@
 		<result property="noccLae" column="nocc_lae"></result>
 		<result property="otherCreditLoans" column="other_credit_loans"></result>
 		<result property="creditCard" column="credit_card"></result>
-		<!-- 每次通过resultMap获取到对象的时候。在创建一个对象封装到OrderBean -->
-		<!-- 
-			select:当封装association所对应对象的值时，重新发送一条sql语句
-			column：传递参数
 		
-		 
-		<association property="user" javaType="com.project.bean.UserBean" 
-		select="com.project.mapper.UserMapper.getUser" column="o_u_id">
-		</association>  -->
+		<association property="contractInformationBean" javaType="ContractInformationBean"
+			column="id" select="org.orange.carloan.contractinformationmag.mapper.ContractInformationMapper.findContractInformationByUserCreditId"></association>
 	</resultMap>
 	
-	<!-- 
-	<select id="findUserCredByUserCredId2" parameterType="int" resultMap="userCreditMap2">
-		select * from t_order where o_u_id=#{id};
-	</select>
-	<resultMap id="userCreditMap2" type="com.project.bean.OrderBean">
-		<id property="id" column="o_id"></id>
-		<result property="name" column="o_name"></result>
-		<result property="da" column="o_da"></result>
-		
-	</resultMap>
-	-->
 </mapper>

@@ -71,13 +71,14 @@
 	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource1"></property>
 		<!-- 如果有多个包需要同时取类别名， 包与包之间采用,或;间隔 -->
-		<property name="typeAliasesPackage" value="org.orange.carloan.beans">
-		</property>
+		<property name="typeAliasesPackage" value="org.orange.carloan.beans"></property>
 		<property name="mapperLocations" value="classpath*:org/orange/carloan/*mag/mapper/*Mapper.xml"/>
+		<property name="configLocation" value="classpath:mybatis.xml" /> 
 	</bean>
 	<!-- mybatis的mapper引射器 -->
 	<bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="
+		org.orange.carloan.adminmag.mapper;
 		org.orange.carloan.carMessagemag.mapper;
 		org.orange.carloan.contractinformationmag.mapper;
 		org.orange.carloan.dividemag.mapper;

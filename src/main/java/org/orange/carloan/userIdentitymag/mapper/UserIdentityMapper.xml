@@ -16,6 +16,11 @@
 		<result property="organ" column="organ"></result>
 		<result property="stratDate" column="stratDate"></result>
 		<result property="endDate" column="endDate"></result>
+		<association property="contractInformationBean" javaType="ContractInformationBean"
+			column="id" select="org.orange.carloan.contractinformationmag.mapper.ContractInformationMapper.findContractInformationByUserIdentityId">
+		</association>
 	</resultMap>
-	 
+	<select id="findUserIdentityByIdentity" parameterType="string" resultMap="resMap">
+		SELECT * FROM t_useridentity WHERE identity=#{identity}
+	</select>
 </mapper>

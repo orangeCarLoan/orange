@@ -91,9 +91,29 @@
     <select id="findContractInformationByContractId" parameterType="int" resultMap="resMap">
     	select * from t_contractinformation where id = #{id}
     </select>
+    <select id="findContractInformationByCompanyId" parameterType="int" resultMap="resMap">
+    	select * from t_contractinformation where company_id = #{id}
+    </select>
+    <select id="findContractInformationByUserMessageId" parameterType="int" resultMap="resMap">
+    	select * from t_contractinformation where usermessage_id = #{id}
+    </select>
+    <select id="findContractInformationByUserCreditId" parameterType="int" resultMap="resMap">
+    	select * from t_contractinformation where usercredit_id = #{id}
+    </select>
+    <select id="findContractInformationByAdviceId" parameterType="int" resultMap="resMap">
+    	select * from t_contractinformation where advice_id = #{id}
+    </select>
+    <select id="findContractInformationBySignId" parameterType="int" resultMap="resMap">
+    	select * from t_contractinformation where sign_id = #{id}
+    </select>
+    <select id="findContractInformationByUserIdentityId" parameterType="int" resultMap="resMap">
+    	select * from t_contractinformation where useridentity_id = #{id}
+    </select>
+    
+    
     
     <resultMap id="resMap" type="ContractInformationBean">
-    	<id property="id" column="id" javaType="int"></id>
+    	<id property="id" column="id"></id>
         <result property="contract" column="contract"></result>
         <result property="state" column="state"></result>
         <result property="isFallback" column="is_fallback"></result>
@@ -103,24 +123,24 @@
         <result property="auditorDate" column="auditor_date"></result>
         <result property="contractionDate" column="contraction_date"></result>
         
-       <association   property="companyBean" javaType="CompanyBean" 
+        <association property="companyBean" javaType="CompanyBean" 
         	column="company_id" select="findCompanyByCompanyId"></association>
-        <!-- <association fetchType="lazy" property="userMessageBean" javaType="UserMessageBean" 
+        <association  property="userMessageBean" javaType="UserMessageBean" 
         	column="usermessage_id" select="org.orange.carloan.userMessagemag.mapper.IUserMessageMapper.findUserMessageByUserMessageId"></association>
-        <association fetchType="lazy" property="userCreditBean" javaType="UserCreditBean" 
+        <association  property="userCreditBean" javaType="UserCreditBean" 
         	column="usercredit_id" select="org.orange.carloan.userCreditmag.mapper.UserCreditMapper.findUserCredByUserCredId"></association>
-        <association fetchType="lazy" property="adviceBean" javaType="AdviceBean" 
+        <association  property="adviceBean" javaType="AdviceBean" 
         	column="advice_id" select="org.orange.carloan.letteronmag.mapper.IAdviceMapper.findAdviceByAdviceId"></association>
-        <association fetchType="lazy" property="signBean" javaType="SignBean" 
+        <association  property="signBean" javaType="SignBean" 
         	column="sign_id" select="org.orange.carloan.signmag.mapper.SignMapper.findSignBySignId"></association>
-        -->
-        <!-- <association  property="userIdentityBean" javaType="UserIdentityBean" 
+        
+        <association  property="userIdentityBean" javaType="UserIdentityBean" 
         	column="useridentity_id" select="org.orange.carloan.userIdentitymag.mapper.UserIdentityMapper.findUserIdentityByUserIdentityId"></association>	
-         -->	
-        <!--
-        <collection property="carMessageBeans" ofType="CarMessageBean" fetchType="lazy"
+  	
+        
+        <collection property="carMessageBeans" ofType="CarMessageBean" 
         	column="id" select="org.orange.carloan.carMessagemag.mapper.CarMessageMapper.findCarMessageByContractId"></collection>
-         -->
+         
 <!--         管理员多对多关系 -->
     </resultMap>
     
@@ -132,5 +152,7 @@
     <resultMap type="CompanyBean" id="companyMap">
     	<id property="id" column="id"/>
     	<result property="name" column="name"/>
+    	<collection property="contracts"  column="id"
+    		ofType="ContractInformationBean" select="findContractInformationByCompanyId"></collection>
     </resultMap>
 </mapper>

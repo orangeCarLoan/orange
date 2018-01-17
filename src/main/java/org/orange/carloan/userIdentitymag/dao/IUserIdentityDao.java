@@ -10,5 +10,10 @@ public interface IUserIdentityDao {
 	 * @return
 	 */
 	public UserIdentityBean findUserIdentityByUserIdentityId(int id);
-	
+	/**
+	  * 根据身份证号查询客户身份信息
+	 * @param identity 
+	 * @return
+	 */
+	public UserIdentityBean findUserIdentityByIdentity(String identity);
 }
