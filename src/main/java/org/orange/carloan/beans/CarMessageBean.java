@@ -63,7 +63,7 @@ public class CarMessageBean implements Serializable{
 	
 	//车辆评估价格
 	@Column(name="carprice")
-	private double carPrice;
+	private int carPrice;
 	
 	//目前已行驶里程数 
 	@Column(name="currenttripnum")
@@ -189,10 +189,10 @@ public class CarMessageBean implements Serializable{
 	public void setChassisnum(String chassisnum) {
 		this.chassisnum = chassisnum;
 	}
-	public double getCarPrice() {
+	public int getCarPrice() {
 		return carPrice;
 	}
-	public void setCarPrice(double carPrice) {
+	public void setCarPrice(int carPrice) {
 		this.carPrice = carPrice;
 	}
 	public String getCurrentTripNum() {

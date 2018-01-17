@@ -10,7 +10,7 @@
 	<result property="firstTime" column="firstTime"/>
 	<result property="yesrValidity" column="yesrValidity"/>
 	<result property="chassisnum" column="chassisnum"/>
-	<result property="carprice" column="carprice"/>
+	<result property="carPrice" column="carprice"/>
 	<result property="currenttripnum" column="currenttripnum"/>
 	<result property="idcard" column="idcard"/>
 	<result property="carpurchase" column="carpurchase"/>
@@ -28,6 +28,9 @@
 	<association property="carAdjuncts" javaType="CarAdjunctBean"
 	select="findAdjunctByCarMessageId" column="caradjunct_id"/>
 	
+	<association property="contractInformationBean" javaType="ContractInformationBean"
+		select="org.orange.carloan.contractinformationmag.mapper.ContractInformationMapper.findContractInformationByContractId" column="contractinformation_id"></association>
+	
 	<collection property="carGoods" ofType="CarGoodsBean"
 	select="findGoodsByCarMessageId" column="id">
 	</collection>
@@ -37,7 +40,7 @@
 	</select>
 	
 	<select id="findCarMessageByContractId" parameterType="int" resultMap="CarMessage">
-	select * from t_carmessage c left join t_contractinformation con on c.contractinformation_id=con.id where con.id=${id}
+	select * from t_carmessage c left join t_contractinformation con on c.contractinformation_id=con.id where con.id=#{id}
 	</select>
 
 	<select id="findGoodsByCarMessageId" parameterType="int" resultMap="goodsMap">

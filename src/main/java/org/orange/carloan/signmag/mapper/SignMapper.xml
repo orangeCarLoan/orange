@@ -23,6 +23,8 @@
 		<association property="signAdjunctBean" javaType="SignAdjunctBean" 
 		select="get" column="signadjunct_id">
 		</association>
+		<association property="contractInformationBean" javaType="ContractInformationBean"
+			column="id" select="org.orange.carloan.contractinformationmag.mapper.ContractInformationMapper.findContractInformationBySignId"></association>
 	</resultMap>
 	
 	<select id="get" parameterType="int" resultMap="SignAdjunctBean">

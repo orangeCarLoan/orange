@@ -27,4 +27,6 @@ public interface IContractInformationDao {
 	 * @return
 	 */
 	public ContractInformationBean findContractInformationByContractId(int contratId);
+	
+	
 }

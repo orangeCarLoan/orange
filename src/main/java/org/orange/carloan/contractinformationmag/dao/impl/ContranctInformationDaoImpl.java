@@ -3,6 +3,8 @@ package org.orange.carloan.contractinformationmag.dao.impl;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.orange.carloan.beans.ContractInformationBean;
 import org.orange.carloan.contractinformationmag.dao.IContractInformationDao;
 import org.orange.carloan.contractinformationmag.mapper.ContractInformationMapper;
@@ -10,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class ContranctInformationDaoImpl implements IContractInformationDao {
-	
+	@Resource
 	private ContractInformationMapper contranctInformationMapper;
 	
 	@Override

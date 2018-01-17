@@ -14,5 +14,7 @@
     	<result property="approvalQuota" column="approval_quota"/>
     	<result property="branchOpinion" column="branch_opinion"/>
     	<result property="headOpinion" column="head_opinion"/>
+    	<association property="contractInformationBean" javaType="ContractInformationBean"
+    		column="id" select="org.orange.carloan.contractinformationmag.mapper.ContractInformationMapper.findContractInformationByAdviceId"></association>
     </resultMap>
 </mapper>
