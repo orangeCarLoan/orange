@@ -2,7 +2,10 @@ package org.orange.carloan.userMessagemag.service.impl;
 
 import javax.annotation.Resource;
 
+import org.orange.carloan.beans.ContractInformationBean;
 import org.orange.carloan.beans.UserMessageBean;
+import org.orange.carloan.contractinformationmag.dao.IContractInformationDao;
+import org.orange.carloan.contractinformationmag.repository.IContractInformationRepository;
 import org.orange.carloan.userMessagemag.repository.UserMessageRepository;
 import org.orange.carloan.userMessagemag.service.IUserMessageWritService;
 import org.springframework.stereotype.Service;
@@ -11,29 +14,33 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserMessageWritServiceImpl implements IUserMessageWritService {
 
 	@Resource
-	private UserMessageRepository  userMessageRepository; 
-	 
+	private IContractInformationRepository  contractInformationRepository; 
+	@Resource
+	private IContractInformationDao contractInformationDaoImpl;
 	@Override
 	public boolean saveUserMessage(int contractInformationId, UserMessageBean userMessage, int isSubmit) {
 		// TODO Auto-generated method stub
+		ContractInformationBean contract = contractInformationDaoImpl.findContractInformationByContractId(contractInformationId);
+		//ContractInformationBean contract = contractInformationRepository.findOne(contractInformationId);
+		contract.setUserMessageBean(userMessage);
 		Boolean flag=false;
 		if(isSubmit==0) {
 			System.out.println("这是提交状态="+isSubmit);
-			userMessageRepository.saveAndFlush(userMessage);
-			System.out.println("你更改了如下信息："+userMessage+"/r");
+			contractInformationRepository.saveAndFlush(contract);
+			//System.out.println("你更改了如下信息："+userMessage+"/r");
 			return flag=false;
 		}else if(isSubmit==1) {
 			System.out.println("这是提交状态="+isSubmit);
-			if(userMessage.getContractInformationBean().getIsFallback()==0) {
-				userMessage.getContractInformationBean().setState(2);
-				userMessageRepository.saveAndFlush(userMessage);
+			if(contract.getIsFallback()==0) {
+				contract.setState(2);
+				
 				System.out.println("修改了状态为2");
-			}else if(userMessage.getContractInformationBean().getIsFallback()==2) {
-				userMessage.getContractInformationBean().setState(5);
-				userMessage.getContractInformationBean().setIsFallback(0);
-				userMessageRepository.saveAndFlush(userMessage);
+			}else if(contract.getIsFallback()==2) {
+				contract.setState(5);
+				contract.setIsFallback(0);
 				System.out.println("修改了状态为5回退状态为0");
 			}
+			contractInformationRepository.saveAndFlush(contract);
 			return flag=true;
 		}
 		

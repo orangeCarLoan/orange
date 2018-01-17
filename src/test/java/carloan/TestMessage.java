@@ -35,7 +35,7 @@ public class TestMessage {
 	@Test
 	public void TestWritMessage() {
 		UserMessageBean userMessage=userMessageRepository.findOne(1);
-		System.out.println(userMessage);
+		System.out.println(userMessage.getAddress());
 		userMessage.setAddress("测试2");
 		System.out.println(userMessageWrit.saveUserMessage(1, userMessage, 1));
 	}

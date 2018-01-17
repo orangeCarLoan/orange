@@ -8,11 +8,13 @@ import org.orange.carloan.adminmag.dao.IAdminDao;
 import org.orange.carloan.beans.AdminBean;
 import org.orange.carloan.beans.AdviceBean;
 import org.orange.carloan.beans.CarMessageBean;
+import org.orange.carloan.beans.ContractInformationBean;
 import org.orange.carloan.beans.PageBean;
 import org.orange.carloan.beans.SignBean;
 import org.orange.carloan.beans.UserCreditBean;
 import org.orange.carloan.carMessagemag.dao.ICarMessageDao;
 import org.orange.carloan.contractinformationmag.dao.IContractInformationDao;
+import org.orange.carloan.contractinformationmag.repository.IContractInformationRepository;
 import org.orange.carloan.contractinformationmag.service.IContractInformationReadService;
 import org.orange.carloan.letteronmag.dao.ILetterOnDao;
 import org.orange.carloan.signmag.dao.ISignDao;
@@ -47,11 +49,19 @@ public class Testa {
 	
 	@Resource
 	private IContractInformationReadService contractInformationReadService;
-	
+	@Resource
+	private IContractInformationRepository contract;
 	@Test
 	public void testsssss() {
-		PageBean page = contractInformationReadService.findContractInformationByMap(null, 1, 10, StateUtil.DIVIDE);
-		System.out.println(page);
+		
+		ContractInformationBean bean = contractInformationReadService.findContractInformationByContractId(1);
+		ContractInformationBean b = new ContractInformationBean();
+		b.setAuditor("asdfasdfafasdf");
+		contract.saveAndFlush(bean);
+		
+		
+//		PageBean page = contractInformationReadService.findContractInformationByMap(null, 1, 10, StateUtil.DIVIDE);
+//		System.out.println(page);
 	}
 	
 	
