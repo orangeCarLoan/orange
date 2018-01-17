@@ -6,10 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>车辆信息</title>
 
-<link rel="stylesheet" type="text/css" href="static/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="static/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../static/easyui/themes/default/easyui.css">
 <!-- <script src="../static/js/jQuery-2.2.2-min.js"></script> -->
-<script type="text/javascript" src="static/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js"></script>
 <!-- <script type="text/javascript" src="../static/easyui/jquery.easyui.min.js"></script> -->
 
 </head>
