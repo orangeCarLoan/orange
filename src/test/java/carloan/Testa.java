@@ -8,15 +8,18 @@ import org.orange.carloan.adminmag.dao.IAdminDao;
 import org.orange.carloan.beans.AdminBean;
 import org.orange.carloan.beans.AdviceBean;
 import org.orange.carloan.beans.CarMessageBean;
+import org.orange.carloan.beans.PageBean;
 import org.orange.carloan.beans.SignBean;
 import org.orange.carloan.beans.UserCreditBean;
 import org.orange.carloan.carMessagemag.dao.ICarMessageDao;
 import org.orange.carloan.contractinformationmag.dao.IContractInformationDao;
+import org.orange.carloan.contractinformationmag.service.IContractInformationReadService;
 import org.orange.carloan.letteronmag.dao.ILetterOnDao;
 import org.orange.carloan.signmag.dao.ISignDao;
 import org.orange.carloan.userCreditmag.dao.IUserCreditDao;
 import org.orange.carloan.userIdentitymag.dao.IUserIdentityDao;
 import org.orange.carloan.userMessagemag.dao.IUserMessageDao;
+import org.orange.carloan.utils.StateUtil;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -41,6 +44,17 @@ public class Testa {
 	private IUserIdentityDao userIdentityDaoImpl;
 	@Resource
 	private IUserMessageDao userMessageDaoImpl;
+	
+	@Resource
+	private IContractInformationReadService contractInformationReadService;
+	
+	@Test
+	public void testsssss() {
+		PageBean page = contractInformationReadService.findContractInformationByMap(null, 1, 10, StateUtil.DIVIDE);
+		System.out.println(page);
+	}
+	
+	
 	@Test
 	public void daoTest() {
 		AdminBean bean =  adminDaoImpl.findByName("123");

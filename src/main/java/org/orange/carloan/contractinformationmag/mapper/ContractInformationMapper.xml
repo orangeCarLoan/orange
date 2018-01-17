@@ -40,7 +40,10 @@
         		and ci.contraction_date &gt; #{intoEndDate} 
         	</if>
         	<if test="state != null">
-        		and ci.state &gt; #{state} 
+        		and ci.state in 
+	        	<foreach item="item" index="index" collection="state" open="(" separator="," close=")">
+	        		#{item}
+	        	</foreach>
         	</if>
         	<!-- 还款时间 -->
         	
@@ -85,7 +88,10 @@
         		and ci.contraction_date &gt; #{intoEndDate} 
         	</if>
         	<if test="state != null">
-        		and ci.state &gt; #{state} 
+        		and ci.state in 
+	        	<foreach item="item" collection="state" open="(" separator="," close=")">
+	        		#{item}
+	        	</foreach>
         	</if>
 <!--         	还款时间 -->
         	

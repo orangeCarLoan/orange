@@ -26,7 +26,7 @@ public interface IContractInformationReadService {
 	 * @param state 状态，从StateUtil类中可获取你需要查询的状态
 	 * @return
 	 */ 
-	public PageBean findContractInformationByMap(Map<String,Object> map,PageBean page,int state);
+	public PageBean findContractInformationByMap(Map<String,Object> map,int page,int size,int[] state);
 //	/**身份证读取界面查询
 //	 * 
 //	 * @param contract（合同编号）

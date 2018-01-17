@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>分公司信审</title>
- <script type="text/javascript" src="<%=basePath%>static/js/branchCredit.js"></script>
+ <script type="text/javascript" src="../static/js/branchCredit.js"></script>
  <style type="text/css">
 	 .table{
 		text-align: center;
