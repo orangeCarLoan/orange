@@ -53,17 +53,18 @@
                 </font>  
              </span> 
             <body onload="startTime()">
-            <div id="time" style="color:white; font-size:18px; margin-left:800px; margin-top:15px; dipaly:inline-block;width:1000px;height:100px;position: absolute;top:0;"></div>
+            <div id="time" style="color:white; font-size:18px; margin-left:55%; margin-top:15px; dipaly:inline-block;width:100%;height:100px;position: absolute;top:0;"></div>
             </body>
             
-            <span style="margin-top:10px;margin-left: 1180px;font-size: 18px; color: white;">  欢迎 :Admin  </span>    
+            <span style="margin-top:10px;margin-left: 73%;font-size: 18px; color: white;">  欢迎 :Admin  </span>    
             <a href="../login.html">
-            	<span style="float:right;font-size:25px;margin-right:10px;margin-top:10px;" class="glyphicon glyphicon-log-out"></span>
+            	<span title="退出登陆" style="float:right;font-size:25px;margin-right:10px;margin-top:10px;" class="glyphicon glyphicon-log-out"></span>
             </a>  
              
 		</div>
-		<div data-options="region:'west',split:true" title="菜单栏" style="width:200px;">
-			<div class="easyui-accordion" data-options="fit:true,border:false">
+		
+		<div data-options="region:'west',split:false" title="菜单栏" style="width:200px;">
+			<div class="easyui-accordion" data-options="fit:false,border:false">
 				<div title="信审业务管理" >
 				
 				<style>
@@ -71,32 +72,36 @@
 				      .noRadius{
 				              width: 100%;
 				              height:30px;
-				             padding-top:4px;
+				              line-height:30px;
                               border-radius: 0;
                               box-sizing: border-box;
                            }
 				</style>
 					<ul style="width:100%">
-						<li class="easyui-linkbutton noRadius"><a id="head_company">总公司信审</a></li>
-						<li class="easyui-linkbutton noRadius"><a id="re_check">车贷签约复核</a></li>
-						<li class="easyui-linkbutton noRadius"><a id="loan_list">车贷放款列表</a></li>
-						<li class="easyui-linkbutton noRadius"><a id="sub_menu">审核分单</a></li>
+						<li class="easyui-linkbutton noRadius" id="head_company">总公司信审</li>
+						<li class="easyui-linkbutton noRadius" id="re_check">车贷签约复核</li>
+						<li class="easyui-linkbutton noRadius" id="loan_list">车贷放款列表</li>
+						<li class="easyui-linkbutton noRadius" id="sub_menu">审核分单</li>
 					</ul>
 				</div>
 				<div title="车贷管理">
 					<style>
 				
 				      .noRadius{
+				      			
 				              width: 100%;
+				              height:30px;
+				               line-height:30px;
+				              box-sizing: border-box;
                               border-radius: 0;
                            }
 				</style>
-					<ul  style="width:100%">
-						<li  class="easyui-linkbutton noRadius"><a id="read_idCard">车贷读取身份证</a></li>
-						<li class="easyui-linkbutton noRadius"><a id="loan_input">车贷录入</a></li>
-						<li class="easyui-linkbutton noRadius"><a id="branch_company">分公司信审</a></li>
-						<li class="easyui-linkbutton noRadius"><a id="signed">车贷签约</a></li>
-						<li class="easyui-linkbutton noRadius"><a id="loan_check">车贷查看</a></li>
+					<ul  style="width:100%;" >
+						<li  class="easyui-linkbutton noRadius" id="read_idCard">车贷读取身份证</li>
+						<li class="easyui-linkbutton noRadius" id="loan_input">车贷录入</li>
+						<li class="easyui-linkbutton noRadius" id="branch_company">分公司信审</li>
+						<li class="easyui-linkbutton noRadius" id="signed">车贷签约</li>
+						<li class="easyui-linkbutton noRadius" id="loan_check">车贷查看</li>
 					</ul>
 				</div>
 				<div title="管理员">
@@ -108,7 +113,7 @@
                            }
 				</style>
 					<ul  style="width:100%">
-						<li  class="easyui-linkbutton noRadius"><a id="manager">管理员操作</a></li>
+						<li  class="easyui-linkbutton noRadius" id="manager">管理员操作</li>
 					</ul>
 				</div>
 			</div>

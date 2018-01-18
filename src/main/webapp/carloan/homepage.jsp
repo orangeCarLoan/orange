@@ -54,7 +54,7 @@
 		<%@ include  file="header.jsp" %>
 		
 		<div data-options="region:'center'" style="overflow-X:hidden" id="ifrom">  
-		   <img alt="" src="../static/img/homepage.png" style="display: inline-block;height:100%;margin-left:-100px">
+		   <img alt="" src="../static/img/homepage.png" style="display: inline-block;width:100%;height:100%;">
 		   <%-- 这里用load方法加载自己的页面,不用重新加载跳转页面 --%>
 		  
 		</div>

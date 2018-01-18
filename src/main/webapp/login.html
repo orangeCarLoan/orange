@@ -2,21 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="static/css/css.css" rel="stylesheet" type="text/css">
-<link href="static/css/banner.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="static/css/css.css" rel="stylesheet" type="text/css"/>
+<link href="static/css/banner.css" rel="stylesheet" type="text/css"/>
 <title>橘子车贷</title>
 <link rel="SHORTCUT ICON" href="static/img/tubiao.ico" />
 <script type="text/javascript" src="static/easyui/jquery.min.js"></script>
 <script type="text/javascript" src="static/js/checkCode.js"></script>
-<script>
-	$("body").keydown(function() {
-		if (event.keyCode == "13") {//keyCode=13是回车键
-			alert('测试');
-			<!--$('#btnSumit').click();-->
-		}
-	});
-</script>
 <style>			
 .indexformbod .son {
 	width: 245px;
@@ -36,7 +28,7 @@
 }
 </style>
 </head>
-<body style="">
+<body style="" onkeydown="on_return();">
 	<div class="contbod margin0auto">
 		<div class="dingtop">
 			<div class="inlinblock *inline floatl">
@@ -88,22 +80,21 @@
 			<div class="indexformtt fontsize16px">汽车贷款 选择橘子车贷</div>
 			<div class="indexformbod">
 				<div class="clearboht"></div>
-				<form class="indexdkforms" action="" method="post">
+				<form class="indexdkforms" action="" method="post" name="form1">
 					<div class="son">
 						<label>用户名 </label>
 
 						<div class="inpdiv relative">
 							<input type="text" value="" placeholder="请输入您的用户名"
-								class="te daiksm"> <textarea class="fdtextarea"
-									name="description"></textarea>
+								class="te daiksm" id="userName"> 
 						</div>
 					</div>
 					<div class="son">
 						<label>密&nbsp;&nbsp;&nbsp;码 </label>
 
 						<div class="inpdiv relative">
-							<input type="text" value="" placeholder="请输入您的密码" id="src"
-								style="width: 116px;" class="te lianxsj" name="moblies">
+							<input type="password"  placeholder="请输入您的密码" id="userpwd"
+								style="width: 116px;">
 						</div>
 					</div>
 					<div class="son">
@@ -178,3 +169,17 @@
 			<span class="zhonghui">川公网安备13654654691698</span>
 		</div>
 	</div>
+	</body>
+	</html>
+	<script type="text/javascript">
+	 //回车时，默认是登陆
+	 function on_return(){
+	 if(window.event.keyCode == 13){
+	  if (document.all('btnSubmit')!=null){
+	   document.all('btnSubmit').click();
+	   }
+	 }
+	 }
+</script>
+ 
+
