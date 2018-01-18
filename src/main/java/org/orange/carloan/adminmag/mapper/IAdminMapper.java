@@ -16,7 +16,7 @@ public interface IAdminMapper {
 		 * @param id
 		 * @return
 		 */
-		public AdminBean findById(@Param("id")int id);
+		public AdminBean findById(int id);
  
 	
 }

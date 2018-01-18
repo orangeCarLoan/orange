@@ -17,6 +17,12 @@ public class UserCreditDaoImpl implements IUserCreditDao{
 //		 TODO Auto-generated method stub
 		return um.findUserCredByUserCredId(id);
 	}
+
+	@Override
+	public UserCreditBean findUserCredByContractId(int id) {
+		// TODO Auto-generated method stub
+		return um.findUserCredByContractId(id);
+	}
 	
 	 
 

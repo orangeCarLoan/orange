@@ -25,6 +25,7 @@
 			<div class="form-group" style="margin-left: 1%">
 				<label for="exampleInputEmail2">公司职务</label> 
 				<select class="form-control" style="width: 180px">
+					 <option value="" style="display: none;">-请选择-</option>
 					 <option value="1">定价师</option>
 					 <option value="2">评估师</option>
 					 <option value="3">审核员</option>
@@ -33,6 +34,7 @@
 			<div class="form-group" style="margin-left: 1%">
 				<label for="exampleInputEmail2">分公司</label> 
 				<select class="form-control" style="width: 180px">
+					 <option value="" style="display: none;">-请选择-</option>
 					 <option value="1">分公司1</option>
 					 <option value="2">分公司2</option>
 					 <option value="3">分公司3</option>
@@ -85,6 +87,7 @@
 			</div>
 			<div class="modal-body">
 			<center>
+			<form action="">
 				<table class="table table-striped" style="width: 100%;">
 					<tbody>
 						<tr>
@@ -99,6 +102,7 @@
 						<tr>
 							<td>所属职务</td><td>
 							<select class="form-control" style="width: 100%">
+								 <option value="" style="display: none;">-请选择-</option>
 								 <option>定价师</option>
 								 <option>评估师</option>
 								 <option>审核员</option>
@@ -108,6 +112,7 @@
 						<tr>
 							<td>所属公司</td><td>
 							<select class="form-control" style="width: 100%">
+								 <option value="" style="display: none;">-请选择-</option>
 								 <option>分公司1</option>
 								 <option>分公司2</option>
 								 <option>分公司3</option>
@@ -117,12 +122,13 @@
 						</tr>
 					</tbody>
 				</table>
+			</form>
 			</center>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				<button type="button" class="btn btn-info" data-dismiss="modal">关闭
 				</button>
-				<button type="button" class="btn btn-primary">
+				<button type="button" class="btn btn-info">
 					确定
 				</button>
 			</div>
@@ -156,6 +162,7 @@
 						<tr>
 							<td>所属职务</td><td>
 							<select class="form-control" style="width: 100%">
+								 <option value="" style="display: none;">-请选择-</option>
 								 <option>定价师</option>
 								 <option>评估师</option>
 								 <option>审核员</option>
@@ -165,6 +172,7 @@
 						<tr>
 							<td>所属公司</td><td>
 							<select class="form-control" style="width: 100%">
+								 <option value="" style="display: none;">-请选择-</option>
 								 <option>分公司1</option>
 								 <option>分公司2</option>
 								 <option>分公司3</option>
@@ -177,9 +185,9 @@
 			</center>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+				<button type="button" class="btn btn-info" data-dismiss="modal">关闭
 				</button>
-				<button type="button" class="btn btn-primary">
+				<button type="button" class="btn btn-info">
 					确定
 				</button>
 			</div>

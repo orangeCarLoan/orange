@@ -23,7 +23,7 @@ public class LetterOnWritServiceImpl implements ILetterOnWritService{
 	@Resource
 	private UserCreditRepository userCredit;
 	@Override
-	public void saveBranchAudit(int contractInformationId, UserCreditBean userCredit, AdviceBean advice, int[] knowLoan,
+	public void saveBranchAudit(int contractInformationId, UserCreditBean userCredit, AdviceBean advice,int[] contactIds, int[] knowLoan,
 			int isSubmit) {
 		ContractInformationBean contract1 = contractInfo.findContractInformationByContractId(contractInformationId);
 		contract1.setUserCreditBean(userCredit);
@@ -31,14 +31,18 @@ public class LetterOnWritServiceImpl implements ILetterOnWritService{
 		UserMessageBean user = contract1.getUserMessageBean();
 		List<ContactBean> list = user.getContactBean();
 		for (int i = 0; i < list.size(); i++) {
-			list.get(i).setKnowLoan(knowLoan[i]);
+			ContactBean con = list.get(i);
+			for(int j=0;j<contactIds.length;j++) {
+				if(con.getId()==contactIds[j]) {
+					con.setKnowLoan(knowLoan[j]);
+				}
+			}
 		}
 		if(isSubmit==1) {
 			contract1.setState(6);
 			contract1.setIsFallback(0);
 		}
 		contractInfoRepository.save(contract1);
-		
 	}
 	@Override
 	public void updateBranchAudit(String fallbackContent, int contractInformationId, int state) {
@@ -64,21 +68,21 @@ public class LetterOnWritServiceImpl implements ILetterOnWritService{
 		}else {
 			return false;
 		}
-		    contractInfoRepository.save(contract1);
-		             return false;
+		contractInfoRepository.saveAndFlush(contract1);
+		return true;
 	}
 	@Override
 	public boolean updateStateToBack(int contratId, String advice) {
 		if(advice.length()==0) {
 			return false;
 		}else {
-		ContractInformationBean contract1 = contractInfo.findContractInformationByContractId(contratId);
-		contract1.setState(5);
-		contract1.setFallbackContent(advice);
-		contract1.setIsFallback(1);
-		contractInfoRepository.save(contract1);
+			ContractInformationBean contract1 = contractInfo.findContractInformationByContractId(contratId);
+			contract1.setState(5);
+			contract1.setFallbackContent(advice);
+			contract1.setIsFallback(1);
+			contractInfoRepository.saveAndFlush(contract1);
 		}
-		return false;
+		return true;
 	}
 	
 		

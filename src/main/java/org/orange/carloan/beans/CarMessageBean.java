@@ -273,6 +273,9 @@ public class CarMessageBean implements Serializable{
 	public void setCarGoods(List<CarGoodsBean> carGoods) {
 		this.carGoods = carGoods;
 	}
+	public CarAdjunctBean getCarAdjuncts() {
+		return carAdjuncts;
+	}
 	@Override
 	public String toString() {
 		return "CarMessageBean [id=" + id + ", carPlate=" + carPlate + ", labelType=" + labelType + ", engineno="

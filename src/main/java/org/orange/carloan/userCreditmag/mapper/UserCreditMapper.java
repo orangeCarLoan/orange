@@ -17,4 +17,10 @@ public interface UserCreditMapper {
 //	})
 	public UserCreditBean findUserCredByUserCredId(int id);
 	 
+	/**
+	 * 根据合同id查询客户信用信息
+	 * @param id
+	 * @return
+	 */
+	public UserCreditBean findUserCredByContractId(int id);
 }

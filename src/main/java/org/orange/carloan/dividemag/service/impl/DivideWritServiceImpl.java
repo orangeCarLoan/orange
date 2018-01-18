@@ -20,7 +20,7 @@ public class DivideWritServiceImpl implements IDivideWritService{
 		for (int i = 0; i < contratId.length; i++) {
 			ContractInformationBean contract = contractInCformationDaoImpl.findContractInformationByContractId(contratId[i]);
 			contract.getAuditor();
-			contractInfomation.save(contract);
+			contractInfomation.saveAndFlush(contract);
 		}
 		
 	}

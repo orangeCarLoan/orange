@@ -30,10 +30,10 @@ public class LetterOnReadServiceImpl implements ILetterOnReadService{
 	@Override
 	public List<Object> findBranchAuditByContractId(int contratId) {
 		
-		AdviceBean advice = letter.findAdviceByAdviceId(contratId);
+		AdviceBean advice = letter.findAdviceByContractId(contratId);
 		UserMessageBean userMessage1 = userMessage.findUserMessageByContractId(contratId);
 		List<CarMessageBean> list = carMessage.findCarMessageByContractId(contratId);
-		UserCreditBean usercredit = userCredit.findUserCredByUserCredId(contratId);
+		UserCreditBean usercredit = userCredit.findUserCredByContractId(contratId);
 		List<Object> list1 = new ArrayList<Object>();
 		list1.add(advice);
 		list1.add(userMessage1);

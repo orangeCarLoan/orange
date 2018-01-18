@@ -6,11 +6,14 @@ import org.orange.carloan.beans.ContractInformationBean;
 import org.orange.carloan.contractinformationmag.dao.IContractInformationDao;
 import org.orange.carloan.contractinformationmag.repository.IContractInformationRepository;
 import org.orange.carloan.makeloanmag.service.IMakeLoanWritService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MakeLoanWriteServiceImpl implements IMakeLoanWritService {
 
 	@Resource
 	private IContractInformationRepository contractInformationRepository;
+	@Resource
 	private IContractInformationDao contractInformationDaoImpl;
 	
 	@Override

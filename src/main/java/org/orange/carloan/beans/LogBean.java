@@ -31,8 +31,6 @@ public class LogBean implements Serializable {
 	@GeneratedValue(generator="hibernate.strategy")
 	private int id;//id
 	
-	@Column(name="")
-	private String adminname;//管理员名
 	
 	@Column(name="date")
 	private Date date;//操作时间
@@ -48,10 +46,9 @@ public class LogBean implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public LogBean(int id, String adminname, Date date, String content, AdminBean adminBean) {
+	public LogBean(int id,  Date date, String content, AdminBean adminBean) {
 		super();
 		this.id = id;
-		this.adminname = adminname;
 		this.date = date;
 		this.content = content;
 		this.adminBean = adminBean;
@@ -65,13 +62,6 @@ public class LogBean implements Serializable {
 		this.id = id;
 	}
 
-	public String getAdminname() {
-		return adminname;
-	}
-
-	public void setAdminname(String adminname) {
-		this.adminname = adminname;
-	}
 
 	public Date getDate() {
 		return date;
@@ -103,7 +93,7 @@ public class LogBean implements Serializable {
 
 	@Override
 	public String toString() {
-		return "LogBean [id=" + id + ", adminname=" + adminname + ", date=" + date + ", content=" + content + "]";
+		return "LogBean [id=" + id  + ", date=" + date + ", content=" + content + "]";
 	}
 	
 	

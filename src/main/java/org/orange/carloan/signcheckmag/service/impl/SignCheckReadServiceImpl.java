@@ -12,12 +12,16 @@ import org.orange.carloan.carMessagemag.dao.ICarMessageDao;
 import org.orange.carloan.signcheckmag.service.ISignCheckReadService;
 import org.orange.carloan.signmag.dao.ISignDao;
 import org.orange.carloan.userMessagemag.dao.IUserMessageDao;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SignCheckReadServiceImpl implements ISignCheckReadService{
 
 	@Resource
 	private ISignDao signDaoImpl;
+	@Resource
 	private IUserMessageDao userMessageDaoImpl;
+	@Resource
 	private ICarMessageDao carMessageDaoImpl;
 	@Override
 	public List<Object> findSignCheckByContractId(int contratId) {

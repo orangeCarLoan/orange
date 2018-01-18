@@ -6,11 +6,14 @@ import org.orange.carloan.beans.ContractInformationBean;
 import org.orange.carloan.contractinformationmag.dao.IContractInformationDao;
 import org.orange.carloan.contractinformationmag.repository.IContractInformationRepository;
 import org.orange.carloan.signcheckmag.service.ISignCheckWritService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SignCheckWriteServiceImpl implements ISignCheckWritService {
 	
 	@Resource
 	private IContractInformationRepository contractInformationRepository;
+	@Resource
 	private IContractInformationDao contractInformationDaoImpl;
 	
 	@Override
@@ -24,7 +27,7 @@ public class SignCheckWriteServiceImpl implements ISignCheckWritService {
 				contractInformationRepository.saveAndFlush(bean);
 				return true;
 			}else{
-				contractInformationRepository.save(bean);
+				contractInformationRepository.saveAndFlush(bean);
 				return true;
 			}
 		}else{

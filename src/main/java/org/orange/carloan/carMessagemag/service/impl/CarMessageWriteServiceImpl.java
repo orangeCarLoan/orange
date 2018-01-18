@@ -16,6 +16,7 @@ public class CarMessageWriteServiceImpl implements ICarMessageWritService{
 
 	@Resource
 	private IContractInformationRepository contractInformationRepository;
+	@Resource
 	private IContractInformationDao contractInformationDaoImpl;
 	
 	@Override
@@ -25,45 +26,49 @@ public class CarMessageWriteServiceImpl implements ICarMessageWritService{
 		 
 		if(bean1.getState()==0) {
 			return false;
-		}else {
-			bean1.setCarMessageBeans(carMessage);
-			if(isSubmit==1) {
-				if(bean1.getIsFallback()==0||bean1.getIsFallback()==2) {
-					bean1.setState(3);
-					bean1.setIsFallback(0);
-					contractInformationRepository.saveAndFlush(bean1);
-					return true;
-				}else {
-					bean1.setState(5);
-					bean1.setIsFallback(0);
-					contractInformationRepository.saveAndFlush(bean1);
-					return true;
-				}
-			}else {
-				contractInformationRepository.save(bean1);
-				return true;
-			}
 		}
-		
+		bean1.setCarMessageBeans(carMessage);
+		if(isSubmit==1) {
+			if(bean1.getIsFallback()==0||bean1.getIsFallback()==2) {
+				bean1.setState(3);
+			}else {
+				bean1.setState(5);
+			}
+			bean1.setIsFallback(0);
+		}
+		contractInformationRepository.saveAndFlush(bean1);
+		return true;
 	}
 
 	@Override
-	public boolean saveCarMessage(int contractInformationId, int[] carPrice, int isSubmit) {
+	public boolean saveCarMessage(int contractInformationId, int carMessageIds[],int[] carPrice, int isSubmit) {
 		// TODO Auto-generated method stub
 		
 		 ContractInformationBean bean1 = contractInformationDaoImpl.findContractInformationByContractId(contractInformationId);
 		 List<CarMessageBean> bean = bean1.getCarMessageBeans();
-		 for(int i=0;i<carPrice.length;i++){
-			 bean.get(i).setCarPrice(carPrice[i]);
+		 boolean bool = false;
+		 for (int i = 0; i < bean.size(); i++) {
+			CarMessageBean carMessage = bean.get(i);
+			boolean boo = false;
+			for (int j = 0; j < carMessageIds.length; j++) {
+				if(carMessage.getId()==carMessageIds[j]) {
+					carMessage.setCarPrice(carPrice[j]);
+					boo = true;
+					break;
+				}
+			}
+			if(!boo) {
+				bool = true;
+			}
 		 }
-		 if(isSubmit==1){
+		 if(isSubmit==1) {
+			 if(bool) {
+				 return false;
+			 }
 			 bean1.setState(4);
-			 contractInformationRepository.saveAndFlush(bean1);
-			 return true;
-		 }else{
-			 contractInformationRepository.save(bean1);
-			 return true;
 		 }
+		 contractInformationRepository.saveAndFlush(bean1);
+		 return true;
 	}
 
 	@Override

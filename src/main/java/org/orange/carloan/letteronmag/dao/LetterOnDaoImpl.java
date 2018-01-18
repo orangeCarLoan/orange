@@ -17,5 +17,11 @@ public class LetterOnDaoImpl implements ILetterOnDao {
 		// TODO Auto-generated method stub
 		return mapper.findAdviceByAdviceId(id);
 	}
+
+	@Override
+	public AdviceBean findAdviceByContractId(int id) {
+		// TODO Auto-generated method stub
+		return mapper.findAdviceByContractId(id);
+	}
  
 }

@@ -22,7 +22,7 @@ public interface ILetterOnWritService {
 	 * 最后执行合同信息的save方法
 	 */
 	//5
-	public void saveBranchAudit(int contractInformationId,UserCreditBean userCredit,AdviceBean advice,int[] knowLoan,int isSubmit);
+	public void saveBranchAudit(int contractInformationId,UserCreditBean userCredit,AdviceBean advice,int[] contactIds,int[] knowLoan,int isSubmit);
 	
 	/**
 	 * 分公司初审回退方法

@@ -11,6 +11,10 @@
 		select * from t_usercredit where id=#{id};
 	</select>
 	  
+	<select id="findUserCredByContractId" parameterType="int" resultMap="userCreditMap">
+		select uc.* from t_usercredit uc left join t_contractinformation ci on uc.id = ci.usercredit_id where ci.id = #{id}
+	</select>
+	  
 	<resultMap id="userCreditMap" type="org.orange.carloan.beans.UserCreditBean">
 		<id property="id" column="id"></id>
 		<result property="houseProperty" column="house_property"></result>

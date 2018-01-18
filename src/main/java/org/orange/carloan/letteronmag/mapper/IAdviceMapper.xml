@@ -6,6 +6,9 @@
     <select id="findAdviceByAdviceId" parameterType="int"  resultMap="resMap">
         select * from t_advice where id = #{id}
     </select> 
+    <select id="findAdviceByContractId" parameterType="int" resultMap="resMap">
+    	select a.* from t_advice a left join t_contractinformation c on a.id = c.advice_id where c.id = #{id}
+    </select>
     <resultMap type="AdviceBean" id="resMap">
     	<id property="id" column="id"/>
     	<result property="productCategory" column="product_category"/>

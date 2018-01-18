@@ -4,54 +4,37 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>车贷录入</title>
+<title>总公司信审</title>
 <link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../static/easyui/themes/default/easyui.css">
 <script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $(function(){
-	$("#user").click(function() {
-		$("#ifrom").load('branchcompany/userInfo.jsp');
+	$("#check").click(function() {
+		$("#ifrom").load('headcompany/headCredit.jsp');
 	})
-	$("#car").click(function() {
-		$("#ifrom").load('branchcompany/carInfo.jsp');
-	})
-	$("#credit").click(function() {
-		$("#ifrom").load('branchcompany/userCreditInfo.jsp');
-	})
-	$("#apply").click(function(){
-		$("#myModal1").modal("toggle");
-		$(".modal-backdrop").remove();//删除class值为modal-backdrop的标签，可去除阴影
-	});
+	
 	$("#backout").click(function(){
-		$("#myModal2").modal("toggle");
+		$("#myModal").modal("toggle");
 		$(".modal-backdrop").remove();//删除class值为modal-backdrop的标签，可去除阴影
 	});
 	
 	//在show.bs.modal事件中调用centerModals函数
-	$('#myModal1').on('show.bs.modal', centerModals);
-	//在show.bs.modal事件中调用centerModals函数
-	$('#myModal2').on('show.bs.modal', centerModals);
+	$('#myModal').on('show.bs.modal', centerModals);
 	//页面大小变化是仍然保证模态框水平垂直居中
 	$(window).on('resize', centerModals);
 });
 
 //设置模态框的水平垂直方向的位置
 function centerModals() {   
-	　　$('#myModal1').each(function(i) {   
+	　　$('#myModal').each(function(i) {   
 	　　　　var $clone = $(this).clone().css('display','block').appendTo('body');
 	　　　　var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
 	　　　　top = top > 0 ? top : 0;   
 	　　　　$clone.remove();   
 	　　　　$(this).find('.modal-content').css("margin-top", top);   
 	　　});   
-	   $('#myModal2').each(function(i) {   
-	　　　　var $clone = $(this).clone().css('display','block').appendTo('body');
-	　　　　var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
-	　　　　top = top > 0 ? top : 0;   
-	　　　　$clone.remove();   
-	　　　　$(this).find('.modal-content').css("margin-top", top);   
-	　　}); 
+	   
 	}; 
 
 </script>
@@ -65,7 +48,7 @@ function centerModals() {
 </style>
 </head>
 <body>
-	<div style="margin-top: 10px;"><font style="margin-left: 1%">当前位置:车贷录入</font></div>
+	<div style="margin-top: 10px;"><font style="margin-left: 1%">当前位置:车贷签约</font></div>
 	<div style="height: 80x;margin-top: 20px;">
 		<form class="form-inline">
 			<div class="form-group" style="margin-left: 1%">
@@ -93,16 +76,16 @@ function centerModals() {
 	<div style="margin-top: 20px;margin-left: 1%">
 		<table id="tab3" class="table table-bordered" style="width: 100%;">
 			<thead>
-				<tr id="tr1">
+				<tr>
 					<th style="width: 80px;">序号</th><th>合同编号</th><th>借款人</th>
 					<th>业务经理</th><th>分公司</th><th>操作</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+					<td>1</td><td>13131313131</td><td>张三</td><td>李四</td><td>分公司1</td>
 					<td>
-						<button id="apply" type="button" class="btn btn-default btn-sm">申请信息录入</button>&nbsp;&nbsp;
+						<button id="check" type="button" class="btn btn-default btn-sm">审核</button>&nbsp;&nbsp;
 						<button id="backout" type="button" class="btn btn-default btn-sm">撤销</button>
 					</td>
 				</tr>
@@ -110,31 +93,7 @@ function centerModals() {
 		</table>
 	</div>
 	
-<div class="modal" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
-				<h4 class="modal-title" id="myModalLabel">
-					请选择要录入的信息
-				</h4>
-			</div>
-			<div class="modal-body">
-			<center>
-				<button id="user" class="btn btn-info">客户基本信息录入</button>
-				<button id="car" class="btn btn-info">车辆信息录入</button>
-				<button id="credit" class="btn btn-info">客户信用信息录入</button>
-			</center>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
-			</div>
-		</div>
-	</div>
-</div>
-<div class="modal" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">

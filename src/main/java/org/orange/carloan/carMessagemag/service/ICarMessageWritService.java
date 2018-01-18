@@ -32,14 +32,17 @@ public interface ICarMessageWritService {
 	
 	/**定价师的保存或提交方法
 	 * 根据contractInformationId查询出合同类，
-	 * 取出车辆信息属性，将车辆信息属性中的车辆评估价格改为carPrice，
+	 * 取出车辆信息属性，
+	 * 		依次与传入的车辆id比配，相等则就把对应的车辆价格设置到车辆信息属性中
 	 * 然后判断isSubmit是否为1，
-	 * 如果是，则将合同信息类的状态4，然后执行update方法，
+	 * 如果是，则判断是否所有的车辆价格是否都提交了，没有则返回false。
+	 * 
+	 * 在将合同信息类的状态4，然后执行update方法，
 	 * 否则，直接执行车辆信息的update方法即可。
 	 * 
 	 */
 	//3
-	public boolean saveCarMessage(int contractInformationId,int[] carPrice,int isSubmit);
+	public boolean saveCarMessage(int contractInformationId, int carMessageIds[],int[] carPrice,int isSubmit);
 	
 	/**定价师的回退方法
 	 * 

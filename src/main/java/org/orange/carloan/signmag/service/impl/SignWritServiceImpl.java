@@ -14,6 +14,7 @@ public class SignWritServiceImpl implements ISignWritService {
 
 	@Resource
 	private IContractInformationRepository contractInformationRepository;
+	@Resource
 	private IContractInformationDao contractInformationDaoImpl;
 	
 	@Override
@@ -27,10 +28,10 @@ public class SignWritServiceImpl implements ISignWritService {
 			
 			bean.setState(8);
 			bean.setIsFallback(0);
-			contractInformationRepository.save(bean);
+			contractInformationRepository.saveAndFlush(bean);
 		}else {
 			
-			contractInformationRepository.save(bean);
+			contractInformationRepository.saveAndFlush(bean);
 		}
 	}
 
@@ -43,7 +44,7 @@ public class SignWritServiceImpl implements ISignWritService {
 		bean.setState(6);
 		bean.setIsFallback(1);
 		
-		contractInformationRepository.save(bean);
+		contractInformationRepository.saveAndFlush(bean);
 	}
 
 }

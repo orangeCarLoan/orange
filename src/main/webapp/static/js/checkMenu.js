@@ -2,23 +2,23 @@ $(function() {
 	// 例如：
 	//总公司信审
 	$("#head_company").click(function() {
-		$("#ifrom").load('headcompany/headCredit.jsp');
+		$("#ifrom").load('headcompany/headCompany.jsp');
 	})
 	//车贷签约复核
 	$("#re_check").click(function() {
-		$("#ifrom").load('headcompany/reCheck.jsp');
+		$("#ifrom").load('headcompany/carloanSignRecheck.jsp');
 	})
 	//放款列表
 	$("#loan_list").click(function() {
-		$("#ifrom").load('headcompany/lending.jsp');
+		$("#ifrom").load('headcompany/carloanLendingList.jsp');
 	})
 	//审核分单
 	$("#sub_menu").click(function() {
-		$("#ifrom").load('');
+		$("#ifrom").load('headcompany/checkDistribute.jsp');
 	})
 	//车贷读取身份证
 	$("#read_idCard").click(function() {
-		$("#ifrom").load('branchcompany/userIdentity.jsp');
+		$("#ifrom").load('branchcompany/carloanReadIDCard.jsp');
 	})
 	//车贷录入
 	$("#loan_input").click(function() {
@@ -26,11 +26,11 @@ $(function() {
 	})
 	//分公司信审
 	$("#branch_company").click(function() {
-		$("#ifrom").load('branchcompany/branchCredit.jsp');
+		$("#ifrom").load('branchcompany/branchCompany.jsp');
 	})
 	//车贷签约
 	$("#signed").click(function() {
-		$("#ifrom").load('branchcompany/signInfo.jsp');
+		$("#ifrom").load('branchcompany/carloanSign.jsp');
 	})
 	//车贷查看
 	$("#loan_check").click(function() {

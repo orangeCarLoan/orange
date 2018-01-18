@@ -40,23 +40,23 @@ public class UserMessageBean implements Serializable{
 	
 	@Column
 	private String address;//现住地址
-	@Column
+	@Column(name="applydate")
 	private Date applyDate;//申请日期
-	@Column
+	@Column(name="borrowpurpose")
 	private String borrowPurpose;//借款详细用途
 	@Column
 	private String channel;//您从何得知正合普惠
-	@Column
+	@Column(name="clienttype")
 	private String clientType;//客户类型
 	@Column
 	private String commissioner;//车贷专员
-	@Column
+	@Column(name="companyaddress")
 	private String companyAddress;//工作单位地址
-	@Column
+	@Column(name="companyname")
 	private String companyName;//工作单位全称
-	@Column
+	@Column(name="companyphone")
 	private String companyPhone;//单位电话
-	@Column
+	@Column(name="companysize")
 	private String companySize;//公司规模
 	@Column
 	private String dept;//所在部门
@@ -67,11 +67,11 @@ public class UserMessageBean implements Serializable{
 	@Column
 	private String employment;//行业类别
 	
-	@Column
+	@Column(name="happentime")
 	private Date happenTime;//进入该单位时间
-	@Column
+	@Column(name="haschild")
 	private int hasChild;//有无子女
-	@Column
+	@Column(name="housetype")
 	private String houseType;//房产状况
 	@Column
 	private int income;//月收入
@@ -89,15 +89,15 @@ public class UserMessageBean implements Serializable{
 	private String place;//户籍地址
 	@Column
 	private int repayment;//您可以承受的月还款额
-	@Column
+	@Column(name="salename")
 	private String saleName;//业务员姓名
 	@Column
 	private String telephone;//申请人电话号码
-	@Column
+	@Column(name="unitnature")
 	private String unitNature;//单位性质
-	@Column
+	@Column(name="userphone")
 	private String userPhone;//申请人手机号
-	@Column
+	@Column(name="zipcode")
 	private String zipCode;//邮政编码
 	
 	

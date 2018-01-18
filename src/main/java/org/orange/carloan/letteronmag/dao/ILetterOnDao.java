@@ -10,5 +10,12 @@ public interface ILetterOnDao {
 	 * @return
 	 */
 	public AdviceBean findAdviceByAdviceId(int id);
+	
+	/**
+	 * 根据合同id查询综合意见
+	 * @param id
+	 * @return
+	 */
+	public AdviceBean findAdviceByContractId(int id);
 	 
 }

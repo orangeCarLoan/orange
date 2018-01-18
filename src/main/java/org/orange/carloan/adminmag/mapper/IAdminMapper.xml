@@ -5,7 +5,7 @@
 <mapper namespace="org.orange.carloan.adminmag.mapper.IAdminMapper">
   
 <resultMap type="AdminBean" id="AdminMap">
-		<id property="id" column="id" javaType="int"/>
+		<id property="id" column="id"/>
 		<result property="userName" column="username" javaType="java.lang.String"/>
 		<result property="password" column="password" javaType="java.lang.String"/>
 		<result property="realName" column="realname" javaType="java.lang.String"/>
@@ -13,7 +13,7 @@
 			column="role_id" select="getRoleById"></association> 
 		<association property="companyId" javaType="CompanyBean"
 			column="company_id" select="org.orange.carloan.contractinformationmag.mapper.ContractInformationMapper.findCompanyByCompanyId"></association>
-		<collection property="logs" javaType="LogBean"
+		<collection property="logs" ofType="LogBean"
 			 column="id" select="getLogById"></collection>
 		<!-- 管理员与订单的多对多 -->
 	</resultMap> 
@@ -22,17 +22,17 @@
 	select * from t_admin where username=#{adminName}
 	</select>
 	
-	<select id="findById" resultMap="AdminMap">
+	<select id="findById" parameterType="int" resultMap="AdminMap">
 	select * from t_admin where id=#{id}
 	</select>
 	
 	<select id="getRoleById" parameterType="int" resultType="RoleBean">
-	  select id as id,rolename as roleName from t_role where id=#{id}
+	  select id ,rolename roleName from t_role where id=#{id}
 	</select>
 	
 	
 	<select id="getLogById" parameterType="int" resultType="LogBean">
-      select id,adminname,date,content from t_log where admin_id=#{id}	
+      select id,date,content from t_log where admin_id=#{id}	
 	</select>
 
 

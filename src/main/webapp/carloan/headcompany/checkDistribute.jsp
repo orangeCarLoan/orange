@@ -4,55 +4,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>车贷录入</title>
+<title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../static/easyui/themes/default/easyui.css">
 <script type="text/javascript" src="../static/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 $(function(){
-	$("#user").click(function() {
-		$("#ifrom").load('branchcompany/userInfo.jsp');
-	})
-	$("#car").click(function() {
-		$("#ifrom").load('branchcompany/carInfo.jsp');
-	})
-	$("#credit").click(function() {
-		$("#ifrom").load('branchcompany/userCreditInfo.jsp');
-	})
-	$("#apply").click(function(){
+	
+	$("#update_people").click(function(){
 		$("#myModal1").modal("toggle");
 		$(".modal-backdrop").remove();//删除class值为modal-backdrop的标签，可去除阴影
 	});
-	$("#backout").click(function(){
+	$("#designate").click(function(){
 		$("#myModal2").modal("toggle");
 		$(".modal-backdrop").remove();//删除class值为modal-backdrop的标签，可去除阴影
 	});
 	
-	//在show.bs.modal事件中调用centerModals函数
-	$('#myModal1').on('show.bs.modal', centerModals);
-	//在show.bs.modal事件中调用centerModals函数
-	$('#myModal2').on('show.bs.modal', centerModals);
-	//页面大小变化是仍然保证模态框水平垂直居中
-	$(window).on('resize', centerModals);
 });
 
-//设置模态框的水平垂直方向的位置
-function centerModals() {   
-	　　$('#myModal1').each(function(i) {   
-	　　　　var $clone = $(this).clone().css('display','block').appendTo('body');
-	　　　　var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
-	　　　　top = top > 0 ? top : 0;   
-	　　　　$clone.remove();   
-	　　　　$(this).find('.modal-content').css("margin-top", top);   
-	　　});   
-	   $('#myModal2').each(function(i) {   
-	　　　　var $clone = $(this).clone().css('display','block').appendTo('body');
-	　　　　var top = Math.round(($clone.height() - $clone.find('.modal-content').height()) / 2);
-	　　　　top = top > 0 ? top : 0;   
-	　　　　$clone.remove();   
-	　　　　$(this).find('.modal-content').css("margin-top", top);   
-	　　}); 
-	}; 
+
 
 </script>
 <style type="text/css">
@@ -65,7 +35,7 @@ function centerModals() {
 </style>
 </head>
 <body>
-	<div style="margin-top: 10px;"><font style="margin-left: 1%">当前位置:车贷录入</font></div>
+	<div style="margin-top: 10px;"><font style="margin-left: 1%">当前位置:车贷签约</font></div>
 	<div style="height: 80x;margin-top: 20px;">
 		<form class="form-inline">
 			<div class="form-group" style="margin-left: 1%">
@@ -77,14 +47,16 @@ function centerModals() {
 					class="form-control" id="people" placeholder="借款人">
 			</div>
 			<div class="form-group" style="margin-left: 1%">
-				<label>分公司</label> 
+				<label>身份证号</label> <input type="text"
+					class="form-control" id="people" placeholder="身份证号">
+			</div>
+			<div class="form-group" style="margin-left: 1%">
+				<label>放款状态</label> 
 				<select class="form-control" style="width: 180px">
 					 <option value="" style="display: none;">-请选择-</option>
-					 <option>分公司1</option>
-					 <option>分公司2</option>
-					 <option>分公司3</option>
-					 <option>分公司4</option>
-					 <option>分公司5</option>
+					 <option>待放款</option>
+					 <option>放款中</option>
+					 <option>已放款</option>
 				</select>
 			</div>
 			<button type="submit" class="btn btn-default" style="margin-left: 2%;width: 120px">查询</button>
@@ -93,21 +65,25 @@ function centerModals() {
 	<div style="margin-top: 20px;margin-left: 1%">
 		<table id="tab3" class="table table-bordered" style="width: 100%;">
 			<thead>
-				<tr id="tr1">
-					<th style="width: 80px;">序号</th><th>合同编号</th><th>借款人</th>
-					<th>业务经理</th><th>分公司</th><th>操作</th>
+				<tr>
+					<th style="width: 50px;">序号</th><th>合同编号</th><th>借款人</th>
+					<th>身份证号</th><th>借款人手机</th><th>业务经理</th><th>分公司</th>
+					<th>产品名称</th><th>借款期数</th><th>进件时间</th><th>状态</th>
+					<th>审核人</th><th>操作</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+					<td>1</td><td>13131313131</td><td>张三</td>
+					<td>510121199512341234</td><td>12345678910</td><td>李四</td><td>分公司1</td>
+					<td>短期贷款</td><td>6</td><td>2017-01-18</td><td>待放款</td><td>王五</td>
 					<td>
-						<button id="apply" type="button" class="btn btn-default btn-sm">申请信息录入</button>&nbsp;&nbsp;
-						<button id="backout" type="button" class="btn btn-default btn-sm">撤销</button>
+						<button id="update_people" type="button" class="btn btn-default btn-sm">修改审核人</button>
 					</td>
 				</tr>
 			</tbody>
 		</table>
+			<button id="designate" style="float:right;margin-right:10%;width:120px;" type="button" class="btn btn-info">指派分单</button>
 	</div>
 	
 <div class="modal" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -118,18 +94,25 @@ function centerModals() {
 					&times;
 				</button>
 				<h4 class="modal-title" id="myModalLabel">
-					请选择要录入的信息
+					请选择要修改的审核人
 				</h4>
 			</div>
 			<div class="modal-body">
-			<center>
-				<button id="user" class="btn btn-info">客户基本信息录入</button>
-				<button id="car" class="btn btn-info">车辆信息录入</button>
-				<button id="credit" class="btn btn-info">客户信用信息录入</button>
-			</center>
+				<center>
+					<form action="">
+					<table  style="width: 60%;">
+						<tr>
+							<td><h5>审核人</h5></td><td><input type="text" class="form-control"/></td>
+						</tr>
+					</table>
+					</form>
+				</center>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
+				<center>
+					<button style="width: 120px;" type="button" class="btn btn-info">确定</button>
+					<button style="width: 120px;" type="button" class="btn btn-info" data-dismiss="modal">取消</button>
+				</center>
 			</div>
 		</div>
 	</div>
@@ -141,13 +124,19 @@ function centerModals() {
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 					&times;
 				</button>
-				
+				<h4 class="modal-title" id="myModalLabel">
+					指派分单
+				</h4>
 			</div>
 			<div class="modal-body">
 				<center>
-					<h1 class="modal-title" id="myModalLabel" >
-						是否撤销该客户？
-					</h1>
+					<form action="">
+					<table  style="width: 60%;">
+						<tr>
+							<td><h5>审核人</h5></td><td><input type="text" class="form-control"/></td>
+						</tr>
+					</table>
+					</form>
 				</center>
 			</div>
 			<div class="modal-footer">

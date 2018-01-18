@@ -26,21 +26,14 @@
 				</td>
 	        </tr>
 	        <tr>
-	            <td>名族<font size="3" color="red">*</font></td><td>
-	            	<select class="form-control" style="width: 100%">
-						 <option>汉族</option>
-						 <option>傣族</option>
-						 <option>藏族</option>
-						 <option>白族</option>
-						 <option>彝族</option>
-					</select></td>
+	            <td>名族<font size="3" color="red">*</font></td><td><input type="text" class="form-control"/></td>
 	            <td>出生年月<font size="3" color="red">*</font></td><td><input type="date" class="form-control"/></td>
 	        </tr>
 	        <tr>
 	            <td>地址<font size="3" color="red">*</font></td><td><input type="text" class="form-control"/></td>
 	        </tr>
 	        <tr>
-	            <td>身份证信息<font size="3" color="red">*</font></td><td><input type="text" class="form-control"/></td>
+	            <td>身份证号<font size="3" color="red">*</font></td><td><input type="text" class="form-control"/></td>
 	            <td>发证机关<font size="3" color="red">*</font></td><td><input type="text" class="form-control"/></td>
 	        </tr>
 	        <tr>
@@ -59,10 +52,17 @@
 	        </tbody>
 	    </table>
 	    <center>
-    		<button style="width: 120px;" type="button" class="btn btn-info">提交</button>
-		    <button style="width: 120px;" type="button" class="btn btn-info">返回</button>
+    		<button style="width: 120px;" type="submit" class="btn btn-info">提交</button>
+		    <button id="return" style="width: 120px;" type="button" class="btn btn-info">返回</button>
 	    </center>
 	</form>
 	</div>
+<script>
+$(function(){
+	$("#return").click(function() {
+		$("#ifrom").load('branchcompany/carloanReadIDCard.jsp');
+	})
+});
+</script>
 </body>
 </html>

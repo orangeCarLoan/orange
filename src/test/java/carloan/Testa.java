@@ -9,9 +9,9 @@ import org.orange.carloan.beans.AdminBean;
 import org.orange.carloan.beans.AdviceBean;
 import org.orange.carloan.beans.CarMessageBean;
 import org.orange.carloan.beans.ContractInformationBean;
-import org.orange.carloan.beans.PageBean;
 import org.orange.carloan.beans.SignBean;
 import org.orange.carloan.beans.UserCreditBean;
+import org.orange.carloan.beans.UserMessageBean;
 import org.orange.carloan.carMessagemag.dao.ICarMessageDao;
 import org.orange.carloan.contractinformationmag.dao.IContractInformationDao;
 import org.orange.carloan.contractinformationmag.repository.IContractInformationRepository;
@@ -21,7 +21,6 @@ import org.orange.carloan.signmag.dao.ISignDao;
 import org.orange.carloan.userCreditmag.dao.IUserCreditDao;
 import org.orange.carloan.userIdentitymag.dao.IUserIdentityDao;
 import org.orange.carloan.userMessagemag.dao.IUserMessageDao;
-import org.orange.carloan.utils.StateUtil;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -55,9 +54,11 @@ public class Testa {
 	public void testsssss() {
 		
 		ContractInformationBean bean = contractInformationReadService.findContractInformationByContractId(1);
+		bean.setId(0);
 		ContractInformationBean b = new ContractInformationBean();
+		b.setId(6);
 		b.setAuditor("asdfasdfafasdf");
-		contract.saveAndFlush(bean);
+		contract.saveAndFlush(b);
 		
 		
 //		PageBean page = contractInformationReadService.findContractInformationByMap(null, 1, 10, StateUtil.DIVIDE);
@@ -88,10 +89,10 @@ public class Testa {
 //		System.out.println(user.getAddress());
 //		System.out.println(user.getContractInformationBean().getContract());
 		
-//		UserMessageBean user = userMessageDaoImpl.findUserMessageByUserMessageId(1);
-//		System.out.println(user.getAddress());
-//		System.out.println(user.getContractInformationBean().getContract());
-//		System.out.println(user.getUserAdjunctBean());
+		UserMessageBean user = userMessageDaoImpl.findUserMessageByUserMessageId(1);
+		System.out.println(user.getAddress());
+		System.out.println(user.getContractInformationBean().getContract());
+		System.out.println(user.getUserAdjunctBean());
 	}
 	
 	

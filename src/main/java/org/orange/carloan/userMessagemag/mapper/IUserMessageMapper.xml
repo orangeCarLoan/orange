@@ -5,22 +5,22 @@
 <resultMap type="UserMessageBean" id="usermessageMap">
 		<result property="id" column="id" /> 
 		<result property="address" column="address" />
-		<result property="applyDate" column="applyDate" />
-		<result property="borrowPurpose" column="borrowPurpose" />
+		<result property="applyDate" column="applydate" />
+		<result property="borrowPurpose" column="borrowpurpose" />
 		<result property="channel" column="channel" />
-		<result property="clientType" column="clientType" />
+		<result property="clientType" column="clienttype" />
 		<result property="commissioner" column="commissioner" />
-		<result property="companyAddress" column="companyAddress" />
-		<result property="companyName" column="companyName" />
-		<result property="companyPhone" column="companyPhone" />
-		<result property="companySize" column="companySize" />
+		<result property="companyAddress" column="companyaddress" />
+		<result property="companyName" column="companyname" />
+		<result property="companyPhone" column="companyphone" />
+		<result property="companySize" column="companysize" />
 		<result property="dept" column="dept" />
 		<result property="duty" column="duty" />
 		<result property="education" column="education" />
 		<result property="employment" column="employment" />
-		<result property="happenTime" column="happenTime" />
-		<result property="hasChild" column="hasChild" />
-		<result property="houseType" column="houseType" />
+		<result property="happenTime" column="happentime" />
+		<result property="hasChild" column="haschild" />
+		<result property="houseType" column="housetype" />
 		<result property="income" column="income" />
 		<result property="marry" column="marry" />
 		<result property="maxdeadline" column="maxdeadline" />
@@ -29,11 +29,11 @@
 		<result property="partner" column="partner" />
 		<result property="place" column="place" />
 		<result property="repayment" column="repayment" />
-		<result property="saleName" column="saleName" />
+		<result property="saleName" column="salename" />
 		<result property="telephone" column="telephone" />
-		<result property="unitNature" column="unitNature" />
-		<result property="userPhone" column="userPhone" />
-		<result property="zipCode" column="zipCode" />
+		<result property="unitNature" column="unitnature" />
+		<result property="userPhone" column="userphone" />
+		<result property="zipCode" column="zipcode" />
 		
 		<association property="userAdjunctBean" javaType="UserAdjunctBean"
 			column="useradjunct_id" select="findUserAdJunctById"></association>
@@ -42,12 +42,12 @@
 			column="id" select="org.orange.carloan.contractinformationmag.mapper.ContractInformationMapper.findContractInformationByUserMessageId"></association>
 	</resultMap>
 	
-		<select id="findUserMessageByUserMessageId" resultType="int" resultMap="usermessageMap">
+		<select id="findUserMessageByUserMessageId" parameterType="int" resultMap="usermessageMap">
  		select * from t_usermessage where id=#{id} 
  	</select>
 
-	<select id="findUserMessageByContractId" resultType="int" resultMap="usermessageMap">
- 		select * from t_usermessage u left join t_contractinformation c on  c.id=#{id} 
+	<select id="findUserMessageByContractId" parameterType="int" resultMap="usermessageMap">
+ 		select u.* from t_usermessage u left join t_contractinformation c on  c.id=#{id} 
  	</select>
  	
  	<select id="findUserAdJunctById" parameterType="int" resultType="UserAdjunctBean">

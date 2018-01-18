@@ -4,11 +4,11 @@
 <resultMap type="CarMessageBean" id="CarMessage">
 	<id property="id" column="id"/>
 	<result property="carPlate" column="carplate"/>
-	<result property="labelType" column="labelType"/>
+	<result property="labelType" column="labeltype"/>
 	<result property="engineno" column="engineno"/>
 	<result property="color" column="color"/>
-	<result property="firstTime" column="firstTime"/>
-	<result property="yesrValidity" column="yesrValidity"/>
+	<result property="firstTime" column="firsttime"/>
+	<result property="yesrValidity" column="yesrvalidity"/>
 	<result property="chassisnum" column="chassisnum"/>
 	<result property="carPrice" column="carprice"/>
 	<result property="currenttripnum" column="currenttripnum"/>
@@ -20,7 +20,7 @@
 	<result property="carcertificate" column="carcertificate"/>
 	<result property="commercial" column="commercial"/>
 	<result property="carlicense" column="carlicense"/>
-	<result property="carInvoice" column="carInvoice"/>
+	<result property="carInvoice" column="carinvoice"/>
 	<result property="carpayment" column="carpayment"/>
 	<result property="carprove" column="carprove"/>
 	 
