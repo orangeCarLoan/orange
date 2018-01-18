@@ -34,7 +34,7 @@ $(function() {
 	})
 	//车贷查看
 	$("#loan_check").click(function() {
-		$("#ifrom").load('');
+		$("#ifrom").load('headcompany/loanCheck.jsp');
 	})
 	//管理员
 	$("#manager").click(function() {
