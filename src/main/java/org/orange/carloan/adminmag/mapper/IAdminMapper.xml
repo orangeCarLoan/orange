@@ -35,5 +35,9 @@
       select id,date,content from t_log where admin_id=#{id}	
 	</select>
 
+	<select id="findAdminByRoleName" resultMap="AdminMap">
+		select a.* from t_admin a left join t_role r on a.role_id = r.id where r.rolename = #{roleName}
+	</select>
+
 
 </mapper>

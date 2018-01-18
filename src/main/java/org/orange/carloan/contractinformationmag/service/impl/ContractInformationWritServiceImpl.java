@@ -17,8 +17,16 @@ public class ContractInformationWritServiceImpl implements IContractInformationW
 	
 	@Override
 	public void deleteContractInformation(int contractInformationId) {
-		ContractInformationBean bean = contractInformationDaoImpl.findContractInformationByContractId(contractInformationId);
+		ContractInformationBean bean = contractInformationRepository.findOne(contractInformationId);
 		bean.setState(0);
+		contractInformationRepository.saveAndFlush(bean);
+	}
+
+	@Override
+	public void updateContractAuditorById(int contractId, String auditor) {
+		// TODO Auto-generated method stub
+		ContractInformationBean bean = contractInformationRepository.findOne(contractId);
+		bean.setAuditor(auditor);
 		contractInformationRepository.saveAndFlush(bean);
 	}
 

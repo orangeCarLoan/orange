@@ -120,7 +120,7 @@
 			</div>
 			<br>
 			<br>
-				<iframe src="//www.seniverse.com/weather/weather.aspx?uid=U1CA8560F3&cid=CHSC000000&l=zh-CHS&p=SMART&a=0&u=C&s=11&m=1&x=1&d=5&fc=&bgc=&bc=&ti=1&in=0&li=" frameborder="0" scrolling="no" width="198" height="300" allowTransparency="true"></iframe>
+				<iframe src="//www.seniverse.com/weather/weather.aspx?uid=U1CA8560F3&cid=CHSC000000&l=zh-CHS&p=SMART&a=0&u=C&s=11&m=1&x=1&d=5&fc=&bgc=&bc=&ti=1&in=0&li=" frameborder="0" scrolling="no" width="160" height="300" allowTransparency="true"></iframe>
 		</div>
 
 <!-- <script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>

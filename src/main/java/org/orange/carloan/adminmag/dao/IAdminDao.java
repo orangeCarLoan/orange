@@ -1,5 +1,7 @@
 package org.orange.carloan.adminmag.dao;
 
+import java.util.List;
+
 import org.orange.carloan.beans.AdminBean;
 
 public interface IAdminDao {
@@ -16,4 +18,6 @@ public interface IAdminDao {
 	 * @return
 	 */
 	public AdminBean findById(int id);
+	
+	public List<AdminBean> findAdminByRoleName(String roleName);
 }

@@ -21,7 +21,6 @@
 <body>
 	<div style="margin-top: 10px;"><font style="margin-left: 1%">当前位置:车贷读取身份证</font></div>
 	<div style="height: 80x;margin-top: 20px;">
-		<font size="2" style="margin-left: 1%">查询条件</font><p/>
 		<form id="myform" class="form-inline">
 			<div class="form-group" style="margin-left: 1%">
 				<label>合同编号</label> <input id="contract" type="text" name="contract"
@@ -92,7 +91,7 @@ $(function(){
             pageSize: params.pageSize,  
             contract:$("#contract").val(),
             username:$("#username").val(),
-            companyName:$("#companyName").val(),
+           /*  companyName:$("#companyName").val(), */
         };  
         return param;                   
       },  

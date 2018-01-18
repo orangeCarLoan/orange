@@ -1,5 +1,7 @@
 package org.orange.carloan.adminmag.dao.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.orange.carloan.adminmag.dao.IAdminDao;
@@ -19,6 +21,12 @@ public class AdminDaoImpl implements IAdminDao {
 	@Override
 	public AdminBean findById(int id) {
 		return mapper.findById(id);
+	}
+
+	@Override
+	public List<AdminBean> findAdminByRoleName(String roleName) {
+		// TODO Auto-generated method stub
+		return mapper.findAdminByRoleName(roleName);
 	}
 
 }

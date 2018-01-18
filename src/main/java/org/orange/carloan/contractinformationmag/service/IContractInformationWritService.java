@@ -15,5 +15,11 @@ public interface IContractInformationWritService {
 	 * @param contractInformationId 合同id
 	 */
 	public void deleteContractInformation(int contractInformationId);
-	 
+	
+	/**
+	 * 修改审核人
+	 * @param contractId
+	 * @param auditor
+	 */
+	public void updateContractAuditorById(int contractId,String auditor);
 }

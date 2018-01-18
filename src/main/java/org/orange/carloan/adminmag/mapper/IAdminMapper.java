@@ -1,5 +1,7 @@
 package org.orange.carloan.adminmag.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 import org.orange.carloan.beans.AdminBean;
 
@@ -17,6 +19,7 @@ public interface IAdminMapper {
 		 * @return
 		 */
 		public AdminBean findById(int id);
- 
+		
+		public List<AdminBean> findAdminByRoleName(@Param("roleName")String roleName);
 	
 }
