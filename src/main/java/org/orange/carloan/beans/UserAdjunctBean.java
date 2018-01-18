@@ -13,9 +13,12 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 //客户基本信息附件
 @Entity
 @Table(name="t_useradjunct")
+@JsonFilter(value="userAdjunctFilter")
 public class UserAdjunctBean implements Serializable{
 	
 	/**

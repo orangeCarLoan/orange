@@ -31,7 +31,7 @@ public class Test {
 	public void  Test2() {
 		UserCreditBean bean=userCreditDaoImpl.findUserCredByUserCredId(2);	
 		ContractInformationBean bean2=contractInformationDaoImpl.findContractInformationByContractId(2);
-		userCreditWritService.saveUserCredit(2, bean);
+		userCreditWritService.saveUserCredit(2, bean,1);
 		System.out.println(bean2.getState());
 	}
 }

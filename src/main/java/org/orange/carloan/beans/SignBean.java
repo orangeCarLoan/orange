@@ -15,9 +15,12 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 //客户签约
 @Entity
 @Table(name="t_sign")
+@JsonFilter(value="signFilter")
 public class SignBean implements Serializable{
 
 	/** 

@@ -17,7 +17,7 @@ public class UserCreditWritServiceImpl implements IUserCreditWritService {
 	private IContractInformationDao contractInformationDaoImpl;
 	
 	@Override
-	public boolean saveUserCredit(int contractInformationId, UserCreditBean userCredit) {
+	public boolean saveUserCredit(int contractInformationId, UserCreditBean userCredit,int isSubmit) {
 //		这里的mybatis查找会出现一个Unkown Entity的错误
 //		 ContractInformationBean contranctBean = contractInformationDaoImpl.findContractInformationByContractId(contractInformationId);
 		ContractInformationBean contranctBean = contractInformationRepository.findOne(contractInformationId);
@@ -27,7 +27,9 @@ public class UserCreditWritServiceImpl implements IUserCreditWritService {
 				return false;
 			}else {
 				contranctBean.setUserCreditBean(userCredit);
-				contranctBean.setState(5);
+				if(isSubmit==1) {
+					contranctBean.setState(5);
+				}
 				contractInformationRepository.saveAndFlush(contranctBean);
 				return true;
 			}

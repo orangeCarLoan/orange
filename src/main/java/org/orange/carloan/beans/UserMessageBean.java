@@ -18,6 +18,8 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 /**
  * @author Administrator
  * @version 1.0
@@ -25,6 +27,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name="t_usermessage")
+@JsonFilter(value="userMessageFilter")
 public class UserMessageBean implements Serializable{
 
 	/**

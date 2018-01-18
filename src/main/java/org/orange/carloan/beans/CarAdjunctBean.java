@@ -13,8 +13,11 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 @Entity
 @Table(name="t_caradjunct")
+@JsonFilter(value="carAdjunctFilter")
 public class CarAdjunctBean implements Serializable{
  
 	/**

@@ -15,9 +15,12 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 //日志表
 @Entity
 @Table(name="t_log")
+@JsonFilter(value="logFilter")
 public class LogBean implements Serializable {
 
 	/**

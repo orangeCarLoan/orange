@@ -18,8 +18,11 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 @Entity
 @Table(name="t_carmessage")
+@JsonFilter(value="carMessageFilter")
 public class CarMessageBean implements Serializable{
 
 	/** 

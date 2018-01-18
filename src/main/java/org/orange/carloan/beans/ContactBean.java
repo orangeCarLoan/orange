@@ -14,10 +14,13 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 
 //联系人信息类
 @Entity
 @Table(name="t_contact")
+@JsonFilter(value="contactFilter")
 public class ContactBean implements Serializable{
 
 	/**
