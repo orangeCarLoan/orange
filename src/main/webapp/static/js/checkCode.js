@@ -19,6 +19,8 @@ function createCode(){
 //校验验证码  
 function validate(){  
     var inputCode = document.getElementById("checkCode").value.toUpperCase(); //取得输入的验证码并转化为大写        
+    var inputName=document.getElementById("userName").value
+    var inputpwd=document.getElementById("userpwd").value
     if(inputCode.length <= 0) { //若输入的验证码长度为0  
         alert("请输入验证码！"); //则弹出请输入验证码  
     }         
@@ -29,6 +31,10 @@ function validate(){
     }         
     else { //输入正确时  
 //        alert("验证成功！"); //弹出^-^  
-    	window.location.href="carloan/homepage.jsp?backurl="+window.location.href; 
+    	if(inputName==""||inputpwd==""){
+    		alert("账号密码不能为空！");
+    	}else{
+    		window.location.href="carloan/homepage.jsp?backurl="+window.location.href; 
+    	}
     }             
 }  
