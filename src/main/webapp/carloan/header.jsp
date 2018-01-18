@@ -47,6 +47,7 @@
 </script>
 
 <div data-options="region:'north'" style="height:52px;background-color:#95B8E7;">
+
 			<span style="margin-left:1%;">  
                 <font size="3" style="line-height: 50px" color="white" >  
                     橘子车贷-你我的身边贷！  
@@ -88,7 +89,7 @@
 					<style>
 				
 				      .noRadius{
-				      			
+				      
 				              width: 100%;
 				              height:30px;
 				               line-height:30px;
@@ -117,4 +118,22 @@
 					</ul>
 				</div>
 			</div>
+			<br>
+			<br>
+				<iframe src="//www.seniverse.com/weather/weather.aspx?uid=U1CA8560F3&cid=CHSC000000&l=zh-CHS&p=SMART&a=0&u=C&s=11&m=1&x=1&d=5&fc=&bgc=&bc=&ti=1&in=0&li=" frameborder="0" scrolling="no" width="198" height="300" allowTransparency="true"></iframe>
 		</div>
+
+<!-- <script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "bubble",
+    "location": "WM6N2PM3WY2K",
+    "geolocation": "enabled",
+    "position": "top-left",
+    "margin": "0px 300px",
+    "language": "auto",
+    "unit": "c",
+    "theme": "chameleon",
+    "uid": "U1CA8560F3",
+    "hash": "719befe3f96d7b8480ce7448c91c080a"
+});
+tpwidget("show");</script> -->
