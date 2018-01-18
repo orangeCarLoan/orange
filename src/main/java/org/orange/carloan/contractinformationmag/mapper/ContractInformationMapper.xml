@@ -51,7 +51,7 @@
     </select>
     
     <select id="findContractInformationByMap" parameterType="java.util.Map"  resultMap="resMap">
-        select ci.id, ci.contract,ci.creditstatus,ci.auditor_date,ci.contraction_date
+        select ci.id, ci.contract,ci.creditstatus,ci.auditor_date,ci.contraction_date,ci.company_id,ci.useridentity_id
          from t_contractinformation ci left join t_useridentity ui on ci.useridentity_id = ui.id left join t_company cp on ci.company_id = cp.id left join t_sign s on ci.sign_id = s.id
         <where>
         	<if test="contract != null">

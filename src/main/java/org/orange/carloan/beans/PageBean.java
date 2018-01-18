@@ -2,6 +2,8 @@ package org.orange.carloan.beans;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+@JsonFilter(value="pageFilter")
 public class PageBean {
 
 	private long total;//总行数

@@ -13,6 +13,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 /**
  * @author Administrator
  * @version 1.0
@@ -20,6 +22,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name="t_role")
+@JsonFilter(value="RoleFilter")
 public class RoleBean {
 
 	@Id

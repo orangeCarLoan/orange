@@ -31,41 +31,41 @@ public class ContractInformationReadServiceImpl implements IContractInformationR
 			mapp.put("state", state);
 		}
 		if(map != null) {
-			if(map.get("contract")!=null && map.get("contract").equals(""))
+			if(map.get("contract")!=null && !map.get("contract").equals(""))
 				mapp.put("contract", map.get("contract"));
-			if(map.get("username")!=null && map.get("username").equals(""))
+			if(map.get("username")!=null && !map.get("username").equals(""))
 				mapp.put("username", map.get("username"));
 			
 			//如果是审核分单界面就添加客户身份查询、否则添加分公司查询
 			if(state==StateUtil.DIVIDE) {
-				if(map.get("identity")!=null && map.get("identity").equals(""))
+				if(map.get("identity")!=null && !map.get("identity").equals(""))
 					mapp.put("identity", map.get("identity"));
 			}else {
-				if(map.get("companyName")!=null && map.get("companyName").equals(""))
+				if(map.get("companyName")!=null && !map.get("companyName").equals(""))
 					mapp.put("companyName", map.get("companyName"));
 			}
 			//如果是车贷进度查询界面，则添加如下查询
 			if(state==StateUtil.PROGRESS) {
-				if(map.get("reviewDate")!=null && map.get("reviewDate").equals(""))
+				if(map.get("reviewDate")!=null && !map.get("reviewDate").equals(""))
 					mapp.put("reviewDate", map.get("reviewDate"));
-				if(map.get("type")!=null && map.get("type").equals(""))
+				if(map.get("type")!=null && !map.get("type").equals(""))
 					mapp.put("type", map.get("type"));
-				if(map.get("companyName")!=null && map.get("companyName").equals(""))
+				if(map.get("companyName")!=null && !map.get("companyName").equals(""))
 					mapp.put("companyName", map.get("companyName"));
-				if(map.get("loanStratDate")!=null && map.get("loanStratDate").equals(""))
+				if(map.get("loanStratDate")!=null && !map.get("loanStratDate").equals(""))
 					mapp.put("loanStratDate", map.get("loanStratDate"));
-				if(map.get("loanEndDate")!=null && map.get("loanEndDate").equals(""))
+				if(map.get("loanEndDate")!=null && !map.get("loanEndDate").equals(""))
 					mapp.put("loanEndDate", map.get("loanEndDate"));
-				if(map.get("intoStratDate")!=null && map.get("intoStratDate").equals(""))
+				if(map.get("intoStratDate")!=null && !map.get("intoStratDate").equals(""))
 					mapp.put("intoStratDate", map.get("intoStratDate"));
 				//还款时间待定
 			}
 			if(state==StateUtil.MAKELOAN) {
-				if(map.get("identity")!=null && map.get("identity").equals(""))
+				if(map.get("identity")!=null && !map.get("identity").equals(""))
 					mapp.put("identity", map.get("identity"));
-				if(map.get("type")!=null && map.get("type").equals(""))
+				if(map.get("type")!=null && !map.get("type").equals(""))
 					mapp.put("type", map.get("type"));
-				if(map.get("creditStatus")!=null && map.get("creditStatus").equals(""))
+				if(map.get("creditStatus")!=null && !map.get("creditStatus").equals(""))
 					mapp.put("creditStatus", map.get("creditStatus"));
 			}
 		}
@@ -83,7 +83,9 @@ public class ContractInformationReadServiceImpl implements IContractInformationR
 	@Override
 	public ContractInformationBean findContractInformationByContractId(int contratId) {
 		// TODO Auto-generated method stub
-		return contractInformationDaoImpl.findContractInformationByContractId(contratId);
+		ContractInformationBean bean = contractInformationDaoImpl.findContractInformationByContractId(contratId);
+		System.err.println(bean.getCompanyBean().getName());
+		return bean;
 	}
 
 }

@@ -11,7 +11,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	
 	<!-- 开启spring容器自动扫描 -->
-	<context:component-scan base-package="org.framestudy">
+	<context:component-scan base-package="org.orange.carloan">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 		<context:exclude-filter type="annotation"

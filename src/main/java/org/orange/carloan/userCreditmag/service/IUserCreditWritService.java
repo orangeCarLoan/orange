@@ -19,7 +19,7 @@ public interface IUserCreditWritService {
 	 * 返回true
 	 */
 	//4
-	public boolean saveUserCredit(int contractInformationId,UserCreditBean userCredit);
+	public boolean saveUserCredit(int contractInformationId,UserCreditBean userCredit,int isSubmit);
 	
 	
 }

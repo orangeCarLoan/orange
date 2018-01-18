@@ -11,6 +11,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 /**
  *  综合意见表 t_advice
  * @author ASUS
@@ -18,6 +20,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name="t_advice")
+@JsonFilter(value="adviceFilter")
 public class AdviceBean {
 
 	/**综合意见id*/

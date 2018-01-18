@@ -11,6 +11,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 /**
  * 签约附件表 t_Signadjunct
  * @author ASUS
@@ -18,6 +20,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name="t_signadjunct")
+@JsonFilter(value="signAdjunctFilter")
 public class SignAdjunctBean {
     /**签约附件id*/
 	@Id

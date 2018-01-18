@@ -19,9 +19,12 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 //合同信息
 @Entity
 @Table(name="t_contractinformation")
+@JsonFilter(value="contractFilter")
 public class ContractInformationBean implements Serializable {
 
 	/** 

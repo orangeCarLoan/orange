@@ -17,6 +17,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
 /**
  * @author Administrator
  * @version 1.0
@@ -24,6 +26,7 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 @Table(name="t_admin")
+@JsonFilter(value="adminFilter")
 public class AdminBean {
   
 	@ManyToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)

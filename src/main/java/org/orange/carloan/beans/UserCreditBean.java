@@ -12,9 +12,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
+
+import com.fasterxml.jackson.annotation.JsonFilter;
  
 @Entity
 @Table(name="t_usercredit")
+@JsonFilter(value="userCreditFilter")
 public class UserCreditBean  implements Serializable {
 
 	/**
