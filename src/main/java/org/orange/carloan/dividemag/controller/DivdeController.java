@@ -48,7 +48,7 @@ public class DivdeController {
 		sfp.addFilter("adviceFilter", SimpleBeanPropertyFilter.filterOutAllExcept("approvalPeriod"));
 		sfp.addFilter("userMessageFilter", SimpleBeanPropertyFilter.filterOutAllExcept("userPhone","saleName"));
 		sfp.addFilter("userIdentityFilter", SimpleBeanPropertyFilter.filterOutAllExcept("userName","identity","type"));
-		sfp.addFilter("contractFilter", SimpleBeanPropertyFilter.filterOutAllExcept("id","contract","contractionDate","state","auditor","userIdentityBean","companyBean","adviceBean","userMessageBean"));
+		sfp.addFilter("contractFilter", SimpleBeanPropertyFilter.filterOutAllExcept("id","contract","contractionDate","state","auditor","auditorDate","userIdentityBean","companyBean","adviceBean","userMessageBean"));
 		//serializeAllExcept()里面填不要的属性，占无
 		sfp.addFilter("pageFilter", SimpleBeanPropertyFilter.serializeAllExcept());
 		om.setFilterProvider(sfp);

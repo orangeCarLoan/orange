@@ -7,22 +7,22 @@
         select count(ci.id) from t_contractinformation ci left join t_useridentity ui on ci.useridentity_id = ui.id left join t_company cp on ci.company_id = cp.id left join t_sign s on ci.sign_id = s.id
         <where>
         	<if test="contract != null">
-        		ci.contract = #{contract} 
+        		ci.contract like concat('%',#{contract},'%') 
         	</if>
         	<if test="username != null">
-        		and ui.username = #{username} 
+        		and ui.username like concat('%',#{username},'%') 
         	</if>
         	<if test="companyName != null">
-        		and cp.name = #{companyName} 
+        		and cp.name like concat('%', #{companyName},'%')  
         	</if>
         	<if test="identity != null">
-        		and ui.identity = #{identity} 
+        		and ui.identity  like concat('%',#{identity} ,'%')  
         	</if>
         	<if test="creditStatus != null">
-        		and ci.creditstatus = #{creditStatus} 
+        		and ci.creditstatus like concat('%',#{creditStatus},'%')  
         	</if>
         	<if test="type != null">
-        		and ui.type = #{type} 
+        		and ui.type like concat('%',#{type},'%') 
         	</if>
         	<if test="reviewDate != null">
         		and ci.auditor_date = #{reviewDate} 
@@ -37,7 +37,7 @@
         		and ci.contraction_date &gt; #{intoStratDate} 
         	</if>
         	<if test="intoEndDate != null">
-        		and ci.contraction_date &gt; #{intoEndDate} 
+        		and ci.contraction_date &lt; #{intoEndDate} 
         	</if>
         	<if test="state != null">
         		and ci.state in 
@@ -55,22 +55,22 @@
          from t_contractinformation ci left join t_useridentity ui on ci.useridentity_id = ui.id left join t_company cp on ci.company_id = cp.id left join t_sign s on ci.sign_id = s.id
         <where>
         	<if test="contract != null">
-        		ci.contract = #{contract} 
+        		ci.contract like concat('%',#{contract},'%') 
         	</if>
         	<if test="username != null">
-        		and ui.username = #{username} 
+        		and ui.username like concat('%',#{username},'%') 
         	</if>
         	<if test="companyName != null">
-        		and cp.name = #{companyName} 
+        		and cp.name like concat('%', #{companyName},'%')  
         	</if>
         	<if test="identity != null">
-        		and ui.identity = #{identity} 
+        		and ui.identity  like concat('%',#{identity} ,'%')  
         	</if>
         	<if test="creditStatus != null">
-        		and ci.creditstatus = #{creditStatus} 
+        		and ci.creditstatus like concat('%',#{creditStatus},'%')  
         	</if>
         	<if test="type != null">
-        		and ui.type = #{type} 
+        		and ui.type like concat('%',#{type},'%') 
         	</if>
         	<if test="reviewDate != null">
         		and ci.auditor_date = #{reviewDate} 
@@ -85,7 +85,7 @@
         		and ci.contraction_date &gt; #{intoStratDate} 
         	</if>
         	<if test="intoEndDate != null">
-        		and ci.contraction_date &gt; #{intoEndDate} 
+        		and ci.contraction_date &lt; #{intoEndDate} 
         	</if>
         	<if test="state != null">
         		and ci.state in 

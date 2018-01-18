@@ -60,7 +60,7 @@
 					<th data-field="companyBean.name">分公司</th>
 					<th data-field="userIdentityBean.type">产品名称</th>
 					<th data-field="adviceBean.approvalPeriod">借款期数</th>
-					<th data-field="contractionDate">进件时间</th>
+					<th data-field="auditorDate"data-formatter="funDate">进件时间</th>
 					<th data-field="state" data-formatter="fun">状态</th>
 					<th data-field="auditor">审核人</th>
 				</tr>
@@ -109,6 +109,18 @@
 var param = $("#myform").serialize();
 var trId=0;
 var trObject;
+
+function funDate(value,row,index){
+	console.info(value);
+	if(value!=null){
+		var dates = new Date(value);
+		var year=dates.getYear()+1900;     
+	    var month=dates.getMonth()+1;     
+	    var date=dates.getDate();    
+		return year+"-"+month+"-"+date;		
+	}
+	return "-";
+}
 
 function fun(value,row,index){
 	var retVal = '';
