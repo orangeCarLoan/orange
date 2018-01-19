@@ -7,7 +7,7 @@
 	</select>
 	 
 	<select id="findSignByContractId" parameterType="int" resultMap="orderMap">
-		SELECT * FROM t_sign s JOIN t_contractinformation c ON c.sign_id = #{id};
+		SELECT * FROM t_sign s JOIN t_contractinformation c ON c.sign_id = s.id where c.id=#{id};
 	</select>
 	 
 	<resultMap id="orderMap" type="SignBean">
