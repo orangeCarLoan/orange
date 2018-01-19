@@ -20,7 +20,7 @@ public class SignWritServiceImpl implements ISignWritService {
 	@Override
 	public void saveSign(int contractInformationId, SignBean sign, int isSubmit) {
 		// TODO Auto-generated method stub
-		ContractInformationBean bean = contractInformationDaoImpl.findContractInformationByContractId(contractInformationId);
+		ContractInformationBean bean = contractInformationRepository.findOne(contractInformationId);
 		 
 		bean.setSignBean(sign);
 		
@@ -38,7 +38,7 @@ public class SignWritServiceImpl implements ISignWritService {
 	@Override
 	public void deleteSign(int contractInformationId, String fallbackContent) {
 		// TODO Auto-generated method stub
-		ContractInformationBean bean = contractInformationDaoImpl.findContractInformationByContractId(contractInformationId);
+		ContractInformationBean bean = contractInformationRepository.findOne(contractInformationId);
 		
 		bean.setFallbackContent(fallbackContent);
 		bean.setState(6);

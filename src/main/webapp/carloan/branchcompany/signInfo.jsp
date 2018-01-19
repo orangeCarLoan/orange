@@ -21,7 +21,9 @@
 <body>
 	<div style="margin-top: 10px;"><font style="margin-left: 1%">当前位置 : 车贷管理>车贷签约</font></div>
 	<div style="margin-top: 10px;">
-	    <form action="#">
+	    <form id="myform" action="../sign/save" method="post" enctype="multipart/form-data">
+	    <input type="hidden" name="contractId" value="1"/>
+	    <input type="hidden" name="isSubmit" value="1"/>
 	    <table id="tab1" class="table table-striped" style="width: 100%;">
 	        <tbody>
 	        <tr>
@@ -41,11 +43,11 @@
 	            <td>借款总额</td><td><input type="text" class="form-control"/></td>
 	        </tr>
 	        <tr>
-	            <td>咨询服务费</td><td><input type="text" class="form-control"/></td>
+	            <td>咨询服务费</td><td><input id="consulting" type="text" class="form-control"/></td>
 	            <td>月还款额</td><td><input type="text" class="form-control"/></td>
 	        </tr>
 	        <tr>
-	            <td><font color="red">额度上限</font></td><td><input type="text" class="form-control"/></td>
+	            <td><font color="red">额度上限</font></td><td><input id="creditLimit" type="text" class="form-control"/></td>
 	            <td>产品名称</td><td><input type="text" class="form-control"/></td>
 	        </tr>
 	        <tr>
@@ -72,13 +74,13 @@
 	        
 	        </tbody>
 	    </table>
-	    
+	  
 	    <table id="tab2" class="table table-striped" style="width: 100%;table-layout: fixed">
 	    	<caption style="text-align: center;font-size: 15px;">签约附件列表</caption>
 	        <tbody>
 	        <tr>
 	            <td>银行卡<font size="3" color="red">*</font></td>
-	            <td><input type="file" id=""/></td>
+	            <td><input type="file" name="fileName" id=""/></td>
 	            <td><input type="button" class="btn btn-default" value="上传"/></td>
 	            <td>附件大小</td><td><span>&nbsp;</span> </td>
 	        </tr>
@@ -135,15 +137,16 @@
 	            <td>附件大小</td><td><span>&nbsp;</span> </td></tr>
 	        </tbody>
 	     </table>
-	</form>
+	  
 	    <center>
     		<button style="width: 120px;" type="button" class="btn btn-info">还款时算</button>
 		    <button style="width: 120px;" type="button" class="btn btn-info">打印签约合同</button>
-		    <button style="width: 120px;" type="submit" class="btn btn-info">保存</button>
+		    <button id="save" style="width: 120px;" type="submit" class="btn btn-info">保存</button>
 		    <button style="width: 120px;" type="submit" class="btn btn-info">提交</button>
 		    <button style="width: 120px;" type="button" class="btn btn-info">返回</button>
 		    <button style="width: 120px;" type="button" class="btn btn-info">回退</button>
 	    </center>
+	    </form>
 	</div>
 	<div style="margin-top: 20px;">
 		<form action="#">
@@ -171,5 +174,45 @@
 		</table>
 		</form>
 	</div>
+<script type="text/javascript">
+$.ajax({
+    type:"get",//type请求方式
+    url:"../sign/find",//url请求路径
+    async:true,//async是否异步请求
+    data:"contractId="+1,
+    //success为得到响应该怎么操作。方法中mes为响应结果中的字符串，需根据自己的需求是否要转为json对象。
+    success:function(mes){
+    	//var json = JSON.parse(mes);
+		if(mes!=null||mes!="null"){
+			$("#consulting").val(mes.consulting);
+			$("#creditLimit").val(mes.creditLimit);
+		}    	
+    	console.info(mes.id);
+    }
+});
+/* $("#save").click(function(){
+	var data = $("#myform").serialize();
+	data += "contractId="+1+"&isSubmit=0";
+	var formData = new FormData($("#myform")[0]);    
+	console.info($("#myform")[0]);
+	console.info(formData);
+	console.info(data);
+	$.ajax({
+	    type:"post",//type请求方式
+	    url:"../sign/save",//url请求路径
+	    async:true,//async是否异步请求
+	    data:data,
+	    //success为得到响应该怎么操作。方法中mes为响应结果中的字符串，需根据自己的需求是否要转为json对象。
+	    success:function(mes){
+	    	//var json = JSON.parse(mes);
+			if(mes!=null||mes!="null"){
+				$("#consulting").val(mes.consulting);
+				$("#creditLimit").val(mes.creditLimit);
+			}    	
+	    	console.info(mes.id);
+	    }
+	});
+}); */
+</script>
 </body>
 </html>
