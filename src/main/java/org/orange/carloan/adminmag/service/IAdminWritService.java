@@ -11,5 +11,7 @@ public interface IAdminWritService {
 	 * @param roleId
 	 */
 	public void saveOrUpdateAdmin(AdminBean admin,int companyId,int roleId);
+
+	public void deleteAdmin(int AdminId);
 	
 }

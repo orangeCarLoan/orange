@@ -22,7 +22,7 @@ import com.fasterxml.jackson.annotation.JsonFilter;
  */
 @Entity
 @Table(name="t_role")
-@JsonFilter(value="RoleFilter")
+@JsonFilter(value="roleFilter")
 public class RoleBean {
 
 	@Id

@@ -25,13 +25,15 @@ public class AdminWritServiceImpl implements IAdminWritService {
 		// TODO Auto-generated method stub
 		if(admin != null) {
 			if(admin.getId()!=0) {
-				AdminBean bean = adminRepository.findOne((long) admin.getId());
+				AdminBean bean = adminRepository.findOne(admin.getId());
 				bean.setPassword(admin.getPassword());
 				RoleBean role = roleRepository.findOne(roleId);
 				CompanyBean company = companyRepository.findOne(companyId);
 				bean.setRoleId(role);
 				bean.setCompanyId(company);
+				bean.setUserName(admin.getUserName());
 				adminRepository.saveAndFlush(bean);
+				adminRepository.flush();
 			}else {
 				RoleBean role = roleRepository.findOne(roleId);
 				CompanyBean company = companyRepository.findOne(companyId);
@@ -40,6 +42,15 @@ public class AdminWritServiceImpl implements IAdminWritService {
 				adminRepository.save(admin);
 			}
 		}
+	}
+	@Override
+	public void deleteAdmin(int AdminId) {
+		AdminBean admin = adminRepository.findOne(AdminId);
+		admin.setCompanyId(null);
+		admin.setContracts(null);
+		admin.setRoleId(null);
+		adminRepository.saveAndFlush(admin);
+		adminRepository.delete(AdminId);
 	}
 
 }

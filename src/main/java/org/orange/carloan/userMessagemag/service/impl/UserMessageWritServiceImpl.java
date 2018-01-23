@@ -1,15 +1,18 @@
 package org.orange.carloan.userMessagemag.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
+import org.orange.carloan.beans.ContactBean;
 import org.orange.carloan.beans.ContractInformationBean;
+import org.orange.carloan.beans.UserAdjunctBean;
 import org.orange.carloan.beans.UserMessageBean;
 import org.orange.carloan.contractinformationmag.dao.IContractInformationDao;
 import org.orange.carloan.contractinformationmag.repository.IContractInformationRepository;
-import org.orange.carloan.userMessagemag.repository.UserMessageRepository;
+import org.orange.carloan.userMessagemag.repository.IContactRepository;
 import org.orange.carloan.userMessagemag.service.IUserMessageWritService;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserMessageWritServiceImpl implements IUserMessageWritService {
 
@@ -17,12 +20,24 @@ public class UserMessageWritServiceImpl implements IUserMessageWritService {
 	private IContractInformationRepository  contractInformationRepository; 
 	@Resource
 	private IContractInformationDao contractInformationDaoImpl;
+	@Resource
+	private IContactRepository contactRepository;
 	@Override
 	public boolean saveUserMessage(int contractInformationId, UserMessageBean userMessage, int isSubmit) {
 		// TODO Auto-generated method stub
-		ContractInformationBean contract = contractInformationDaoImpl.findContractInformationByContractId(contractInformationId);
+		ContractInformationBean contract = contractInformationRepository.findOne(contractInformationId);
 		//ContractInformationBean contract = contractInformationRepository.findOne(contractInformationId);
+//		if(contract.getUserMessageBean()!=null)
+//			userMessage.setUserAdjunctBean(contract.getUserMessageBean().getUserAdjunctBean());
 		contract.setUserMessageBean(userMessage);
+		if(userMessage.getContactBean()!=null) {
+			List<ContactBean> list = userMessage.getContactBean();
+			for (int i = 0; i < list.size(); i++) {
+				list.get(i).setUserMessageBean(userMessage);
+				
+				//contactRepository.saveAndFlush(list.get(i));
+			}
+		}
 		Boolean flag=false;
 		if(isSubmit==0) {
 			System.out.println("这是提交状态="+isSubmit);
@@ -33,13 +48,10 @@ public class UserMessageWritServiceImpl implements IUserMessageWritService {
 			System.out.println("这是提交状态="+isSubmit);
 			if(contract.getIsFallback()==0) {
 				contract.setState(2);
-				
-				System.out.println("修改了状态为2");
 			}else if(contract.getIsFallback()==2) {
 				contract.setState(5);
-				contract.setIsFallback(0);
-				System.out.println("修改了状态为5回退状态为0");
 			}
+			contract.setIsFallback(0);
 			contractInformationRepository.saveAndFlush(contract);
 			return flag=true;
 		}
@@ -47,19 +59,22 @@ public class UserMessageWritServiceImpl implements IUserMessageWritService {
 		
 		return flag;
 	}
-	/**
-	 * 根据contractInformationId查询出合同信息，在将userMessage放入合同类属性中，
-	 * 在根据isSubmit判断，如果为1，
-	 * 		判断合同类中的回退状态（isFallback)
-	 * 		如果等于0，则将合同信息类的状态改为2。ContractInformationBean-state
-	 * 		如果等于2，则将合同信息类的状态改为5。
-	 * 		并将回退状态（isFallback）改为0---ContractInformationBean-is_fallback
-	 * 		在执行合同信息类的update方法。
-	 * isSubmit如果等于0，
-	 * 直接执行合同信息类的update方法。
-	 * 
-	 * @param userMessage
-	 */
+	@Override
+	public void updateOrSaveUserAdjunt(int contractInformationId, UserAdjunctBean bean,int isSubmit) {
+		// TODO Auto-generated method stub
+		ContractInformationBean contract = contractInformationRepository.findOne(contractInformationId);
+		contract.getUserMessageBean().setUserAdjunctBean(bean);
+		if(isSubmit == 1) {
+			if(contract.getIsFallback()==0) {
+				contract.setState(2);
+			}else if(contract.getIsFallback()==2) {
+				contract.setState(5);
+			}
+			contract.setIsFallback(0);
+		}
+		contractInformationRepository.saveAndFlush(contract);
+	}
+
 	
 	
 	

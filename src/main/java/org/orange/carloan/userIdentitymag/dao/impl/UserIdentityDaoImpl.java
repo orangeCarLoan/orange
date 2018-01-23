@@ -1,5 +1,7 @@
 package org.orange.carloan.userIdentitymag.dao.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.orange.carloan.beans.UserIdentityBean;
@@ -19,11 +21,17 @@ public class UserIdentityDaoImpl implements IUserIdentityDao {
 		// TODO Auto-generated method stub
 		return uim.findUserIdentityByUserIdentityId(id);
 	}
-
+ 
 	@Override
 	public UserIdentityBean findUserIdentityByIdentity(String identity) {
 		// TODO Auto-generated method stub
 		return uim.findUserIdentityByIdentity(identity);
+	}
+
+	@Override
+	public UserIdentityBean findUserIdentityByContractId(int id) {
+		// TODO Auto-generated method stub
+		return uim.findUserIdentityByContractId(id);
 	}
 
 }

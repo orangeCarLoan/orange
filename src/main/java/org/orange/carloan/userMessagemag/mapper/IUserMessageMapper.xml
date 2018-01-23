@@ -37,9 +37,11 @@
 		
 		<association property="userAdjunctBean" javaType="UserAdjunctBean"
 			column="useradjunct_id" select="findUserAdJunctById"></association>
-		
 		<association property="contractInformationBean" javaType="ContractInformationBean"
 			column="id" select="org.orange.carloan.contractinformationmag.mapper.ContractInformationMapper.findContractInformationByUserMessageId"></association>
+			
+			<collection property="contactBean" ofType="ContactBean"
+			column="id" select="findUserMessageByContact"></collection>
 	</resultMap>
 	
 		<select id="findUserMessageByUserMessageId" parameterType="int" resultMap="usermessageMap">
@@ -47,11 +49,25 @@
  	</select>
 
 	<select id="findUserMessageByContractId" parameterType="int" resultMap="usermessageMap">
- 		select u.* from t_usermessage u left join t_contractinformation c on  c.id=#{id} 
+ 		select u.* from t_usermessage u left join t_contractinformation c on  c.usermessage_id=u.id where c.id = #{id} 
  	</select>
  	
  	<select id="findUserAdJunctById" parameterType="int" resultType="UserAdjunctBean">
 		select id,id_card Idcard,carLoan_form carLoanFrom,ather_adjunct atherAdjunct
 			 from t_useradjunct where id = #{id}
 	</select>
+	
+	<select id="findUserMessageByContact" parameterType="int" resultMap="contactMap">
+ 		select * from t_contact where  usermessage_id=#{id} 
+ 	</select>
+ 	<resultMap type="ContactBean" id="contactMap">
+		<result property="id" column="id" /> 
+		<result property="contactName" column="contactname" />
+		<result property="contactType" column="contacttype" />
+		<result property="relation" column="Relation" />
+		<result property="contactCompany" column="contactcompany" />
+		<result property="contactAddress" column="contactaddress" />
+		<result property="contactPhone" column="contactphone" />
+		<result property="knowLoan" column="know_loan" />
+ 		</resultMap>
 </mapper>

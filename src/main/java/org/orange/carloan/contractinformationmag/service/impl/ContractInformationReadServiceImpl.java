@@ -27,7 +27,7 @@ public class ContractInformationReadServiceImpl implements IContractInformationR
 		mapp.put("index", (page-1)*size); 
 		mapp.put("size", size);
 		//如果不是客户身份信息界面、车贷进度查看，就需要根据状态查询
-		if(state!=StateUtil.USER_IDENTITY&&state!=StateUtil.PROGRESS) {
+		if(state!=StateUtil.PROGRESS) {
 			mapp.put("state", state);
 		}
 		if(map != null) {
@@ -67,6 +67,10 @@ public class ContractInformationReadServiceImpl implements IContractInformationR
 					mapp.put("type", map.get("type"));
 				if(map.get("creditStatus")!=null && !map.get("creditStatus").equals(""))
 					mapp.put("creditStatus", map.get("creditStatus"));
+			}
+			if(state==StateUtil.HEADAUDIT||state==StateUtil.SIGNCHECK) {
+				if(map.get("adminName")!=null && !map.get("adminName").equals(""))
+					mapp.put("adminName", map.get("adminName"));
 			}
 		}
 		

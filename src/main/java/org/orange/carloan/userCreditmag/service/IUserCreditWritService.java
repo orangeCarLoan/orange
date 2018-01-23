@@ -21,5 +21,10 @@ public interface IUserCreditWritService {
 	//4
 	public boolean saveUserCredit(int contractInformationId,UserCreditBean userCredit,int isSubmit);
 	
-	
+	/**
+	 * 根据合同id查询客户信用信息
+	 * @param id
+	 * @return
+	 */
+	public UserCreditBean findUserCredByContractId(int id);
 }

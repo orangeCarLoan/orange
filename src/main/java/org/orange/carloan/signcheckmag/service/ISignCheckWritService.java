@@ -33,5 +33,5 @@ public interface ISignCheckWritService {
 	 * @param contratId
 	 * @param advice
 	 */
-	public void updateStateToBack(int contratId,String advice);
+	public boolean updateStateToBack(Integer contratId,String advice);
 }

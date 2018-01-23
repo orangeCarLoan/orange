@@ -99,10 +99,27 @@
 				</style>
 					<ul  style="width:100%;" >
 						<li  class="easyui-linkbutton noRadius" id="read_idCard">车贷读取身份证</li>
-						<li class="easyui-linkbutton noRadius" id="loan_input">车贷录入</li>
 						<li class="easyui-linkbutton noRadius" id="branch_company">分公司信审</li>
 						<li class="easyui-linkbutton noRadius" id="signed">车贷签约</li>
 						<li class="easyui-linkbutton noRadius" id="loan_check">车贷查看</li>
+					</ul>
+				</div>
+				<div title="信息录入">
+					<style>
+				
+				      .noRadius{
+				      
+				              width: 100%;
+				              height:30px;
+				               line-height:30px;
+				              box-sizing: border-box;
+                              border-radius: 0;
+                           }
+				</style>
+					<ul  style="width:100%;" >
+						<li  class="easyui-linkbutton noRadius" id="user">基本客户信息录入</li>
+						<li class="easyui-linkbutton noRadius" id="car">车辆信息录入</li>
+						<li class="easyui-linkbutton noRadius" id="credit">客户信用信息录入</li>
 					</ul>
 				</div>
 				<div title="管理员">
@@ -117,10 +134,24 @@
 						<li  class="easyui-linkbutton noRadius" id="manager">管理员操作</li>
 					</ul>
 				</div>
+				<div title="天气预报" >
+					<style>
+				
+				      .noRadius{
+				              width: 100%;
+                              border-radius: 0;
+                           }
+				</style>
+					<ul  style="width:100%">
+						<iframe src="//www.seniverse.com/weather/weather.aspx?uid=U1CA8560F3&cid=CHSC000000&l=zh-CHS&p=SMART&a=0&u=C&s=11&m=1&x=1&d=5&fc=&bgc=&bc=&ti=1&in=0&li=" frameborder="0" scrolling="no" width="198" height="300" allowTransparency="true"></iframe>
+					
+<!-- 						<li  class="easyui-linkbutton noRadius" id="manager">管理员操作</li> -->
+					</ul>
+				</div>
 			</div>
 			<br>
 			<br>
-				<iframe src="//www.seniverse.com/weather/weather.aspx?uid=U1CA8560F3&cid=CHSC000000&l=zh-CHS&p=SMART&a=0&u=C&s=11&m=1&x=1&d=5&fc=&bgc=&bc=&ti=1&in=0&li=" frameborder="0" scrolling="no" width="160" height="300" allowTransparency="true"></iframe>
+<!-- 				<iframe src="//www.seniverse.com/weather/weather.aspx?uid=U1CA8560F3&cid=CHSC000000&l=zh-CHS&p=SMART&a=0&u=C&s=11&m=1&x=1&d=5&fc=&bgc=&bc=&ti=1&in=0&li=" frameborder="0" scrolling="no" width="198" height="300" allowTransparency="true"></iframe> -->
 		</div>
 
 <!-- <script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>

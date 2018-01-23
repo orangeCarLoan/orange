@@ -9,7 +9,7 @@ import org.orange.carloan.signcheckmag.service.ISignCheckWritService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SignCheckWriteServiceImpl implements ISignCheckWritService {
+public class SignCheckWritServiceImpl implements ISignCheckWritService {
 	
 	@Resource
 	private IContractInformationRepository contractInformationRepository;
@@ -19,30 +19,38 @@ public class SignCheckWriteServiceImpl implements ISignCheckWritService {
 	@Override
 	public boolean updateStateAndSaveCheckMsg(int contratId, int isSubmit, String AdminName) {
 		// TODO Auto-generated method stub
-		ContractInformationBean bean = contractInformationDaoImpl.findContractInformationByContractId(contratId);
-		if(bean.getAuditor().equals(AdminName)){
+		ContractInformationBean bean = contractInformationRepository.findOne(contratId);
+		boolean flag=false;
+//		if(bean.getAuditor().equals(AdminName)){
 			if(isSubmit==1){
 				bean.setState(9);
 				bean.setCreditstatus("放款中");
 				contractInformationRepository.saveAndFlush(bean);
-				return true;
+				return flag=true;
 			}else{
-				contractInformationRepository.saveAndFlush(bean);
-				return true;
-			}
-		}else{
-			return false;
+//				contractInformationRepository.saveAndFlush(bean);
+//				return flag=true;
+//			}
+//		}else{
+			return flag;
 		}
 	}
 
 	@Override
-	public void updateStateToBack(int contratId, String advice) {
+	public boolean updateStateToBack(Integer contratId, String advice) {
 		// TODO Auto-generated method stub
-		ContractInformationBean bean = contractInformationDaoImpl.findContractInformationByContractId(contratId);
-		bean.setFallbackContent(advice);
-		bean.setState(7);
-		bean.setIsFallback(1);
-		contractInformationRepository.saveAndFlush(bean);
+		boolean falg=false;
+		if(advice!=null) {
+			ContractInformationBean bean = contractInformationRepository.findOne(contratId);
+			bean.setFallbackContent(advice);
+			bean.setState(7);
+			bean.setIsFallback(1);
+			contractInformationRepository.saveAndFlush(bean);
+			return falg=true;
+		}else {
+			System.out.println("错误的");
+		}
+		return falg;
 	}
 
 }

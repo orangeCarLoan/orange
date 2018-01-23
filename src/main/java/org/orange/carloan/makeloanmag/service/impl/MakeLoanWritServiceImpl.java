@@ -9,7 +9,7 @@ import org.orange.carloan.makeloanmag.service.IMakeLoanWritService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MakeLoanWriteServiceImpl implements IMakeLoanWritService {
+public class MakeLoanWritServiceImpl implements IMakeLoanWritService {
 
 	@Resource
 	private IContractInformationRepository contractInformationRepository;
@@ -19,7 +19,7 @@ public class MakeLoanWriteServiceImpl implements IMakeLoanWritService {
 	@Override
 	public void updateState(int contratId) {
 		// TODO Auto-generated method stub
-		ContractInformationBean bean = contractInformationDaoImpl.findContractInformationByContractId(contratId);
+		ContractInformationBean bean = contractInformationRepository.findOne(contratId);
 		bean.setCreditstatus("已放款");
 		contractInformationRepository.saveAndFlush(bean);
  

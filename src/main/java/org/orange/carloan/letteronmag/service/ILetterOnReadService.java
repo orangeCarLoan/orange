@@ -1,6 +1,6 @@
 package org.orange.carloan.letteronmag.service;
 
-import java.util.List;
+import org.orange.carloan.beans.ContractInformationBean;
 
 /**
  * 分公司信审管理
@@ -14,5 +14,5 @@ public interface ILetterOnReadService {
 	 * @param contratId
 	 * @return
 	 */
-	public List<Object> findBranchAuditByContractId(int contratId);
+	public ContractInformationBean findBranchAuditByContractId(int contratId);
 }

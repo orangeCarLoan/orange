@@ -1,6 +1,7 @@
 package org.orange.carloan.adminmag.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.orange.carloan.beans.AdminBean;
 
@@ -20,4 +21,7 @@ public interface IAdminDao {
 	public AdminBean findById(int id);
 	
 	public List<AdminBean> findAdminByRoleName(String roleName);
+	
+	public List<AdminBean> findAdminByMap(Map map);
+	public int findAdminSizeByMap(Map map);
 }

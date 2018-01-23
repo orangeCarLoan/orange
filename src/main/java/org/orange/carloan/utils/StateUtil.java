@@ -5,7 +5,7 @@ public class StateUtil {
 	/**
 	 * 客户身份证信息状态
 	 */
-	public static int[] USER_IDENTITY = new int[] {-1};
+	public static int[] USER_IDENTITY = new int[] {1,2,3,4,5,6,7,8,9,10,11,12,13,14};
 	/**
 	 * 客户基本信息状态
 	 */

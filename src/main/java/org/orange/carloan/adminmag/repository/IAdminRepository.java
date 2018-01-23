@@ -5,7 +5,7 @@ import org.orange.carloan.beans.AdminBean;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface IAdminRepository extends JpaRepository<AdminBean, Long>,JpaSpecificationExecutor<AdminBean>{
+public interface IAdminRepository extends JpaRepository<AdminBean, Integer>,JpaSpecificationExecutor<AdminBean>{
 
 	
 	

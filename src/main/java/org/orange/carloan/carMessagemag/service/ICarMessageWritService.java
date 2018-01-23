@@ -58,4 +58,12 @@ public interface ICarMessageWritService {
 	 */
 	public boolean updateCarMessage(String fallbackContent,int contractInformationId);
 	
+	/**
+	 * 追加方法
+	 * @param contractInformationId
+	 * @param carMessage
+	 * @param isSubmit
+	 * @return
+	 */
+	public boolean saveCarMessage(int contractInformationId, CarMessageBean carMessage, int isSubmit);
 }

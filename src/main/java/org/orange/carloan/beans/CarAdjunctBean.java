@@ -46,12 +46,12 @@ public class CarAdjunctBean implements Serializable{
 	@Column(name="guarantee_compulsory",length=20)
 	private String gutCompulsory;
 	
-	@Column(name="guarantee_ commercial",length=20)
+	@Column(name="guarantee_commercial",length=20)
 	private String gutCommercial;
 	
 	@Column(name="other_attachments",length=20)
 	private String otherAttachments;
-	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="carAdjuncts")
+	@OneToOne(fetch=FetchType.LAZY,cascade=CascadeType.MERGE,mappedBy="carAdjuncts")
 	private CarMessageBean carMessageBean;
 	
 	

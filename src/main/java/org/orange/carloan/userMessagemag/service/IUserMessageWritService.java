@@ -1,5 +1,6 @@
 package org.orange.carloan.userMessagemag.service;
 
+import org.orange.carloan.beans.UserAdjunctBean;
 import org.orange.carloan.beans.UserMessageBean;
 
 /**
@@ -25,6 +26,7 @@ public interface IUserMessageWritService {
 	//1
 	public boolean saveUserMessage(int contractInformationId, UserMessageBean userMessage,int isSubmit);
 	
+	public void updateOrSaveUserAdjunt(int contractInformationId,UserAdjunctBean bean,int isSubmit);
 	
 	
 	

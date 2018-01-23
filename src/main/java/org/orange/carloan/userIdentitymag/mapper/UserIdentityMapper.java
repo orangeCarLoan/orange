@@ -1,5 +1,7 @@
 package org.orange.carloan.userIdentitymag.mapper;
 
+import java.util.List;
+
 import org.orange.carloan.beans.UserIdentityBean;
 
 public interface UserIdentityMapper {
@@ -15,5 +17,12 @@ public interface UserIdentityMapper {
 	 * @return
 	 */
 	public UserIdentityBean findUserIdentityByIdentity(String identity);
+	
+	/**
+	 * 根据合同id查询客户身份信息
+	 * @param id
+	 * @return
+	 */
+	public UserIdentityBean findUserIdentityByContractId(int id);
 }
  

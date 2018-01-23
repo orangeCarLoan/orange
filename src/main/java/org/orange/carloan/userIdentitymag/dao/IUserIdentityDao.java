@@ -1,5 +1,7 @@
 package org.orange.carloan.userIdentitymag.dao;
 
+import java.util.List;
+
 import org.orange.carloan.beans.UserIdentityBean;
 
 public interface IUserIdentityDao {
@@ -16,4 +18,11 @@ public interface IUserIdentityDao {
 	 * @return
 	 */
 	public UserIdentityBean findUserIdentityByIdentity(String identity);
+	
+	/**
+	 * 根据合同id查询客户身份信息
+	 * @param id
+	 * @return
+	 */
+	public UserIdentityBean findUserIdentityByContractId(int id);
 }

@@ -39,6 +39,9 @@
         	<if test="intoEndDate != null">
         		and ci.contraction_date &lt; #{intoEndDate} 
         	</if>
+        	<if test="adminName != null">
+        		and ci.auditor = #{adminName} 
+        	</if>
         	<if test="state != null">
         		and ci.state in 
 	        	<foreach item="item" index="index" collection="state" open="(" separator="," close=")">
@@ -51,7 +54,7 @@
     </select>
     
     <select id="findContractInformationByMap" parameterType="java.util.Map"  resultMap="resMap">
-        select ci.id, ci.auditor,ci.state,ci.contract,ci.creditstatus,ci.auditor_date,ci.contraction_date,ci.company_id,ci.useridentity_id ,ci.usermessage_id,ci.advice_id
+        select ci.id, ci.auditor,ci.state,ci.contract,ci.creditstatus,ci.auditor_date,ci.contraction_date,ci.company_id,ci.useridentity_id ,ci.usermessage_id,ci.advice_id,ci.sign_id
          from t_contractinformation ci left join t_useridentity ui on ci.useridentity_id = ui.id left join t_company cp on ci.company_id = cp.id left join t_sign s on ci.sign_id = s.id
         <where>
         	<if test="contract != null">
@@ -86,6 +89,9 @@
         	</if>
         	<if test="intoEndDate != null">
         		and ci.contraction_date &lt; #{intoEndDate} 
+        	</if>
+        	<if test="adminName != null">
+        		and ci.auditor = #{adminName} 
         	</if>
         	<if test="state != null">
         		and ci.state in 

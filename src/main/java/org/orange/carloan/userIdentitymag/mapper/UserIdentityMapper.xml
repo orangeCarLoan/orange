@@ -23,4 +23,7 @@
 	<select id="findUserIdentityByIdentity" parameterType="string" resultMap="resMap">
 		SELECT * FROM t_useridentity WHERE identity=#{identity}
 	</select>
+	<select id="findUserIdentityByContractId" parameterType="int" resultMap="resMap">
+		select u.* from t_useridentity u left join t_contractinformation c on u.id = c.useridentity_id where c.id=#{id}
+	</select>
 </mapper>

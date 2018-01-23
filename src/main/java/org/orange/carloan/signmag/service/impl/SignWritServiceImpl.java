@@ -6,6 +6,7 @@ import org.orange.carloan.beans.ContractInformationBean;
 import org.orange.carloan.beans.SignBean;
 import org.orange.carloan.contractinformationmag.dao.IContractInformationDao;
 import org.orange.carloan.contractinformationmag.repository.IContractInformationRepository;
+import org.orange.carloan.signmag.repository.SignRepository;
 import org.orange.carloan.signmag.service.ISignWritService;
 import org.springframework.stereotype.Service;
 
@@ -16,14 +17,16 @@ public class SignWritServiceImpl implements ISignWritService {
 	private IContractInformationRepository contractInformationRepository;
 	@Resource
 	private IContractInformationDao contractInformationDaoImpl;
+	@Resource
+	private SignRepository signRepository;
 	
 	@Override
 	public void saveSign(int contractInformationId, SignBean sign, int isSubmit) {
 		// TODO Auto-generated method stub
 		ContractInformationBean bean = contractInformationRepository.findOne(contractInformationId);
-		 
+//		signRepository.saveAndFlush(sign); 
 		bean.setSignBean(sign);
-		
+//		sign.setSignAdjunctBean(null);
 		if(isSubmit == 1) {
 			
 			bean.setState(8);

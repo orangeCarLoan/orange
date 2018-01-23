@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface UserMessageRepository extends JpaRepository<UserMessageBean, Integer>,JpaSpecificationExecutor<UserMessageBean>{
+public interface IUserMessageRepository extends JpaRepository<UserMessageBean, Integer>,JpaSpecificationExecutor<UserMessageBean>{
 	
 //	@Modifying
 //	@Query(value="insert UserMessageBean as u into u.address value ?1")

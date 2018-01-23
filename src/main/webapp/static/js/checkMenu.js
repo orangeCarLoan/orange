@@ -20,10 +20,10 @@ $(function() {
 	$("#read_idCard").click(function() {
 		$("#ifrom").load('branchcompany/carloanReadIDCard.jsp');
 	})
-	//车贷录入
-	$("#loan_input").click(function() {
-		$("#ifrom").load('branchcompany/carLoanInput.jsp');
-	})
+//	//车贷录入
+//	$("#loan_input").click(function() {
+//		$("#ifrom").load('branchcompany/carLoanInput.jsp');
+//	})
 	//分公司信审
 	$("#branch_company").click(function() {
 		$("#ifrom").load('branchcompany/branchCompany.jsp');
@@ -31,6 +31,18 @@ $(function() {
 	//车贷签约
 	$("#signed").click(function() {
 		$("#ifrom").load('branchcompany/carloanSign.jsp');
+	})
+	//客户基本信息录入
+	$("#user").click(function() {
+		$("#ifrom").load('branchcompany/userInput.jsp');
+	})
+	//车辆信息录入
+	$("#car").click(function() {
+		$("#ifrom").load('branchcompany/carInput.jsp');
+	})
+	//客户信用信息录入
+	$("#credit").click(function() {
+		$("#ifrom").load('branchcompany/creditInput.jsp');
 	})
 	//车贷查看
 	$("#loan_check").click(function() {

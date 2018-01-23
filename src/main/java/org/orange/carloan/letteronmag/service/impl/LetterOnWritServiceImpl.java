@@ -16,16 +16,15 @@ import org.orange.carloan.userCreditmag.repository.UserCreditRepository;
 import org.springframework.stereotype.Service;
 @Service
 public class LetterOnWritServiceImpl implements ILetterOnWritService{
-    @Resource
-	private IContractInformationDao contractInfo;
-    @Resource
-    IContractInformationRepository contractInfoRepository;
+
+	@Resource
+    private IContractInformationRepository contractInfoRepository;
 	@Resource
 	private UserCreditRepository userCredit;
 	@Override
 	public void saveBranchAudit(int contractInformationId, UserCreditBean userCredit, AdviceBean advice,int[] contactIds, int[] knowLoan,
 			int isSubmit) {
-		ContractInformationBean contract1 = contractInfo.findContractInformationByContractId(contractInformationId);
+		ContractInformationBean contract1 = contractInfoRepository.findOne(contractInformationId);
 		contract1.setUserCreditBean(userCredit);
 		contract1.setAdviceBean(advice);
 		UserMessageBean user = contract1.getUserMessageBean();
@@ -42,11 +41,11 @@ public class LetterOnWritServiceImpl implements ILetterOnWritService{
 			contract1.setState(6);
 			contract1.setIsFallback(0);
 		}
-		contractInfoRepository.save(contract1);
+		contractInfoRepository.saveAndFlush(contract1);
 	}
 	@Override
 	public void updateBranchAudit(String fallbackContent, int contractInformationId, int state) {
-		ContractInformationBean contract1 = contractInfo.findContractInformationByContractId(contractInformationId);
+		ContractInformationBean contract1 = contractInfoRepository.findOne(contractInformationId);
 		if(state==0) {
 			contract1.setState(1);
 		}else if(state==1) {
@@ -54,29 +53,31 @@ public class LetterOnWritServiceImpl implements ILetterOnWritService{
 		}
 		contract1.setFallbackContent(fallbackContent);
 		contract1.setIsFallback(1);
-		contractInfoRepository.save(contract1);
+		contractInfoRepository.saveAndFlush(contract1);
 	}
 	@Override
 	public boolean updateStateAndSaveAdvice(int contratId, AdviceBean bean, int isSubmit, String AdminName) {
-		ContractInformationBean contract1 = contractInfo.findContractInformationByContractId(contratId);
+		ContractInformationBean contract1 = contractInfoRepository.findOne(contratId);
 		contract1.setAdviceBean(bean);
-		if(contract1.getAuditor().equals(AdminName)) {
-			if(contract1.getState()==1) {
+		if(AdminName==null||AdminName.equals("")||contract1.getAuditor().equals(AdminName)) {
+			if(isSubmit==1) {
+				if(contract1.getIsFallback()==1) {
+					contract1.setIsFallback(0);
+				}
 				contract1.setState(7);
-				contract1.setIsFallback(0);
 			}
+			contractInfoRepository.saveAndFlush(contract1);
+			return true;
 		}else {
 			return false;
 		}
-		contractInfoRepository.saveAndFlush(contract1);
-		return true;
 	}
 	@Override
 	public boolean updateStateToBack(int contratId, String advice) {
 		if(advice.length()==0) {
 			return false;
 		}else {
-			ContractInformationBean contract1 = contractInfo.findContractInformationByContractId(contratId);
+			ContractInformationBean contract1 = contractInfoRepository.findOne(contratId);
 			contract1.setState(5);
 			contract1.setFallbackContent(advice);
 			contract1.setIsFallback(1);
@@ -84,6 +85,7 @@ public class LetterOnWritServiceImpl implements ILetterOnWritService{
 		}
 		return true;
 	}
+	
 	
 		
 	

@@ -38,6 +38,30 @@
 	<select id="findAdminByRoleName" resultMap="AdminMap">
 		select a.* from t_admin a left join t_role r on a.role_id = r.id where r.rolename = #{roleName}
 	</select>
-
+	<select id="findAdminByMap" parameterType="java.util.Map" resultMap="AdminMap">
+		select a.id, a.username,a.password,a.role_id,a.company_id,a.realname
+		from t_admin a left join t_role r on a.role_id = r.id left join t_company c on a.company_id = c.id 
+		<where>
+			<if test="rolename!=null">
+				r.rolename like concat('%',#{rolename},'%')
+			</if>
+			<if test="companyName!=null">
+				c.companyName like concat('%',#{companyName},'%')
+			</if>
+		</where>
+		limit #{index},#{size}
+	</select>
+	<select id="findAdminSizeByMap" parameterType="java.util.Map" resultType="int">
+		select count(a.id)
+		from t_admin a left join t_role r on a.role_id = r.id left join t_company c on a.company_id = c.id 
+		<where>
+			<if test="rolename!=null">
+				r.rolename like concat('%',#{rolename},'%')
+			</if>
+			<if test="companyName!=null">
+				c.companyName like concat('%',#{companyName},'%')
+			</if>
+		</where>
+	</select>
 
 </mapper>

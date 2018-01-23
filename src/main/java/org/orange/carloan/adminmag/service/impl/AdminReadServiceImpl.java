@@ -1,22 +1,16 @@
 package org.orange.carloan.adminmag.service.impl;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 
 import org.orange.carloan.adminmag.dao.IAdminDao;
 import org.orange.carloan.adminmag.repository.IAdminRepository;
 import org.orange.carloan.adminmag.service.IAdminReadService;
 import org.orange.carloan.beans.AdminBean;
 import org.orange.carloan.beans.PageBean;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 @Repository
 public class AdminReadServiceImpl implements IAdminReadService {
@@ -32,7 +26,21 @@ public class AdminReadServiceImpl implements IAdminReadService {
 	}
 
 	public PageBean findAdminByMap(Map<String, Object> map, int page,int size) {
-		return null;
+		Map<String,Object> mapp = new HashMap<String,Object>();
+		if(map.get("rolename")!=null&&!map.get("rolename").equals("")) {
+			mapp.put("rolename", map.get("rolename"));
+		}
+		if(map.get("companyName")!=null&&!map.get("companyName").equals("")) {
+			mapp.put("companyName",map.get("companyName"));
+		}
+		mapp.put("index", (page-1)*size);
+		mapp.put("size", size);
+		List<AdminBean> admin = adminDaoImpl.findAdminByMap(mapp);
+		int num = adminDaoImpl.findAdminSizeByMap(mapp);
+		PageBean pager = new PageBean();
+		pager.setRows(admin);
+		pager.setTotal(num);
+		return pager;
 	}
 
 }

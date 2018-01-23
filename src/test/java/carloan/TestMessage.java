@@ -11,7 +11,7 @@ import org.orange.carloan.beans.PageBean;
 import org.orange.carloan.beans.UserMessageBean;
 import org.orange.carloan.userMessagemag.dao.IUserMessageDao;
 import org.orange.carloan.userMessagemag.dao.impl.UserMessageDaoImpl;
-import org.orange.carloan.userMessagemag.repository.UserMessageRepository;
+import org.orange.carloan.userMessagemag.repository.IUserMessageRepository;
 import org.orange.carloan.userMessagemag.service.IUserMessageReadService;
 import org.orange.carloan.userMessagemag.service.IUserMessageWritService;
 import org.springframework.test.context.ContextConfiguration;
@@ -27,7 +27,7 @@ public class TestMessage {
 	@Resource
 	private IUserMessageWritService userMessageWrit;
 	@Resource
-	private UserMessageRepository  userMessageRepository; 
+	private IUserMessageRepository  userMessageRepository; 
 	
 	@Resource
 	private UserMessageDaoImpl userMessageDaoImpl;

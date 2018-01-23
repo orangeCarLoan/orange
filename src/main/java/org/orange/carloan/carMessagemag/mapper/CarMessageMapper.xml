@@ -8,21 +8,21 @@
 	<result property="engineno" column="engineno"/>
 	<result property="color" column="color"/>
 	<result property="firstTime" column="firsttime"/>
-	<result property="yesrValidity" column="yesrvalidity"/>
+	<result property="yesrValidity" column="yearvalidity"/>
 	<result property="chassisnum" column="chassisnum"/>
 	<result property="carPrice" column="carprice"/>
-	<result property="currenttripnum" column="currenttripnum"/>
-	<result property="idcard" column="idcard"/>
-	<result property="carpurchase" column="carpurchase"/>
+	<result property="currentTripNum" column="currenttripnum"/>
+	<result property="IDCard" column="idcard"/>
+	<result property="carPurchase" column="carpurchase"/>
 	<result property="insurance" column="insurance"/>
-	<result property="carkey" column="carkey"/>
-	<result property="carkeynum" column="carkeynum"/>
-	<result property="carcertificate" column="carcertificate"/>
-	<result property="commercial" column="commercial"/>
-	<result property="carlicense" column="carlicense"/>
+	<result property="carKey" column="carkey"/>
+	<result property="carKeyNum" column="carkeynum"/>
+	<result property="carCertificate" column="carcertificate"/>
+	<result property="commercial" column="commercial"/> 
+	<result property="carLicense" column="carlicense"/>
 	<result property="carInvoice" column="carinvoice"/>
-	<result property="carpayment" column="carpayment"/>
-	<result property="carprove" column="carprove"/>
+	<result property="carPayment" column="carpayment"/>
+	<result property="carProve" column="carprove"/>
 	 
 	
 	<association property="carAdjuncts" javaType="CarAdjunctBean"
